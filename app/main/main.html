@@ -4,7 +4,7 @@
 		<div class="main-heading row">
 			<div class="col-md-12">
 				<h1 class="text-center lead">Весь спектр <span>товарів</span> на Ваш вибір</h1>
-			
+
 			</div>
 		</div>
 	</div>
@@ -15,23 +15,52 @@
 <br>
 
 <div class="container-fluid">
-<section class="products">	
+<section class="products">
 	<div class="row">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="container col-lg-3">
 					<p>
-				        Пошук:
-				        <input ng-model="$products.query">
-    			    </p>
-				    <div class="list-group">
- 						<div ng-repeat="cat in categories track by $index" class="cat">
-  							<div class="list-group-item cat"><a ui-sref="main.category({ catId: cat.c_id })" class="text-center">{{cat.title}}</a></div>
-							<div ng-repeat="subcat in cat.subcats track by $index" class="list-group-item subcat">
-								<a ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}}</span></a>
-							</div>
-  						</div>
-					</div>
+				    <span style="font-size:20px;" class="glyphicon glyphicon-search"></span>
+				    <input ng-model="$products.query">
+    			</p>
+				  	<div class="list-group">
+							<div ng-repeat="cat in categories track by $index" class="cat">
+
+
+							<!--<div class="dropdown">
+								<button class="btn btn-info btn-block dropdown-toggle" type="button" data-toggle="dropdown"><div class="list-group-item cat"><a ui-sref="main.category({ catId: cat.c_id })" class="text-center">{{cat.title}}</a></div>
+								<span class="caret"></span></button>
+								<ul class="dropdown-menu btn-block">
+									<div ng-repeat="subcat in cat.subcats track by $index" class="list-group-item subcat">
+										<a ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}}</span></a>
+									</div>
+								</ul>
+							</div>-->
+
+							<nav class="navbar navbar-default">
+							  <div class="container">
+							    <ul class="nav navbar-nav">
+							      <li class="dropdown">
+											<!--<button type="button" class="dropdown-toggle" data-toggle="dropdown" ui-sref="main.category({ catId: cat.c_id })" class="text-center">{{cat.title}}<span class="caret"></span></button>-->
+							        <a class="dropdown-toggle" data-toggle="dropdown" ui-sref="main.category({ catId: cat.c_id })" class="text-center">{{cat.title}}<span class="caret"></span></a>
+											<ul class="dropdown-menu">
+												<div ng-repeat="subcat in cat.subcats track by $index">
+													<a ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}}<hr/ style="margin:0px;"></span></a>
+												</div>
+							        </ul>
+							      </li>
+							    </ul>
+							  </div>
+							</nav>
+
+								  <!-- <div class="list-group-item cat"><a ui-sref="main.category({ catId: cat.c_id })" class="text-center">{{cat.title}}</a></div>
+									<div ng-repeat="subcat in cat.subcats track by $index" class="list-group-item subcat">
+										<a ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}}</span></a>
+									</div>-->
+
+								</div>
+						</div>
 					 <li>
 				       Телефони
 				       <input type="checkbox" ng-model="yourFilter.s_id" ng-true-value="'16'" ng-false-value="null"/>
@@ -65,9 +94,9 @@
 				       За датою
 				       <input type="checkbox" ng-model="yourFilter.date" ng-true-value="1" ng-false-value="null"/>
 				      </li>
-				      
+
 				      <li>
-				       Характеристики: 
+				       Характеристики:
 				       <ul>
 					       <li>
 					       Екран: 1366x768
@@ -101,7 +130,7 @@
 							<p>Ціна: {{product.price + ' ₴'}}</p>
 							<p>Категорія: {{product.c_id}}</p>
 							<button class="btn btn-default">Детальніше</button>
-						</div>	
+						</div>
 					</a>-->
 					<div ng-cloak class="ng-cloak portfolio-container row grid-space-20">
 						<div  ng-repeat="product in products track by $index" class="col-sm-6 col-md-4 portfolio-item {{product.title}}">
@@ -115,10 +144,10 @@
 								</a>
 								<span>{{product.price + ' ₴'}}</span>
 								</div>
-							
+
 							</div>
 						</div>
-					</div> 
+					</div>
 				</div>
 			</div>
 		</div>
@@ -133,10 +162,10 @@
 		<carousel interval="myInterval">
 		  <slide ng-repeat="slideCollection in groupedSlides" active="slide.active">
 		    <div>
-		      <img  ng-repeat="slide in slideCollection" style="padding: 10px 20px 10px 20px; height: 80px; max-width: 100%"  ng-src="{{slide.image}}" style="margin:auto;">       
+		      <img  ng-repeat="slide in slideCollection" style="padding: 10px 20px 10px 20px; height: 80px; max-width: 100%"  ng-src="{{slide.image}}" style="margin:auto;">
 		    </div>
 		  </slide>
-		</carousel> 
+		</carousel>
 	</div>
 </div>
 </div>
