@@ -1,0 +1,71 @@
+/*html {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  color: #324A5E;
+  font-family: 'Play', sans-serif;
+  font-size: 1em;
+}*/
+
+hr {
+  margin: 0;
+  padding: 0;
+}
+
+.topBar {
+  color: #324A5E;
+  font-family: 'Play', sans-serif;
+  font-size: 20px;
+  padding-top: 5px;
+  text-align: center;
+}
+
+/*.header-main {
+  width: 100%;
+  height: 75px;
+}*/
+
+.logo {
+  display: inline-flex;
+  padding-top: 3px;
+  margin: 0;
+}
+
+#name {
+  color: #324A5E;
+  font-weight: bold;
+  font-family: 'Play', sans-serif;
+  font-size: 95px;
+  line-height: 0.9em;
+  text-decoration: none;
+}
+
+
+/*.header-main-search {
+  padding-top: 15px;
+  padding-right: 5%;
+}
+
+.header-main-num {
+  font-family: 'Play', sans-serif;
+  font-size: 30px;
+  padding-top: 20px;
+  padding-right: 5%;
+  text-align: center;
+}
+
+.header-main-cart {
+  font-family: 'Play', sans-serif;
+  font-size: 30px;
+  padding-top: 20px;
+  padding-right: 5%;
+  text-align: center;
+}
+
+.navbar-default {
+  background: #54C0EB;
+}*/

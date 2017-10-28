@@ -4,51 +4,57 @@
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" ng-app="exel" class="no-js"> <!--<![endif]-->
 <head>
-<!-- <base href="/"> -->
+  <!-- <base href="/"> -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Excellence</title>
+  <title>Inko</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Fonts -->
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Play:400,700&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+
   <!-- BOWER !!!-->
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
-  
-  
+
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-  
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="bower_components/summernote/dist/summernote.css">
   <link href="bower_components/ng-cropper/dist/ngCropper.all.min.css" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/contacts.css">
   <link rel="stylesheet" href="css/portfolio.css">
   <link rel="stylesheet" href="css/services.css">
   <link rel="stylesheet" href="css/dashboard.css">
   <link rel="stylesheet" href="css/news.css">
+  <link rel="stylesheet" href="css/newstyle.css">
 
   <link rel="stylesheet" media="(max-width: 992px)" href="css/small.css" />
 
-
-  
- 
-
-
-<meta name="google-site-verification" content="7GKQs4Gs1-RPDu1WHwxJrxfiMKDYyqLainviA6K4dOc" />
+  <meta name="google-site-verification" content="7GKQs4Gs1-RPDu1WHwxJrxfiMKDYyqLainviA6K4dOc" />
 </head>
 <body ng-controller="ApplicationController as appCtrl">
 <header class="header navbar-static-top clearfix">
+  <div class="header-topBar">
+    <div class="container">
+      <p class="topBar">Безкоштовна доставка по Львову</p>
+    </div><hr/>
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-md-4">
         <div class="header-left clearfix">
           <div class="logo">
-            <a href="#/"><img id="logo" src="images/logo24.png" height="80px"></a>
+            <a href="#/"><img id="logo" src="images/img/logo.png" height="80px"></a>
+            <a href="#" id="name">Inko</span></a>
           </div>
           <!-- <div class="site-name-and-slogan">
             <div class="site-name">
@@ -70,7 +76,7 @@
                   <span class="icon-bar"></span>
                   </button>
                 </div>
-                <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">       
+                <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
                   <ul ng-cloak class="nav navbar-nav navbar-right">
                     <li ng-class="{ active: isActive('')}"><a ui-sref="main">{{main}}</a></li>
                     <li ng-class="{ active: isActive('about')}"><a ui-sref="about">{{about}}</a></li>
@@ -85,10 +91,9 @@
         </div>
       </div>
     </div>
-  </div>    
+  </div><hr/>
 </header>
-                      
- 
+
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -125,7 +130,6 @@
 <p style="margin-top: 30px;" class="text-center">Copyright © 2017 <a target="_blank" href="http://#">INKO</a>.</p>
     </footer>
 
-
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
@@ -142,12 +146,8 @@
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="bower_components/ng-cropper/dist/ngCropper.all.min.js"></script>
 
-
-
   <script src="app.js"></script>
   <script src="config.js"></script>
-
-
 
   <script src="directives/readMarkupDirective.js"></script>
   <script src="directives/read-markup.directive/read-markup.directive.js"></script>
@@ -165,7 +165,6 @@
   <script src="Factories/modalsFactory.js"></script>
   <script src="Factories/teamFactory.js"></script>
 
-
   <script src="main/main.js"></script>
   <script src="about/about.js"></script>
   <script src="services/services.js"></script>
@@ -174,8 +173,6 @@
   <script src="news/news.js"></script>
   <script src="products/products.js"></script>
   <script src="dashboard/dashboard.js"></script>
-
-
 
 </body>
 </html>

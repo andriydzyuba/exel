@@ -1,5 +1,5 @@
 html {
-overflow: -moz-scrollbars-vertical; 
+overflow: -moz-scrollbars-vertical;
 overflow-y: scroll;
 }
 [ng\:cloak], [ng-cloak], .ng-cloak { display: none !important; }
@@ -73,7 +73,7 @@ body {
 		transition: all 0.3s ease-in-out;
 	}
 	.main-banner {
-	background-size: 100% auto;	
+	background-size: 100% auto;
 	}
 }
 @media (min-width:768px) and (max-width:991px) {
@@ -94,9 +94,9 @@ a, a:visited, a:focus, a:active, a:hover{
 .main-banner {
 	background: url(../images/banner.jpg) center top no-repeat;
 	background-size: auto auto;
-	
+
 }
-.main-banner .container-fluid { 
+.main-banner .container-fluid {
 padding: 0;
 }
 .main-heading {
@@ -196,8 +196,8 @@ h4 span {
 .clients .right.carousel-control, .clients .left.carousel-control {
     display: none;
 }
-.clients .carousel-indicators li { 
-	visibility: hidden; 
+.clients .carousel-indicators li {
+	visibility: hidden;
 }
 .separator {
 	width: 100%;
@@ -209,7 +209,7 @@ h4 span {
 }
 @media (min-width:768px) {
 	.main-banner {
-	background-size: 100% auto;	
+	background-size: 100% auto;
 	}
 }
 
