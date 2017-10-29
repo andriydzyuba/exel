@@ -10,8 +10,9 @@ body {
 }
 
 body {
-	font-family: 'Open Sans', sans-serif;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Play', sans-serif;
+	/*font-family: 'Open Sans', sans-serif;
+	font-family: 'Roboto', sans-serif;*/
 	font-size: 15px;
 	line-height: 1.50;
 	color: #333333;
@@ -229,9 +230,15 @@ footer {
 footer ul {
 	list-style-type: none;
 }
-/*footer li {
+footer li {
 	display: inline-block;
-}*/
+}
+
+p {
+	font-family: 'Play', sans-serif;
+	padding-bottom: 3px;
+}
+
 footer a {
 	text-decoration: none;
 	color: white;
@@ -241,14 +248,14 @@ footer a:hover {
 	color: #55acee;
 }
 footer .mini-about {
-	font-size: 16px;
-	text-align: justify;
+	font-size: 20px;
 }
+
 .mini-about a {
 	color: #55acee;
 }
 
-.social a {
+/*.social a {
 	font-size: 18px;
 	color: #55acee;
 }
@@ -258,4 +265,4 @@ footer .mini-about {
 }
 .social a:hover {
 	text-decoration: underline;
-}
+}*/
