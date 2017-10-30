@@ -24,10 +24,12 @@ hr {
   text-align: center;
 }
 
-/*.header-main {
+#headerBar {
   width: 100%;
-  height: 75px;
-}*/
+  background-color: #54C0EB;
+  border-bottom: 7px solid #84DBFF;
+  border-top: 7px solid #84DBFF;
+}
 
 .logo {
   display: inline-flex;
@@ -44,28 +46,24 @@ hr {
   text-decoration: none;
 }
 
-
-/*.header-main-search {
-  padding-top: 15px;
-  padding-right: 5%;
+.cat .navbar-default .navbar-nav > li > a {
+	color: #324A5E;
+	padding: 10px;
+	font-size: 18px;
+	font-weight: bold;
 }
 
-.header-main-num {
-  font-family: 'Play', sans-serif;
-  font-size: 30px;
-  padding-top: 20px;
-  padding-right: 5%;
+#catMenu {
+  color: #324A5E;
+  font-size: 16px;
+  font-weight: bold;
   text-align: center;
+  line-height: 3em;
 }
 
-.header-main-cart {
-  font-family: 'Play', sans-serif;
-  font-size: 30px;
-  padding-top: 20px;
-  padding-right: 5%;
-  text-align: center;
-}
-
-.navbar-default {
-  background: #54C0EB;
-}*/
+  #overflowTitle {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 300px;
+    height: 22px;
+  }

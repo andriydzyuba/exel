@@ -35,7 +35,7 @@
 					</div>-->
 
 					<!--<span style="font-size:20px;" class="glyphicon glyphicon-search"></span>-->
-					<span id="clickSearch"><input id="formSearch" ng-model="$products.query" placeholder="Пошук" style="height:50px;width:50%;padding-left:15px;border-radius:4px;"></span><hr/ style="margin:10px 0;">
+					<span id="clickSearch"><input id="formSearch" ng-model="$products.query" placeholder="Пошук" style="height:50px;width:50%;font-size:20px;padding-left:15px;border-radius:4px;"></span><hr/ style="margin:10px 0;">
 
 					<script>
 					$(document).ready(function(){
@@ -68,7 +68,7 @@
 							      <li class="dropdown">
 											<!--<button type="button" class="dropdown-toggle" data-toggle="dropdown" ui-sref="main.category({ catId: cat.c_id })" class="text-center">{{cat.title}}<span class="caret"></span></button>-->
 							        <a class="dropdown-toggle" data-toggle="dropdown" ui-sref="main.category({ catId: cat.c_id })" class="text-center">{{cat.title}}<span class="caret"></span></a>
-											<ul class="dropdown-menu">
+											<ul id="catMenu" class="dropdown-menu">
 												<div ng-repeat="subcat in cat.subcats track by $index">
 													<a ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}}<hr/ style="margin:0px;"></span></a>
 												</div>
@@ -159,7 +159,7 @@
 					<div ng-cloak class="ng-cloak portfolio-container row grid-space-20">
 						<div  ng-repeat="product in products track by $index" class="col-sm-6 col-md-4 portfolio-item {{product.title}}">
 							<div class="image-box">
-								<p>{{product.title}}</p>
+								<p id="overflowTitle">{{product.title}}</p>
 								<div class="overlay-container">
 								<img ng-src="{{product.image}}" alt="">
 								<a class="overlay" ui-sref="products({productId:product.id})" data-target="#{{$index}}">
