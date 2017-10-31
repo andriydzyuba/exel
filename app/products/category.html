@@ -7,15 +7,15 @@
 <div ng-cloak class="ng-cloak portfolio-container row grid-space-20">
 	<div  ng-repeat="product in products|priceLessThan:priceterm" class="col-sm-6 col-md-4 portfolio-item {{product.title}}">
 		<div class="image-box">
-			<p>{{product.title}}</p>
+			<p id="overflowTitle">{{product.title}}</p>
 			<div class="overlay-container">
 				<img ng-src="{{product.image}}" alt="">
 				<a class="overlay" ui-sref="products({productId:product.id})" data-target="#{{$index}}">
 				<i class="glyphicon glyphicon-zoom-in"></i>
 				<span>{{product.price + ' ₴'}}</span>
 				</a>
-				<span>{{product.price + ' ₴'}}</span>
-			</div>					
+				<span id="stylePrice">{{product.price + ' ₴'}}</span>
+			</div>
 		</div>
 	</div>
-</div> 
+</div>
