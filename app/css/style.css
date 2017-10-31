@@ -229,11 +229,11 @@ h4 span {
 }
 
  /* footer styles */
-footer {
+#footer {
 	margin-top: 40px;
 	border-top: 7px solid #84DBFF;
-	padding: 5px 10px;
-	font-size: 16px;
+	padding: 10px;
+	font-size: 18px;
 	font-weight: 300;
 	background-color: #324A5E;
 	color: white;
@@ -251,6 +251,7 @@ footer li {
 p {
 	font-family: 'Play', sans-serif;
 	padding-bottom: 3px;
+	margin: 0 5px;
 }
 
 footer a {
@@ -262,21 +263,23 @@ footer a:hover {
 	color: #55acee;
 }
 footer .mini-about {
-	font-size: 20px;
+	font-size: 16px;
 }
 
 .mini-about a {
 	color: #55acee;
 }
 
-/*.social a {
+.social a {
 	font-size: 18px;
-	color: #55acee;
+	color: #ffffff;
+	margin-bottom: 15px;
 }
 .social i {
-	font-size: 25px;
-	margin-right: 5px;
+	font-size: 40px;
+	margin: 0 10px;
 }
 .social a:hover {
-	text-decoration: underline;
-}*/
+	text-decoration: none;
+	color: #84DBFF;
+}
