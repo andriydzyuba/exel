@@ -16,12 +16,12 @@
 <a href="" class="btn btn-success" ui-sref="dashboard.addproduct"><i class="fa fa-plus"></i> Додати товар</a>
 <hr>
 <div ng-cloak class="ng-cloak portfolio-container row grid-space-20">
-	<div  ng-repeat="product in products track by $index" class="col-sm-6 col-md-4 portfolio-item {{product.title}}">
+	<div  ng-repeat="product in products track by $index" class="col-sm-6 col-md-2 portfolio-item {{product.title}}">
 		<div class="image-box">
 			<div class="overlay-container">
 				<img ng-src="{{product.image}}" alt="">
 				<a class="overlay" ui-sref="dashboard.editproduct({productId: product.id})" data-target="#{{$index}}">
-					<i class="glyphicon glyphicon-zoom-in"></i>
+					<!--<i class="glyphicon glyphicon-zoom-in"></i>-->
 					<span>{{product.title}}</span>
 				</a>
 			</div>

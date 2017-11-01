@@ -5,7 +5,7 @@
 </div>
 
 <div ng-cloak class="ng-cloak portfolio-container row grid-space-20">
-	<div  ng-repeat="product in products|priceLessThan:priceterm" class="col-sm-6 col-md-4 portfolio-item {{product.title}}">
+	<div  ng-repeat="product in products|priceLessThan:priceterm | filter:$products.query" class="col-sm-6 col-md-4 portfolio-item {{product.title}}">
 		<div class="image-box">
 			<p id="overflowTitle">{{product.title}}</p>
 			<div class="overlay-container">
@@ -15,7 +15,7 @@
 				<span>{{product.price + ' ₴'}}</span>
 				</a>
 				<span id="stylePrice">{{product.price + ' ₴'}}</span>
-			</div>
+			</div>					
 		</div>
 	</div>
 </div>

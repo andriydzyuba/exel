@@ -1,7 +1,7 @@
 <?php
 if ($_FILES['file']['name']) {
   if (!$_FILES['file']['error']) {
-    $name = md5(rand(100, 200));
+    $name = uniqid('image', true);
     $ext = explode('.', $_FILES['file']['name']);
     $filename = $name . '.' . $ext[1];
     $destination = 'uploads/' . $filename; //change this directory

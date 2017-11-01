@@ -30,6 +30,16 @@ if ($conn->query($sql) === TRUE) {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
+
+//$sql = "INSERT INTO Images (product_id) VALUES (SCOPE_IDENTITY())";
+
+
+//if ($conn->query($sql) === TRUE) {
+// 	echo "Товар додано успішно.";
+//} else {
+//    echo "Error: " . $sql . "<br>" . $conn->error;
+//}
+
 $conn->close();
 
 ?>

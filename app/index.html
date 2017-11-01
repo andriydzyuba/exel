@@ -54,14 +54,9 @@
       <div class="col-md-4">
         <div class="header-left clearfix">
           <div class="logo">
-            <a href="#/"><img id="logo" src="images/img/logo.png" height="80px"></a>
-            <a href="#" id="name">inko</span></a>
+            <a ui-sref="main"><img id="logo" src="images/img/logo.png" height="80px"></a>
+            <a ui-sref="main" id="name">inko</span></a>
           </div>
-          <!-- <div class="site-name-and-slogan">
-            <div class="site-name">
-            <a ui-sref="main"><img id="logo" height="50px" src="images/name.svg"></a>
-            </div>
-          </div> -->
         </div>
       </div>
       <div class="col-md-8">
@@ -76,11 +71,11 @@
                 </div>
                 <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
                   <ul ng-cloak class="nav navbar-nav navbar-right">
-                    <li ng-class="{ active: isActive('')}"><a ui-sref="main">{{main}}</a></li>
-                    <li ng-class="{ active: isActive('about')}"><a ui-sref="about">{{about}}</a></li>
-                    <li ng-class="{ active: isActive('services')}"><a ui-sref="services.detail ({id: '20'})">{{offers}}</a></li>
-                    <li ng-class="{ active: isActive('portfolio')}"><a ui-sref="portfolio.all({filterId: ''})">{{portfolio}}</a></li>
-                    <li ng-class="{ active: isActive('contacts')}"><a ui-sref="contacts">{{contacts}}</a></li>
+                    <li ng-class="{ active: isActive('')}"><a ui-sref="main" style="font-size:30px;">{{main}}</a></li>
+                    <li ng-class="{ active: isActive('about')}"><a ui-sref="about" style="font-size:30px;">{{about}}</a></li>
+                   <!-- <li ng-class="{ active: isActive('services')}"><a ui-sref="services.detail ({id: '20'})">{{offers}}</a></li> -->
+                    <!--<li ng-class="{ active: isActive('portfolio')}"><a ui-sref="portfolio.all({filterId: ''})">{{portfolio}}</a></li> -->
+                    <li ng-class="{ active: isActive('contacts')}"><a ui-sref="contacts" style="font-size:30px;">{{contacts}}</a></li>
                   </ul>
                 </div>
               </div>
@@ -99,25 +94,43 @@
 
   <div ui-view></div>
 
-
   <footer id="footer">
       <div class="subfooter">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-4 col-xs-11 offset- text-center">
+            <div class="col-md-4 col-xs-11 text-center">
               <ul>
                 <li><p><i class="fa fa-phone" aria-hidden="true"></i> +38 (067) 137-42-75</p></li>
                 <li><p><i class="fa fa-phone" aria-hidden="true"></i> +38 (063) 258-63-79</p></li>
                 <li><p><i class="fa fa-phone" aria-hidden="true"></i> +38 (099) 778-45-49</p></li>
                 <li><p><i class="fa fa-envelope" aria-hidden="true"></i> marian7711@ukr.net</p></li>
               </ul>
-                  <!--<ul>
-                    <li><a ui-sref="main">{{main}}</a></li>
-                    <li><a ui-sref="about">{{about}}</a></li>
-                    <li><a ui-sref="services.detail ({id: 'logo'})">{{offers}}</a></li>
-                    <li><a ui-sref="portfolio.all({filterId:''})">{{portfolio}}</a></li>
-                    <li><a ui-sref="contacts">{{contacts}}</a></li>
-                  </ul>-->
+
+            </div>
+            <div class="col-md-4 col-xs-12 mini-about lead text-center">
+              <p>Графік роботи:<br/>Пн–Пт з 08-00 до 22-00</p>
+              <p>www.inko.in.ua - Електроніка та побутова техніка для Вас!</p>
+            </div>
+            <div class="col-md-4 col-xs-12 social text-center">
+              <ul>
+              <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+              <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+              <li><a href=""><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div><hr/>
+      <!-- .subfooter end -->
+      <p style="margin-top: 10px;" class="text-center">Усі права захищено «inko.in.ua» Copyright © 2017.</p>
+    </footer>
+
+<!--
+  <footer id="footer">
+      <div class="subfooter">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-2">
             </div>
             <div class="col-md-4 col-xs-12 mini-about lead text-center">
               <p>Графік роботи:<br/>Пн–Пт з 08-00 до 22-00</p>
@@ -156,7 +169,8 @@
   <script src="app.js"></script>
   <script src="config.js"></script>
 
-  <script src="directives/readMarkupDirective.js"></script>
+  <!--<script src="directives/readMarkupDirective.js"></script>-->
+
   <script src="directives/read-markup.directive/read-markup.directive.js"></script>
   <script src="//code.angularjs.org/1.2.20/angular-sanitize.min.js"></script>
 
@@ -171,6 +185,7 @@
   <script src="Factories/portfolioFactory.js"></script>
   <script src="Factories/modalsFactory.js"></script>
   <script src="Factories/teamFactory.js"></script>
+  <script src="Factories/ordersFactory.js"></script>
 
   <script src="main/main.js"></script>
   <script src="about/about.js"></script>
@@ -179,6 +194,7 @@
   <script src="contacts/contacts.js"></script>
   <script src="news/news.js"></script>
   <script src="products/products.js"></script>
+  <script src="products/order-modal/order-modal.controller.js"></script>
   <script src="dashboard/dashboard.js"></script>
 
 </body>

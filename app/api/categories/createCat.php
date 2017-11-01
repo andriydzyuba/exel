@@ -15,6 +15,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
+$request->title = addslashes($request->title);
+$request->eng_title = addslashes($request->eng_title);
+
+
 $sql = "INSERT INTO Categories (title, eng_title) VALUES ('$request->title', '$request->eng_title')";
 
 if ($conn->query($sql) === TRUE) {
@@ -32,4 +36,4 @@ $conn->close();
 
 
 
-?>
+?> 

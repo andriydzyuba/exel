@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "inko";
+$dbname = "exel";
 // Create connection
 // $conn = new mysqli($servername, $username, $password);
 
@@ -97,6 +97,23 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 // FOREIGN KEY (c_id) REFERENCES Categories(c_id),
 // FOREIGN Key (s_id) REFERENCES Subcats(s_id)
 // )";
+
+ //$sql = "CREATE TABLE Images (
+ //id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+ //product_id INT(6) UNSIGNED,
+// FOREIGN KEY (product_id) REFERENCES Products(id)
+// )";
+
+ //$sql = "CREATE TABLE Orders (
+ //id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+// name VARCHAR(15) NOT NULL,
+ //phone VARCHAR(13) NOT NULL,
+ //comment VARCHAR(100) NOT NULL,
+ //product_id INT(6) UNSIGNED,
+// FOREIGN KEY (product_id) REFERENCES Products(id)
+// )";
+
+
 
 if ($conn->query($sql) === TRUE) {
     echo "Table subCats created successfully";
