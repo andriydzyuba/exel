@@ -45,24 +45,24 @@
  					});
  					</script>
 
-				    <div class="list-group">
- 						<div ng-repeat="cat in categories track by $index" class="cat">
-  							<nav class="navbar navbar-default">
- 							  <div class="container">
- 							    <ul class="nav navbar-nav">
- 							      <li class="dropdown">
- 							        <a class="dropdown-toggle" data-toggle="dropdown" ui-sref="main.category({ catId: cat.c_id })" class="text-center">{{cat.title}}<span class="caret"></span></a>
- 									<ul id="catMenu" class="dropdown-menu">
- 										<div ng-repeat="subcat in cat.subcats track by $index">
- 											<a ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}}<hr/ style="margin:0px;"></span></a>
- 										</div>
- 							        </ul>
- 							      </li>
- 							    </ul>
- 							  </div>
- 							</nav>
-  						</div>
-					</div>
+			    <div class="list-group">
+						<div ng-repeat="cat in categories track by $index" class="cat">
+							<nav class="navbar navbar-default">
+							  <div class="container">
+							    <ul class="nav navbar-nav">
+							      <li class="dropdown">
+							        <a class="dropdown-toggle" data-toggle="dropdown" ui-sref="main.category({ catId: cat.c_id })" class="text-center">{{cat.title}}<span class="caret"></span></a>
+											<ul id="catMenu" class="dropdown-menu">
+											<div ng-repeat="subcat in cat.subcats track by $index">
+												<a ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}}<hr/ style="margin:0px;"></span></a>
+											</div>
+							        </ul>
+							      </li>
+							    </ul>
+							  </div>
+							</nav>
+						</div>
+				  </div>
 				</div>
 
 				<div class="col-lg-9">
