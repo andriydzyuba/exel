@@ -2,24 +2,23 @@
     <button type="button" class="close" ng-click="$dismiss()"><span aria-hidden="true">&times;</span><span class="sr-only">Закрити</span></button>
     <h4 class="modal-title" id="{{$index}}-label">Оформлення замовлення</h4>
 </div>
+
 <div class="modal-body">
-    <h3>Заповніть форму</h3>
+    <h3 style="color:#FF7058;">Заповніть форму!</h3>
     <h2 class="no-top-margin">{{product.title}}</h2>
-      <p>{{product.price + ' ₴'}}</p>
-      <p>{{product.spec}}</p>
+      <p><span id="productPrice">{{product.price + ' ₴'}}</span></p><hr/><br/>
+      <p>{{product.spec}}</p><br/>
       <img ng-src="{{product.image}}">
   <form ng-submit="createOrder()">
     <div class="input-group">
-      
-      <input type="text" ng-model="order.name" class="form-control" placeholder="Ваше ім’я..." required>
-      <input type="tel" ng-model="order.phone" class="form-control" placeholder="Ваш номер телефону..." required>
-      <textarea ng-model="order.comment" placeholder="Коментар до замовлення" class="form-control"></textarea>
+      <input type="text" ng-model="order.name" class="form-control" placeholder="Ваше ім’я..." required style="border-radius:4px;">
+      <input type="tel" ng-model="order.phone" class="form-control" placeholder="Ваш номер телефону..." required style="border-radius:4px;">
+      <textarea ng-model="order.comment" placeholder="Коментар до замовлення" class="form-control" style="border-radius:4px;"></textarea>
     </div>
     <button type="submit" value="Створити замовлення" class="btn btn-success">Підтвердити</button>
   </form>
 </div>
 
-
 <div class="modal-footer">
-    <button type="button" class="btn btn-sm btn-default" ng-click="$dismiss()">Закрити</button>
+    <button type="button" class="btn btn-sm btn-danger" ng-click="$dismiss()">Закрити</button>
 </div>

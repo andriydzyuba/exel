@@ -1,44 +1,52 @@
 <div class="page-heading">
 	<div class="page-headers">
-		<h1 class="text-left">Цікаве</h1>
-		<p class="lead text-left">Безкоштовна доставка по Львову</p>
-	</div>			
+		<h1 class="text-left">Обраний товар</h1>
+		<p class="lead text-left">Електроніка та побутова техніка для Вас!</p>
+	</div>
 </div>
 <div class="separator"></div>
 
-
-
-<div class="container-fluid">
+<div id="productArea" class="container-fluid">
 	<div class="row article-container">
-		<div class="col-md-4">
-			<a ng-repeat="product in products" class="news-item"  ui-sref="products({productId:product.id})">
-				<img ng-src="{{product.image}}">
-					<div class="article-block-headers">
-						<h4>{{product.title}}</h4>
-						<p>{{product.spec}}</p>
-						<p>{{product.price + ' ₴'}}</p>
-					</div>
 
-			</a>
-		</div>
-		<div class="col-md-6 article">
-			<h2 class="no-top-margin">{{product.title}}</h2>
-			<p>{{product.price + ' ₴'}}</p>
-			<p>{{product.spec}}</p>
-			<img ng-src="{{product.image}}">
-			<div data-ng-bind-html="product.text"></div>
-			
+		<!--<div class="col-md-2 user-buttons">
 
-		</div>
-		<div class="col-md-2 user-buttons">
-			
-			<a ui-sref="#" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>Додати у кошик</a>
+			<a ui-sref="#" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>Додати у кошик</a>-->
 
 			<!--<a ng-click="modal($stateParams)" href="" type="button" class="btn btn-success"><span class="glyphicon glyphicon-earphone"></span>Замовити дзвінок</a>-->
 
-			<a ng-click="callModal()" href="" type="button" class="btn btn-success"><span class="glyphicon glyphicon-usd"></span>Оформити замовлення</a>
+			<!--<a ng-click="callModal()" href="" type="button" class="btn btn-success"><span class="glyphicon glyphicon-usd"></span>Оформити замовлення</a>
 			<a ng-click="callOrderModal()" href="" type="button" class="btn btn-success"><span class="glyphicon glyphicon-usd"></span>Купити в один клік</a>
+		</div>-->
+
+		<div class="col-md-9 article">
+			<h2 class="no-top-margin">{{product.title}}</h2>
+			<p><span id="productPrice">{{product.price + ' ₴'}}</span></p><br/>
+			<p>{{product.spec}}</p><br/><hr/><br/>
+			<div class="row">
+				<div class="col-md-4 article">
+					<img ng-src="{{product.image}}"><br/><br/>
+				</div>
+				<div class="col-md-8 article">
+					<div data-ng-bind-html="product.text"></div>
+				</div>
+			</div>
 		</div>
+
+		<div id="productBar" class="col-md-3 user-buttons">
+			<a ui-sref="#" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>Додати у кошик</a>
+			<a ng-click="callOrderModal()" href="" type="button" class="btn btn-success"><span class="glyphicon glyphicon-usd"></span>Купити в один клік</a><br/><hr/><br/>
+			<div id="hiddenBar">
+				<a ng-repeat="product in products" class="news-item" ui-sref="products({productId:product.id})">
+					<img ng-src="{{product.image}}">
+						<div class="article-block-headers">
+							<h4>{{product.title}}</h4>
+							<!--<p>{{product.spec}}</p>-->
+							<p>{{product.price + ' ₴'}}</p>
+						</div>
+				</a>
+			</div>
+		</div>
+
 	</div>
 </div>
-
