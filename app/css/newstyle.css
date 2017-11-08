@@ -72,3 +72,26 @@ body {
   background-color: #54C0EB;
   border-radius: 10px;
 }
+
+#productArea {
+  padding: 0 3%;
+}
+
+#productBar {
+  padding-left: 3%;
+}
+
+#productPrice {
+  font-size: 1.4em;
+  color: #ffffff;
+  background-color: #54C0EB;
+  border-radius: 10px;
+  padding: 1px 6px 2px 6px;
+}
+
+#hiddenBar {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 520px;
+  border-bottom: 10px solid rgba(84, 192, 235, 0.6);
+}
