@@ -7,13 +7,14 @@ overflow-y: scroll;
 html,
 body {
 	height: 100%;
+	width: 100%;
 }
 
 body {
 	font-family: 'Play', sans-serif;
 	/*font-family: 'Open Sans', sans-serif;
 	font-family: 'Roboto', sans-serif;*/
-	font-size: 15px;
+	font-size: 1em;
 	line-height: 1.50;
 	color: #324A5E;
 	/*color: #333333;*/
@@ -43,6 +44,7 @@ body {
 /* Header */
 .header .navbar {
 	margin-bottom: 0;
+	margin-bottom: 0;
 	font-weight: 300;
 }
 .main-navigation .navbar-default {
@@ -50,7 +52,7 @@ body {
 	border: none;
 }
 .main-navigation .navbar-default .navbar-nav > li > a {
-	color: #324A5E;
+	color: #ffffff;
 	/*color: #777;*/
 	display: inline-block;
 	padding: 10px 10px;
@@ -59,16 +61,18 @@ body {
 }
 .main-navigation .navbar-default .navbar-nav > li.active > a {
 	background-color: transparent;
-	color: #ffffff;
+	color: #54C0EB;
 }
 .main-navigation .navbar-default .navbar-nav > li > a:hover,
 .main-navigation .navbar-default .navbar-nav > li.active > a:hover {
-	color: #ffffff;
+	color: #54C0EB;
 }
 
 #navButton {
 	background-color: #54C0EB;
 	border: 2px solid #324A5E;
+	position: relative;
+	top: -70px;
 }
 
 #navButton:active {
@@ -112,6 +116,7 @@ a, a:visited, a:focus, a:active, a:hover{
 .main-banner .container-fluid {
 padding: 0;
 }
+
 .main-heading {
 	font-weight: 300;
 	background-color: rgba(0,0,0, 0.7);
@@ -149,6 +154,34 @@ padding: 0;
 	-moz-animation: slide 0.5s ease-out;
 	animation: slide 0.5s ease-out;
 }
+
+.delivery-options {
+	max-width: 80%;
+	margin: auto;
+}
+
+.delivery-options h3, .delivery-options p {
+	color: #324A5E;
+	text-align: left;
+}
+
+.delivery-options h3 {
+	font-weight: bold;
+}
+
+.delivery-options ul {
+	list-style: none;
+}
+
+.delivery-options i {
+	padding-right: 5px;
+	color: #54C0EB;
+}
+
+.delivery-options p, .delivery-options li {
+	font-size: 1.5em;
+}
+
 @-webkit-keyframes fadeIn {
 from {
 opacity: 0;
@@ -228,14 +261,15 @@ h4 span {
 	}
 }
 
- /* footer styles */
+ /*********************************************
+								  FOOTER
+	*********************************************/
 #footer {
 	margin-top: 40px;
-	border-top: 7px solid #84DBFF;
-	padding: 10px;
+	padding: 10px 0 0 0;
 	font-size: 20px;
 	font-weight: 300;
-	background-color: #324A5E;
+	background-color: #282D31;
 	color: white;
 }
 .subfooter {
@@ -282,4 +316,11 @@ footer .mini-about {
 .social a:hover {
 	text-decoration: none;
 	color: #84DBFF;
+}
+
+#disclaimer {
+	padding-top: 10px;
+	font-size: 0.7em;
+	background-color: #1D1F20;
+	margin: 0;
 }

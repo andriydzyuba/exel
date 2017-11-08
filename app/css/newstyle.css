@@ -11,10 +11,6 @@ body {
   font-size: 1em;
 }*/
 
-hr {
-  margin: 0;
-  padding: 0;
-}
 
 .topBar {
   color: #324A5E;
@@ -26,9 +22,7 @@ hr {
 
 #headerBar {
   width: 100%;
-  background-color: #54C0EB;
-  border-bottom: 7px solid #84DBFF;
-  border-top: 7px solid #84DBFF;
+  background-color: #1D73B8;
 }
 
 .logo {
@@ -38,7 +32,7 @@ hr {
 }
 
 #name {
-  color: #324A5E;
+  color: #ffffff;
   font-weight: bold;
   font-family: 'Play', sans-serif;
   font-size: 95px;

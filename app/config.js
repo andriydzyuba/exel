@@ -11,7 +11,7 @@ angular.module('exel.CONFIG', [])
 .constant('CONFIG', {
   'MAIN' : 'Головна',
   'PRODUCTS' : 'Товари',
-  'ABOUT' : 'Про нас',
+  'ABOUT' : 'Доставка',
   'OFFERS': 'Послуги',
   'PORTFOLIO':'Портфоліо',
   'CONTACTS': 'Контакти'
