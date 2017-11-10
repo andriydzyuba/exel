@@ -7,9 +7,9 @@ $request = json_decode($postdata);
 $conn = new mysqli($servername, $username, $password, $dbname);
 mysqli_set_charset($conn,"utf8");
 // Check connection
-if ($request->images) {
-	$request->images = serialize($request->images);
-}
+//if ($request->images) {
+//	$request->images = serialize($request->images);
+//}
 
 $request->text =  addslashes($request->text);
 

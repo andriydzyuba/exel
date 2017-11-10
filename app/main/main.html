@@ -59,24 +59,25 @@
  					});
  					</script>
 
-				    <div class="list-group">
+				   <div class="list-group">
  						<div ng-repeat="cat in categories track by $index" class="cat">
   							<nav class="navbar navbar-default">
- 							  <div class="container">
- 							    <ul class="nav navbar-nav">
- 							      <li class="dropdown">
- 							        <a class="dropdown-toggle" data-toggle="dropdown" class="text-center">{{cat.title}}<span class="caret"></span></a>
- 									<ul id="catMenu" class="dropdown-menu">
- 										<div ng-repeat="subcat in cat.subcats track by $index">
- 											<a ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}}<hr/ style="margin:0px;"></span></a>
- 										</div>
- 							        </ul>
- 							      </li>
- 							    </ul>
- 							  </div>
- 							</nav>
+	 							  <div class="container">
+	 							    <ul class="nav navbar-nav">
+	 							      <li class="dropdown">
+	 							        <a class="dropdown-toggle" data-toggle="dropdown" class="text-center">{{cat.title}}<span class="caret"></span></a>
+	 											<ul id="catMenu" class="dropdown-menu">
+	 												<div ng-repeat="subcat in cat.subcats track by $index">
+	 													<a ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}}<hr/ style="margin:0px;"></span></a>
+	 													<img ng-src="{{subcat.images}}" alt="">
+	 												</div>
+	 							        </ul>
+	 							      </li>
+	 							    </ul>
+	 							  </div>
+ 								</nav>
   						</div>
-					</div>
+						</div>
 				</div>
 
 				<div class="col-lg-9">
@@ -84,6 +85,7 @@
 
 					<hr>
 					<h3>Новинки</h3>
+
 					<div ng-cloak class="ng-cloak portfolio-container row grid-space-20">
 						<div  ng-repeat="product in products track by $index" class="col-sm-6 col-md-4 portfolio-item {{product.title}}">
 							<div class="image-box">

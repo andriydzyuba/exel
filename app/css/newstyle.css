@@ -11,6 +11,13 @@ body {
   font-size: 1em;
 }*/
 
+<<<<<<< HEAD
+=======
+hr {
+  margin: 0;
+  padding: 0;
+}
+>>>>>>> 35a4adc2d915d1e4d88432aa6cf61cc57adf688a
 
 .topBar {
   color: #324A5E;
