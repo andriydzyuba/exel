@@ -18,6 +18,20 @@
 <section class="products">
 	<div class="row">
 		<div class="container-fluid">
+			<div class="container-fluid">
+				<div class="btn-group btn-group-justified">
+			    <div class="btn-group" ng-repeat="cat in categories track by $index" class="cat">
+			      <button id="buttonSub" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="color:#ffffff;">
+			      {{cat.title}}<span class="caret"></span></button>
+			      <div class="dropdown-menu" role="menu">
+							<div id="catMenu" ng-repeat="subcat in cat.subcats track by $index">
+								<a ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}}<hr/ style="margin:0px;"></span></a>
+							</div>
+			      </div>
+			    </div>
+				</div>
+			</div><br/>
+
 			<div class="row">
 				<div class="container col-lg-3">
 					<span id="clickSearch"><input id="formSearch" ng-model="$products.query" placeholder="Пошук" style="height:50px;width:50%;padding-left:15px;border-radius:4px;">

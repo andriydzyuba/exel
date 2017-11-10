@@ -92,6 +92,6 @@ body {
 #hiddenBar {
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 520px;
+  height: 700px;
   border-bottom: 10px solid rgba(84, 192, 235, 0.6);
 }
