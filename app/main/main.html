@@ -20,7 +20,7 @@
 	<div class="row">
 		<div class="container-fluid">
 
-			<div class="container-fluid">
+			<!--<div class="container-fluid">
 				<div class="btn-group btn-group-vertical btn-block">
 			    <div class="btn-group" ng-repeat="cat in categories track by $index" class="cat">
 			      <button id="buttonSub" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="color:#ffffff;">
@@ -46,7 +46,32 @@
 			      </div>
 			    </div>
 				</div>
-			</div><br/>
+			</div><br/>-->
+
+			<span id="clickSearch"><input id="formSearch" ng-model="$products.query" placeholder="Пошук" style="height:30px;width:50%;padding-left:15px;border-radius:4px;">
+			</span>
+			<hr/ style="margin:10px 0;">
+			<script>
+			$(document).ready(function(){
+					$("#clickSearch").click(function(){
+							var div = $("#formSearch");
+							div.animate({height: '50px', width: '100%'}, "slow");
+					});
+			});
+			</script>
+
+			<!--<script>
+			$(document).ready(function(){
+					$("#clickSearch").hover(function(){
+						var div = $("#formSearch");
+						div.animate({height: '50px', width: '100%'}, "slow");
+					},
+					function(){
+						var div = $("#formSearch");
+						div.animate({height: '50px', width: '50%'}, "slow");
+					});
+			});
+		</script>-->
 
 			<div class="panel-group" id="accordion">
 				<div class="panel panel-default" ng-repeat="cat in categories track by $index" class="cat">
@@ -65,7 +90,7 @@
 
 			<div class="row">
 				<div class="container col-lg-3">
-					<span id="clickSearch"><input id="formSearch" ng-model="$products.query" placeholder="Пошук" style="height:50px;width:50%;padding-left:15px;border-radius:4px;">
+					<!--<span id="clickSearch"><input id="formSearch" ng-model="$products.query" placeholder="Пошук" style="height:50px;width:50%;padding-left:15px;border-radius:4px;">
 					</span>
 					<hr/ style="margin:10px 0;">
 					<script>
@@ -88,7 +113,7 @@
  								div.animate({height: '50px', width: '50%'}, "slow");
  					    });
  					});
- 					</script>
+				</script>-->
 
 					<div class="list-group">
  						<div ng-repeat="cat in categories track by $index" class="cat">
