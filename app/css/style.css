@@ -155,32 +155,7 @@ padding: 0;
 	animation: slide 0.5s ease-out;
 }
 
-.delivery-options {
-	max-width: 80%;
-	margin: auto;
-}
 
-.delivery-options h3, .delivery-options p {
-	color: #324A5E;
-	text-align: left;
-}
-
-.delivery-options h3 {
-	font-weight: bold;
-}
-
-.delivery-options ul {
-	list-style: none;
-}
-
-.delivery-options i {
-	padding-right: 5px;
-	color: #54C0EB;
-}
-
-.delivery-options p, .delivery-options li {
-	font-size: 1.5em;
-}
 
 @-webkit-keyframes fadeIn {
 from {
@@ -304,6 +279,10 @@ footer .mini-about {
 	color: #55acee;
 }
 
+.social ul {
+	padding-left: 0;
+}
+
 .social a {
 	font-size: 18px;
 	color: #ffffff;
@@ -313,6 +292,7 @@ footer .mini-about {
 	font-size: 40px;
 	margin: 0 10px;
 }
+
 .social a:hover {
 	text-decoration: none;
 	color: #84DBFF;
@@ -323,4 +303,57 @@ footer .mini-about {
 	font-size: 0.7em;
 	background-color: #1D1F20;
 	margin: 0;
+}
+
+/**********************************************************
+****************  DELIVERY *******************************
+*******************************************************/
+.delivery-options {
+	max-width: 80%;
+	margin: auto;
+}
+
+.delivery-options h3, .delivery-options p {
+	color: #324A5E;
+	text-align: left;
+}
+
+.delivery-options h3 {
+	font-weight: bold;
+}
+
+.delivery-options ul {
+	list-style: none;
+}
+
+.delivery-options i {
+	padding-right: 5px;
+	color: #54C0EB;
+}
+
+.delivery-options p, .delivery-options li {
+	font-size: 1.5em;
+}
+
+/**********************************************************
+****************  CONTACTS *******************************
+*******************************************************/
+
+.contact-phones ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+.contact-phones img, .address img {
+	width: 40px;
+	height: auto;
+	margin: 15px auto;
+}
+
+.address a {
+	text-decoration: none;
+}
+
+.address a:visited {
+	color: inherit;
 }
