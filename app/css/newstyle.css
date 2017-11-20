@@ -11,12 +11,11 @@ body {
   font-size: 1em;
 }*/
 
-
 .topBar {
   color: #324A5E;
   font-family: 'Play', sans-serif;
-  font-size: 18px;
-  padding-top: 10px;
+  font-size: 14px;
+  padding-top: 5px;
   text-align: center;
 }
 
@@ -52,7 +51,9 @@ body {
   font-size: 16px;
   font-weight: bold;
   text-align: center;
-  line-height: 3em;
+  line-height: 1.3em;
+  margin: 0;
+  padding: 0;
 }
 
   #overflowTitle {
@@ -92,6 +93,6 @@ body {
 #hiddenBar {
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 520px;
+  height: 700px;
   border-bottom: 10px solid rgba(84, 192, 235, 0.6);
 }

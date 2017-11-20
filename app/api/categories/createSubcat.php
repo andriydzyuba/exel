@@ -15,9 +15,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-if ($request->images) {
-	$request->images = serialize($request->images);
-}
+//if ($request->images) {
+//	$request->images = serialize($request->images);
+//}
 
 $request->title = addslashes($request->title);
 $request->eng_title = addslashes($request->eng_title);

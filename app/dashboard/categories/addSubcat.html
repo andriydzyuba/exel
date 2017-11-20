@@ -6,10 +6,10 @@
 		<a href="" class="btn btn-primary" ng-click="triggerInput()">Додати фото</a>
 	</div>
 
-	<div class="photoes-to-add">
+	<div class="photoes-to-add" ng-show="subcategory.images">
 		<div class="row">
-			<div ng-repeat="image in subcategory.images track by $index" class="col-md-3 photo-container">
-				<img ng-src="{{image}}">
+			<div class="col-md-3 photo-container">
+				<img ng-src="{{subcategory.images}}">
 				<a href="" class="btn btn-danger delete-btn" ng-click="deletePhoto($index)">Видалити</a>
 			</div>
 		</div>

@@ -296,27 +296,20 @@ function sendFile(file) {
 
     }
 
+
     $scope.triggerInput = function() {
-        if (!$scope.subcategory.images || $scope.subcategory.images.length < 4) {
-            $('#photo-input').click();
-        } else {
-            $scope.maxPhoto = true;
-        }
-        
+            $('#photo-input').click();    
     }
 
     $scope.onFile = function(file) {
         cropperService.openCropper(file, 1.6, 900).then(function(data){
             $('#photo-input').val(null);
-            if (!$scope.subcategory.images) {
-                $scope.subcategory.images = [];
-            }
-            $scope.subcategory.images.push(data);
+            $scope.subcategory.images = data;
         });
     }
 
     $scope.deletePhoto = function(index) {
-        $scope.subcategory.images.splice(index, 1);
+        $scope.subcategory.images = null;
     }
 
 }])

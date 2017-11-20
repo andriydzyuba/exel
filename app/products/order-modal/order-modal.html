@@ -17,6 +17,12 @@
     </div>
     <button type="submit" value="Створити замовлення" class="btn btn-success">Підтвердити</button>
   </form>
+
+  <div class="success-message" data-ng-show="isOrderSubmitted">
+    <p>Вітаємо, Ви замовили товар, очікуйте повідомлення на email!<p>
+    <button data-ng-click="closeModal()">OK</button>
+  </div>
+
 </div>
 
 <div class="modal-footer">

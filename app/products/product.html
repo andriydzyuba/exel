@@ -21,21 +21,23 @@
 
 		<div class="col-md-9 article">
 			<h2 class="no-top-margin">{{product.title}}</h2>
-			<p><span id="productPrice">{{product.price + ' ₴'}}</span></p><br/>
-			<p>{{product.spec}}</p><br/><hr/><br/>
+			<p><span id="productPrice">{{product.price + ' ₴'}}</span></p><hr/>
 			<div class="row">
-				<div class="col-md-4 article">
+				<div class="col-md-5 article">
 					<img ng-src="{{product.image}}"><br/><br/>
 				</div>
-				<div class="col-md-8 article">
-					<div data-ng-bind-html="product.text"></div>
+				<div class="col-md-7 article">
+					<div class="container-fluid" user-buttons>
+						<a ui-sref="#" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>Додати у кошик</a>
+						<a ng-click="callOrderModal()" href="" type="button" class="btn btn-success"><span class="glyphicon glyphicon-usd"></span>Купити в один клік</a>
+					</div><br/>
+					<p>{{product.spec}}</p><br/>
 				</div>
 			</div>
+			<div data-ng-bind-html="product.text"></div>
 		</div>
 
-		<div id="productBar" class="col-md-3 user-buttons">
-			<a ui-sref="#" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>Додати у кошик</a>
-			<a ng-click="callOrderModal()" href="" type="button" class="btn btn-success"><span class="glyphicon glyphicon-usd"></span>Купити в один клік</a><br/><hr/><br/>
+		<div id="productBar" class="col-md-3">
 			<div id="hiddenBar">
 				<a ng-repeat="product in products" class="news-item" ui-sref="products({productId:product.id})">
 					<img ng-src="{{product.image}}">
@@ -46,6 +48,7 @@
 						</div>
 				</a>
 			</div>
+
 		</div>
 
 	</div>
