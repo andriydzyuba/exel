@@ -68,17 +68,6 @@ body {
 	color: #54C0EB;
 }
 
-#navButton {
-	background-color: #54C0EB;
-	border: 2px solid #324A5E;
-	position: relative;
-	top: -70px;
-}
-
-#navButton:active {
-	background-color: #84DBFF;
-}
-
 @media (min-width:768px) {
 	.main-navigation .navbar-default .navbar-nav > li > a {
 		padding-top: 30px;
@@ -154,8 +143,6 @@ padding: 0;
 	-moz-animation: slide 0.5s ease-out;
 	animation: slide 0.5s ease-out;
 }
-
-
 
 @-webkit-keyframes fadeIn {
 from {

@@ -11,9 +11,7 @@
 </div>
 -->
 <!-- <span></span> -->
-<a href="#/dashboard/products" class="text-center"><h2> Адмін панель</h2></a>
-
-<br>
+<!--<a href="#/dashboard/products" class="text-center"><h2> Адмін панель</h2></a>-->
 
 <div class="container-fluid">
 <section class="products">
@@ -48,14 +46,24 @@
 				</div>
 			</div><br/>-->
 
-			<span id="clickSearch"><input id="formSearch" ng-model="$products.query" placeholder="Пошук" style="height:30px;width:50%;padding-left:15px;border-radius:4px;">
-			</span>
-			<hr/ style="margin:10px 0;">
+			<!--<div id="formButtonSearch" class="row" style="padding:10px 15px;background-color:#54C0EB;display:none;"><input ng-model="$products.query" placeholder="Пошук" style="height:50px;width:100%;padding-left:15px;border-radius:4px;">
+			</div>
+			<hr/ style="margin:5px 0;">
+			<script>
+			$(document).ready(function(){
+			    $("#clickButtonSearch").click(function(){
+			        $("#formButtonSearch").toggle();
+			    });
+			});
+		</script>-->
+
+			<div id="seachInput" class="row"><span id="clickSearch"><input id="formSearch" ng-model="$products.query" placeholder="Пошук">
+			</span></div>
 			<script>
 			$(document).ready(function(){
 					$("#clickSearch").click(function(){
 							var div = $("#formSearch");
-							div.animate({height: '50px', width: '100%'}, "slow");
+							div.animate({height: '40px', width: '100%'}, "slow");
 					});
 			});
 			</script>
@@ -89,32 +97,7 @@
 			</div>
 
 			<div class="row">
-				<div class="container col-lg-3">
-					<!--<span id="clickSearch"><input id="formSearch" ng-model="$products.query" placeholder="Пошук" style="height:50px;width:50%;padding-left:15px;border-radius:4px;">
-					</span>
-					<hr/ style="margin:10px 0;">
-					<script>
- 					$(document).ready(function(){
- 					    $("#clickSearch").click(function(){
- 					        var div = $("#formSearch");
- 					        div.animate({height: '50px', width: '100%'}, "slow");
- 					    });
- 					});
- 					</script>
-
- 					<script>
- 					$(document).ready(function(){
- 					    $("#clickSearch").hover(function(){
- 								var div = $("#formSearch");
- 								div.animate({height: '50px', width: '100%'}, "slow");
- 					    },
- 					    function(){
- 								var div = $("#formSearch");
- 								div.animate({height: '50px', width: '50%'}, "slow");
- 					    });
- 					});
-				</script>-->
-
+				<div class="container col-md-3">
 					<div class="list-group">
  						<div ng-repeat="cat in categories track by $index" class="cat">
   							<nav class="navbar navbar-default">
@@ -137,29 +120,33 @@
 
 				</div>
 
-				<div class="col-lg-9">
+				<div class="col-md-9">
 					<div ui-view></div>
 
 					<hr>
 					<h3>Новинки</h3>
 
-					<div ng-cloak class="ng-cloak portfolio-container row grid-space-20">
-						<div  ng-repeat="product in products track by $index" class="col-sm-6 col-md-4 portfolio-item {{product.title}}">
-							<div class="image-box">
-								<p id="overflowTitle">{{product.title}}</p>
-								<div class="overlay-container">
-								<img ng-src="{{product.image}}" alt="">
-								<a class="overlay" ui-sref="products({productId:product.id})" data-target="#{{$index}}">
-								<i class="glyphicon glyphicon-zoom-in"></i>
-								<span>{{product.price + ' ₴'}}</span>
-								</a>
-								<span id="stylePrice">{{product.price + ' ₴'}}</span>
-								</div>
+					<div ng-cloak class="ng-cloak portfolio-container">
+						<div class="row">
+							<div ng-repeat="product in products track by $index" class="portfolio-item">
+
+
+									<div class="col-sm-6 col-md-4 image-box">
+										<p id="overflowTitle">{{product.title}}</p>
+										<div class="overlay-container">
+											<img ng-src="{{product.image}}" alt="">
+											<a class="overlay" ui-sref="products({productId:product.id})" data-target="#{{$index}}">
+											<i class="glyphicon glyphicon-zoom-in"></i>
+											<span>{{product.price + ' ₴'}}</span>
+											</a>
+											<span id="stylePrice">{{product.price + ' ₴'}}</span>
+									  </div>
+
 							</div>
 						</div>
 					</div>
-
 				</div>
+
 			</div>
 		</div>
 	</div>

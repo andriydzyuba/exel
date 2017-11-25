@@ -69,11 +69,12 @@
               <div class="container-fluid">
                 <div class="navbar-header">
                   <button id="navButton" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                  <i class="fa fa-chevron-circle-down" aria-hidden="true" style="font-size:20px;color:#324A5E;padding:2px 3px 0px 3px;"></i>
+                  <i id="navButtonNext" class="fa fa-chevron-circle-down" aria-hidden="true"></i>
                   </button>
                 </div>
                 <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
                   <ul ng-cloak class="nav navbar-nav navbar-right">
+                    <!--<li id="clickButtonSearch"><a style="font-size:30px;">Пошук</a></li>-->
                     <li ng-class="{ active: isActive('')}"><a ui-sref="main" style="font-size:30px;">{{main}}</a></li>
                     <li ng-class="{ active: isActive('about')}"><a ui-sref="about" style="font-size:30px;">{{about}}</a></li>
                     <!-- <li ng-class="{ active: isActive('services')}"><a ui-sref="services.detail ({id: '20'})">{{offers}}</a></li> -->

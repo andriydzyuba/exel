@@ -39,11 +39,41 @@ body {
   text-decoration: none;
 }
 
+#navButton {
+	background-color: #54C0EB;
+	border: 2px solid #324A5E;
+	position: relative;
+	top: -70px;
+}
+
+#navButton:active {
+	background-color: #84DBFF;
+}
+
+#navButtonNext {
+  font-size: 20px;
+  color: #324A5E;
+  padding:2px 3px 0px 3px;
+}
+
 .cat .navbar-default .navbar-nav > li > a {
 	color: #324A5E;
 	padding: 10px;
 	font-size: 18px;
 	font-weight: bold;
+}
+
+#seachInput {
+  padding: 5px 15px;
+  background-color:#54C0EB;
+  margin-bottom:5px;
+}
+
+#formSearch {
+  height: 25px;
+  width: 100%;
+  border-radius: 4px;
+  text-align: center;
 }
 
 #catMenu {
@@ -56,14 +86,17 @@ body {
   padding: 0;
 }
 
-  #overflowTitle {
-    font-size: 1.1em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 300px;
-    height: 50px;
-    padding-left: 10px
-  }
+#productState {
+  width: 100%;
+	border-radius: 10px;
+}
+
+#overflowTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 95%;
+  height: 45px;
+}
 
 #stylePrice {
   font-size: 1em;
