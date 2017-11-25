@@ -11,9 +11,9 @@ $sql = "SELECT * FROM Subcats WHERE s_id=$postdata";
 
 $result = $conn->query($sql)->fetch_object();
 
-if ($result->images) {
-	$result->images = unserialize($result->images);
-}
+//if ($result->images) {
+//	$result->images = unserialize($result->images);
+//}
 
 
 

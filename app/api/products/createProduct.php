@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../credentials.php';
-
+ 
 
 $postdata = file_get_contents("php://input");
 $request = json_decode($postdata);
@@ -22,7 +22,7 @@ $request->spec = addslashes($request->spec);
 $request->price = addslashes($request->price);
 
 
-$sql = "INSERT INTO Products (title, spec, text, image, price, c_id, s_id) VALUES ('$request->title', '$request->spec', '$request->text', '$request->image', '$request->price', '$request->c_id', '$request->s_id')";
+$sql = "INSERT INTO Products (title, spec, text, image, price, c_id, s_id, ss_id) VALUES ('$request->title', '$request->spec', '$request->text', '$request->image', '$request->price', '$request->c_id', '$request->s_id', '$request->ss_id')";
 
 if ($conn->query($sql) === TRUE) {
  	echo "Товар додано успішно.";

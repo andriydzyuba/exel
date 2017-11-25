@@ -1,4 +1,4 @@
- <!--
+<!--
 <div class="main-banner">
 	<div class="container-fluid">
 		<div class="main-heading row">
@@ -13,9 +13,38 @@
 <!-- <span></span> -->
 <!--<a href="#/dashboard/products" class="text-center"><h2> Адмін панель</h2></a>-->
 
+<a href="#/dashboard/products" class="text-center"><h2> Адмін панель</h2></a>
+<br>
+
 <div class="container-fluid">
 <section class="products">
 	<div class="row">
+		<div class="container-fluid col-lg-12">
+			<div class="list-group">
+ 						<div ng-repeat="cat in categories track by $index" class="cat">
+  							<nav class="navbar navbar-default">
+ 							  <div class="container">
+ 							    <ul class="nav navbar-nav">
+ 							      <li class="dropdown">
+ 							        <a class="dropdown-toggle" data-toggle="dropdown" ui-sref="main.category({ catId: cat.c_id })" class="text-center">{{cat.title}}<span class="caret"></span></a>
+ 									<ul id="catMenu" class="dropdown-menu">
+ 										<!--Підкатегорії-->
+ 										<div ng-repeat="subcat in cat.subcats track by $index">
+ 											<a ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span><img ng-src="{{subcat.images}}" alt="" style="height: 50%; width: 50%;">{{subcat.title}}<hr/ style="margin:0px;"></span></a>
+ 											<!--Субкатегорії-->
+ 											<div ng-repeat="subsubcat in subcat.subcats track by $index" class="list-group-item ssubcat">
+										        <a ui-sref="main.ssubcategory({ ssubcatId: subsubcat.ss_id })" class="text-center"><span><img ng-src="{{subsubcat.images}}" alt="" style="height: 50%; width: 50%;">{{subsubcat.title}}</span></a>
+									        </div>
+
+ 										</div>
+ 							        </ul>
+ 							      </li>
+ 							    </ul>
+ 							  </div>
+ 							</nav>
+  						</div>
+					</div>
+		</div>
 		<div class="container-fluid">
 
 			<!--<div class="container-fluid">
@@ -101,7 +130,8 @@
 					<div class="list-group">
  						<div ng-repeat="cat in categories track by $index" class="cat">
   							<nav class="navbar navbar-default">
-	 							  <div class="container">
+
+	 							  <!--<div class="container">
 	 							    <ul class="nav navbar-nav">
 	 							      <li class="dropdown">
 	 							        <a id="buttonSub" class="dropdown-toggle" data-toggle="dropdown" class="text-center">{{cat.title}}<span class="caret"></span></a>
@@ -114,7 +144,23 @@
 	 							      </li>
 	 							    </ul>
 	 							  </div>
- 								</nav>
+ 								</nav>-->
+
+ 							  <div class="container">
+ 							    <ul class="nav navbar-nav">
+ 							      <li class="dropdown">
+ 							        <a class="dropdown-toggle" data-toggle="dropdown" ui-sref="main.category({ catId: cat.c_id })" class="text-center">{{cat.title}}<span class="caret"></span></a>
+ 									<ul id="catMenu" class="dropdown-menu">
+ 										<div ng-repeat="subcat in cat.subcats track by $index">
+ 											<a ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span><img ng-src="{{subcat.images}}" alt="" style="height: 50%; width: 50%;">{{subcat.title}}<hr/ style="margin:0px;"></span></a>
+
+ 										</div>
+ 							        </ul>
+ 							      </li>
+ 							    </ul>
+ 							  </div>
+ 							</nav>
+
   						</div>
 						</div>
 

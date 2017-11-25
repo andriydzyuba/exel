@@ -29,6 +29,15 @@ angular.module('exel').factory('catService', ['$http', '$q', '$modal', 'Cropper'
 	    return defer.promise;
 	};
 
+	_getSsubcat = function(id) {
+		var defer = $q.defer();
+		$http.post('api/categories/getSsubcat.php', id).success(function(data){
+	        defer.resolve(data);
+	       
+	    });
+	    return defer.promise;
+	};
+
 	_deleteCat = function(id) {
 		defer = $q.defer();
 		$http.post('api/categories/deleteCat.php', id).success(function(data){
@@ -45,9 +54,25 @@ angular.module('exel').factory('catService', ['$http', '$q', '$modal', 'Cropper'
 		return defer.promise;
 	}
 
+	_createSsubcat = function(ssubcat) {
+		defer = $q.defer();
+		$http.post('api/categories/createSsubcat.php', ssubcat).success(function(data){
+			defer.resolve(data);
+		});
+		return defer.promise;
+	}
+
 	_editSubcat = function(subcat) {
 		defer = $q.defer();
 		$http.post('api/categories/editSubcat.php', subcat).success(function(data){
+			defer.resolve(data);
+		});
+		return defer.promise;
+	}
+
+	_editSsubcat = function(ssubcat) {
+		defer = $q.defer();
+		$http.post('api/categories/editSsubcat.php', ssubcat).success(function(data){
 			defer.resolve(data);
 		});
 		return defer.promise;
@@ -61,15 +86,26 @@ angular.module('exel').factory('catService', ['$http', '$q', '$modal', 'Cropper'
 		return defer.promise
 	}
 
+	_deleteSsubcat = function(id) {
+		defer = $q.defer();
+		$http.post('api/categories/deleteSsubcat.php', id).success(function(data){
+			defer.resolve(data);
+		});
+		return defer.promise
+	}
 
 
 	catService.createCat = _createCat;
 	catService.getCats = _getCats;
 	catService.getSubcat = _getSubcat;
+	catService.getSsubcat = _getSsubcat;
 	catService.deleteCategory = _deleteCat;
 	catService.createSubcat = _createSubcat;
+	catService.createSsubcat = _createSsubcat;
 	catService.editSubсat = _editSubcat;
+	catService.editSsubсat = _editSsubcat;
 	catService.deleteSubcat = _deleteSubcat;
+	catService.deleteSsubcat = _deleteSsubcat;
 	
 	
     return catService;

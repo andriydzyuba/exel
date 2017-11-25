@@ -60,6 +60,17 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 // FOREIGN KEY (c_id) REFERENCES Categories(c_id) 
 // )";
 
+// $sql = "CREATE TABLE Ssubcats (
+// ss_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+// title VARCHAR(542) NOT NULL,
+// eng_title VARCHAR(142) NOT NULL,
+// images VARCHAR(10000) NOT NULL,
+// text TEXT NOT NULL,
+// s_id INT(6) UNSIGNED,
+// FOREIGN KEY (s_id) REFERENCES Subcats(s_id) 
+// )";
+
+
 // if ($conn->query($sql) === TRUE) {
 //     echo "Table subCats created successfully";
 // } else {

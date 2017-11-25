@@ -12,6 +12,10 @@
 		<option selected disabled value="">Вкажіть підкатегорію</option>
 		</select>
 
+		<select ng-if="subcatsList" ng-options="subsubcat.ss_id as subsubcat.title for subsubcat in subcat.subcats" ng-model="product.ss_id">
+		<option selected disabled value="">Вкажіть субкатегорію</option>
+		</select>
+
 		<br><br>
 		<input type="file" id='photo-input' onchange="angular.element(this).scope().onFile(this.files[0])">
 		<a href="" class="btn btn-primary" ng-click="triggerInput()">Додати фото</a>

@@ -22,6 +22,12 @@ angular.module('exel.main', ['ngRoute'])
             controller: 'SubCategoryController'
         })
 
+        .state('main.ssubcategory', {
+            url:'/subcategory/:ssubcatId',
+            templateUrl: 'products/category.html',
+            controller: 'SsubCategoryController'
+        })
+
         .state('main.product', {
             url:'/product/:id',
             templateUrl: 'product/product.html',
@@ -119,6 +125,35 @@ angular.module('exel.main', ['ngRoute'])
     })
 
 }])
+
+.controller('SsubCategoryController', ['$scope', '$http', '$location', '$timeout', '$modal', '$stateParams', 'cropperService', '$modalStack', 'catService', 'productsService', 'confirmService', function($scope, $http, $location, $timeout, $modal, $stateParams, cropperService, $modalStack, catService, productsService, confirmService) {
+    console.log('çontroller runs');
+    $scope.subcategoryId = $stateParams.subcatId;
+    $scope.ssubcatId = $stateParams.ssubcatId;
+    $scope.ssubcategory = {};
+    $scope.ssubcategory.s_id = $scope.subcatId;
+
+    if ($scope.ssubcatId) {
+        catService.getSsubcat($scope.ssubcatId).then(function(data){
+            $scope.ssubcategory = data;
+        })
+    }
+
+    catService.getCats().then(function(data){
+        $scope.categories = data;
+        
+    });
+
+    $scope.category = {};
+
+
+    productsService.getListBySsubCategoryId($stateParams.ssubcatId).then(function(data){
+        $scope.products = data;
+    })
+
+}])
+
+
 
 .controller('MainPageController', ['$scope', '$http', '$animate', 'newsService', 'productsService', 'catService', function($scope, $http, $animate, newsService, productsService, catService) {
 $http.get('main/slides.json').success(function(data) {
