@@ -37,16 +37,16 @@ angular.module('exel.main', ['ngRoute'])
 
 //фільтр товарів за ціною
 .filter('priceLessThan', function () {
- 
+
     return function (input, price) {
         var output = [];
         if (isNaN(price)) {
- 
+
             output = input;
         }
         else {
             angular.forEach(input, function (item) {
- 
+
                 if (item.price < price) {
                     output.push(item)
                 }
@@ -87,7 +87,7 @@ angular.module('exel.main', ['ngRoute'])
 
     catService.getCats().then(function(data){
         $scope.categories = data;
-        
+
     });
 
     $scope.category = {};
@@ -114,7 +114,7 @@ angular.module('exel.main', ['ngRoute'])
 
     catService.getCats().then(function(data){
         $scope.categories = data;
-        
+
     });
 
     $scope.category = {};
@@ -141,7 +141,7 @@ angular.module('exel.main', ['ngRoute'])
 
     catService.getCats().then(function(data){
         $scope.categories = data;
-        
+
     });
 
     $scope.category = {};
@@ -191,7 +191,7 @@ productsService.getProducts().then(function(data){
 
 catService.getCats().then(function(data){
         $scope.categories = data;
-        
+
     });
 
     $scope.category = {};
