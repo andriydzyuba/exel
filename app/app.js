@@ -12,8 +12,6 @@ angular.module('exel', [
   'exel.CONFIG',
   'exel.main',
   'exel.about',
-  'exel.services',
-  'exel.portfolio',
   'exel.contacts',
 ]).
 config(['$routeProvider', function($routeProvider) {

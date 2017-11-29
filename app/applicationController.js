@@ -1,6 +1,6 @@
 (function(){
   angular.module('exel')
-  .controller("ApplicationController", ["$scope", "$location", "CONFIG", function($scope, $location, CONFIG){
+  .controller("ApplicationController", ["$scope", "$location", "CONFIG", 'catService', function($scope, $location, CONFIG, catService){
 
   	$scope.main = CONFIG.MAIN;
     $scope.products = CONFIG.PRODUCTS;
@@ -11,10 +11,18 @@
      
 
 
-$scope.isActive = function (viewLocation) { 
+    $scope.isActive = function (viewLocation) { 
     
         return viewLocation === $location.path().split('/')[1];
     };
 
+    
+
+
+    catService.getCats().then(function(data){
+        $scope.categories = data;
+        
+    });
+
   }]);
-})();
+})(); 

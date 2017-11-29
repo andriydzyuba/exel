@@ -1,1 +1,91 @@
-<p>{{products}}</p>
+<a href="#/dashboard/products" class="text-center"><h2> Адмін панель</h2></a>
+<br>
+
+<div class="container-fluid">
+<section class="products">
+      </br>
+      <nav class="navbar navbar-default">
+        <div class="row">
+
+          <div class="col-md-8">
+            <ul class="nav navbar-nav" ng-repeat="cat in categories track by $index" class="cat">
+              <li id="catMenu" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" class="text-center">{{cat.title}}<span class="caret"></span></a>
+                <ul id="subCatMenu" class="dropdown-menu">
+                  <li class="dropdown" ng-repeat="subcat in cat.subcats track by $index">
+                    <a class="dropSubMenu" tabindex="-1" ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}}<span class="caret"></span></span></a>
+                    <ul class="dropdown-menu" id="dropMenu">
+                      <li id="subSubcatMenu" class="dropdown" ng-repeat="subsubcat in subcat.subcats track by $index">
+                        <a tabindex="-1" ui-sref="main.ssubcategory({ ssubcatId: subsubcat.ss_id })" class="text-center"><span><img ng-src="{{subsubcat.images}}" alt="" style="height: 50%; width: 50%;"> {{subsubcat.title}}</span></a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <script>
+            var $j = jQuery.noConflict();
+            $j(document).ready(function(){
+              $j('.dropSubMenu').on("click", function(e){
+                $j(this).next('ul').toggle();
+                e.stopPropagation();
+              });
+            });
+          </script>
+
+          <div class="col-md-4">
+            <div id="seachInput" class="row"><span id="clickSearch"><input id="formSearch" ng-model="$products.query" placeholder="Пошук">
+            </span></div>
+          </div>
+
+        </div>
+      </nav>
+
+
+          <script>
+          $j(document).ready(function(){
+              $j("#clickSearch").focusin(function(){
+                  var div = $j("#formSearch");
+                  div.animate({width: '100%'}, "slow");
+              });
+              $j("#clickSearch").focusout(function(){
+                  var div = $j("#formSearch");
+                  div.animate({width: '34%'}, "slow");
+              });
+          });
+          </script>
+
+
+			<div class="row">
+				<div class="container col-md-3">
+					
+
+				</div>
+
+				<div class="col-md-9">
+					<div ui-view><p>Hello</p></div>
+					<hr>
+
+					<h3>Новинки</h3>
+					<div class="container-fluid" ng-cloak class="ng-cloak portfolio-container">
+							<div ng-repeat="product in products track by $index" class="portfolio-item">
+								<div class="col-sm-3 col-md-3 image-box">
+									<p id="overflowTitle">{{product.title}}</p>
+									<div class="overlay-container">
+										<img ng-src="{{product.image}}" alt="">
+										<a class="overlay" ui-sref="products({productId:product.id})" data-target="#{{$index}}">
+  										<i class="glyphicon glyphicon-zoom-in"></i>
+  										<span>{{product.price + ' ₴'}}</span>
+										</a>
+										<span id="stylePrice">{{product.price + ' ₴'}}</span>
+								    </div>
+  							</div>
+  					</div>
+  				</div>
+
+			</div>
+
+</section>
+</div>

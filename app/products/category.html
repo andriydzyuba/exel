@@ -4,9 +4,13 @@
     <br/>
 </div>
 
-<div class="container-fluid" ng-cloak class="ng-cloak portfolio-container">
-	<div ng-repeat="product in products|priceLessThan:priceterm | filter:$products.query" class="portfolio-item {{product.title}}">
-		<div class="col-sm-6 col-md-4 image-box">
+<div ng-repeat="ssub in ssubs track by $index">
+	<a ui-sref="main.ssubcategory({ ssubcatId: ssub.ss_id })" class="text-center"><span><img ng-src="{{ssub.images}}" alt="" style="height: 25%; width: 25%;">{{ssub.title}}</span></a>
+</div>
+
+<div ng-cloak class="ng-cloak portfolio-container row grid-space-20">
+	<div  ng-repeat="product in products|priceLessThan:priceterm | filter:$products.query track by $index" class="col-sm-6 col-md-4 portfolio-item {{product.title}}">
+		<div class="image-box">
 			<p id="overflowTitle">{{product.title}}</p>
 			<div class="overlay-container">
 				<img ng-src="{{product.image}}" alt="">

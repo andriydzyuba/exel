@@ -8,11 +8,11 @@
 		<option selected disabled value="">Вкажіть категорію</option>
 		</select>
 
-		<select ng-if="subcatsList" ng-options="subcat.s_id as subcat.title for subcat in subcatsList" ng-model="product.s_id" required>
+		<select ng-if="subcatsList" ng-options="subcat.s_id as subcat.title for subcat in subcatsList" ng-model="product.s_id" ng-change="getSubSubcatsList()" required>
 		<option selected disabled value="">Вкажіть підкатегорію</option>
 		</select>
 
-		<select ng-if="subcatsList" ng-options="subsubcat.ss_id as subsubcat.title for subsubcat in subcat.subcats" ng-model="product.ss_id">
+		<select ng-if="subSubcatsList" ng-options="subsubcat.ss_id as subsubcat.title for subsubcat in subSubcatsList" ng-model="product.ss_id">
 		<option selected disabled value="">Вкажіть субкатегорію</option>
 		</select>
 

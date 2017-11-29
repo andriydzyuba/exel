@@ -3,7 +3,8 @@
 
 <div class="list-group">
   <div ng-repeat="order in orders track by $index" class="cat">
-  	<div class="list-group-item cat">{{order.id}} 	
+  	<div class="list-group-item cat">Номер замовлення:{{order.id}}<br>
+  	 {{order.date}}	
       <a ui-sref="dashboard.order({orderId: order.id})" class="btn btn-default">Переглянути замовлення</a>
   	</div>
   	<br>

@@ -4,7 +4,6 @@ angular.module('exel')
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $stateProvider
-
         .state('products', {
             url:'/products/:productId',
             templateUrl: 'products/product.html',
@@ -13,7 +12,7 @@ angular.module('exel')
 }])
 
 
-.controller('ProductsController', ['$scope', '$location', '$state', '$stateParams', 'productsService', 'modalsService', function($scope, $location, $state, $stateParams, productsService, modalsService) {
+.controller('ProductsController', ['$scope', '$location', '$state', '$stateParams', 'productsService', 'modalsService', 'catService', function($scope, $location, $state, $stateParams, productsService, modalsService, catService) {
     console.log("xx")
     productsService.getProduct($stateParams.productId).then(function(data){
         $scope.product = data;
@@ -33,5 +32,6 @@ angular.module('exel')
 
         modalsService.openOrderModal($scope.product.id);
     }
+
 
 }]) 

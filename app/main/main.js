@@ -23,7 +23,7 @@ angular.module('exel.main', ['ngRoute'])
         })
 
         .state('main.ssubcategory', {
-            url:'/subcategory/:ssubcatId',
+            url:'/ssubcategory/:ssubcatId',
             templateUrl: 'products/category.html',
             controller: 'SsubCategoryController'
         })
@@ -112,16 +112,22 @@ angular.module('exel.main', ['ngRoute'])
         })
     }
 
-    catService.getCats().then(function(data){
-        $scope.categories = data;
 
-    });
+//    catService.getCats().then(function(data){
+//        $scope.categories = data;
 
-    $scope.category = {};
+//    });
+
+   $scope.category = {};
 
 
     productsService.getListBySubCategoryId($stateParams.subcatId).then(function(data){
         $scope.products = data;
+    })
+
+    catService.getSsubcatsBySubCategoryId($stateParams.subcatId).then(function(data){
+        $scope.ssubs = data;
+        console.log($scope.ssubs);
     })
 
 }])
@@ -155,45 +161,45 @@ angular.module('exel.main', ['ngRoute'])
 
 
 
-.controller('MainPageController', ['$scope', '$http', '$animate', 'newsService', 'productsService', 'catService', function($scope, $http, $animate, newsService, productsService, catService) {
-$http.get('main/slides.json').success(function(data) {
-      $scope.slides = data;
+.controller('MainPageController', ['$scope', '$http', '$animate', 'productsService', 'catService',
+    function($scope, $http, $animate, productsService, catService) {
 
-      var i, a = [], b;
 
-      for (i = 0; i < $scope.slides.length; i += 6) {
-        b = { image1: $scope.slides[i] };
 
-        if ($scope.slides[i + 5]) {
-          b.image2 = $scope.slides[i + 1];
-          b.image3 = $scope.slides[i + 2];
-          b.image4 = $scope.slides[i + 3];
-          b.image5 = $scope.slides[i + 4];
-          b.image6 = $scope.slides[i + 5];
-        }
-
-        a.push(b);
+    productsService.getProducts().then(function(data){
+        console.log(data);
+      $scope.products = data.reverse();
+      if ($scope.products.length > 4) {
+        $scope.products = $scope.products.splice(0, 9);
       }
+      //$scope.mainProduct = $scope.products.splice(0, 1)[0];
+    })
 
-      $scope.groupedSlides = a;
 
-});
-$animate.enabled(false);
-$scope.myInterval = 6000;
+    catService.getCats().then(function(data){
+            $scope.categories = data;
 
-productsService.getProducts().then(function(data){
-  $scope.products = data.reverse();
-  if ($scope.products.length > 4) {
-    $scope.products = $scope.products.splice(0, 9);
-  }
-  //$scope.mainProduct = $scope.products.splice(0, 1)[0];
-})
+        });
 
-catService.getCats().then(function(data){
-        $scope.categories = data;
+        $scope.category = {};
 
+    var $j = jQuery.noConflict();
+        $j(document).ready(function(){
+          $j('.dropSubMenu').mouseenter (function(e){
+            $j(this).next('ul').toggle();
+            e.stopPropagation();
+          });
     });
 
-    $scope.category = {};
+    $j(document).ready(function(){
+      $j("#clickSearch").focusin(function(){
+          var div = $j("#formSearch");
+          div.animate({width: '100%'}, "slow");
+      });
+      $j("#clickSearch").focusout(function(){
+          var div = $j("#formSearch");
+          div.animate({width: '34%'}, "slow");
+      });
+    });
 
 }]);
