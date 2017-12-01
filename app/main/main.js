@@ -185,10 +185,15 @@ angular.module('exel.main', ['ngRoute'])
 
     var $j = jQuery.noConflict();
         $j(document).ready(function(){
-          $j('.dropSubMenu').mouseenter (function(e){
+          $j('.dropSubMenu').hover(function(e){
             $j(this).next('ul').toggle();
             e.stopPropagation();
           });
+          $j('.dropMenu').hover(function(e){
+            $j(this).toggle();
+            e.stopPropagation();
+          });
+
     });
 
     $j(document).ready(function(){
