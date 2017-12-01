@@ -14,7 +14,7 @@ body {
 .topBar {
   color: #324A5E;
   font-family: 'Play', sans-serif;
-  font-size: 14px;
+  font-size: 0.9em;
   padding-top: 5px;
   text-align: center;
 }
@@ -34,7 +34,7 @@ body {
   color: #ffffff;
   font-weight: bold;
   font-family: 'Play', sans-serif;
-  font-size: 95px;
+  font-size: 3.5em;
   line-height: 0.9em;
   text-decoration: none;
 }
@@ -60,9 +60,8 @@ body {
     font-size: 1.1em;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 300px;
+    width: 100%;
     height: 50px;
-    padding-left: 10px
   }
 
 #stylePrice {
@@ -95,4 +94,9 @@ body {
   text-overflow: ellipsis;
   height: 700px;
   border-bottom: 10px solid rgba(84, 192, 235, 0.6);
+}
+
+#fb-button-container {
+  max-width: 100px;
+  margin: auto;
 }
