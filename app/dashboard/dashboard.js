@@ -1,4 +1,4 @@
-'use strict';
+'use strict';  
 
 angular.module('exel')
 
@@ -14,20 +14,20 @@ angular.module('exel')
     templateUrl: 'dashboard/categories/categories.html',
     controller: 'DashboardCategoriesController'
   })
-  .state('dashboard.news', {
-    url:'/news',
-    templateUrl: 'dashboard/news/news.html',
-    controller: 'DashboardNewsController'
-  })
   .state('dashboard.products', {
     url:'/products',
     templateUrl: 'dashboard/products/products.html',
     controller: 'DashboardProductsController'
   })
-  .state('dashboard.portfolio', {
-    url:'/portfolio',
-    templateUrl: 'dashboard/portfolio/portfolio.html',
-    controller: 'DashboardPortfolioController'
+  .state('dashboard.orders', {
+    url:'/orders',
+    templateUrl: 'dashboard/orders/orders.html',
+    controller: 'DashboardOrdersController'
+  })
+  .state('dashboard.order', {
+    url:'/orders/order/:orderId',
+    templateUrl: 'dashboard/orders/order.html',
+    controller: 'DashboardOrdersController'
   })
   .state('dashboard.team', {
     url:'/team',
@@ -39,20 +39,20 @@ angular.module('exel')
     templateUrl: 'dashboard/categories/addSubcat.html',
     controller: 'DashboardCategoriesController'
   })
+  .state('dashboard.addssubcat', {
+    url:'/addssubcat/:subcatId',
+    templateUrl: 'dashboard/categories/addSsubcat.html',
+    controller: 'DashboardCategoriesController'
+  })
   .state('dashboard.editsubcat', {
     url:'/editsubcat/:subcatId',
     templateUrl: 'dashboard/categories/addSubcat.html',
     controller: 'DashboardCategoriesController'
   })
-  .state('dashboard.addarticle', {
-    url:'/addarticle',
-    templateUrl: 'dashboard/news/addArticle.html',
-    controller: 'DashboardAddArticleController'
-  })
-  .state('dashboard.editarticle', {
-    url:'/editarticle/:articleId',
-    templateUrl: 'dashboard/news/addArticle.html',
-    controller: 'DashboardAddArticleController'
+  .state('dashboard.editssubcat', {
+    url:'/editssubcat/:ssubcatId',
+    templateUrl: 'dashboard/categories/addSsubcat.html',
+    controller: 'DashboardCategoriesController'
   })
   .state('dashboard.addproduct', {
     url:'/addproduct',
@@ -63,16 +63,6 @@ angular.module('exel')
     url:'/editproduct/:productId',
     templateUrl: 'dashboard/products/addProduct.html',
     controller: 'DashboardAddProductController'
-  })
-  .state('dashboard.addportfolio', {
-    url:'/addportfolio',
-    templateUrl: 'dashboard/portfolio/addPortfolio.html',
-    controller: 'DashboardAddPortfolioController'
-  })
-  .state('dashboard.editportfolio', {
-    url:'/editportfolio/:itemId',
-    templateUrl: 'dashboard/portfolio/addPortfolio.html',
-    controller: 'DashboardAddPortfolioController'
   })
   .state('dashboard.addmember', {
     url:'/addmember',
@@ -216,6 +206,13 @@ function sendFile(file) {
     $scope.subcatId = $stateParams.subcatId;
     $scope.subcategory = {};
     $scope.subcategory.c_id = $scope.categoryId;
+    
+    $scope.subcategoryId = $stateParams.subcatId;
+    $scope.ssubcatId = $stateParams.ssubcatId;
+    $scope.ssubcategory = {};
+    $scope.ssubcategory.s_id = $scope.subcatId;
+
+ 
 
     if ($scope.subcatId) {
         catService.getSubcat($scope.subcatId).then(function(data){
@@ -223,9 +220,15 @@ function sendFile(file) {
         })
     }
 
+    if ($scope.ssubcatId) {
+        catService.getSsubcat($scope.ssubcatId).then(function(data){
+            $scope.ssubcategory = data;
+        })
+    }
+
     catService.getCats().then(function(data){
         $scope.categories = data;
-        
+        console.log($scope.categories);
     });
 
     $scope.category = {};
@@ -263,6 +266,17 @@ function sendFile(file) {
         }        
     }
 
+    $scope.createSsubcategory = function(ssubcategory) {
+        if ($scope.subcatId) {
+            catService.createSsubcat(ssubcategory).then(function(data){
+                $location.path('dashboard/categories');
+            });
+        } else {
+            catService.editSsubсat(ssubcategory).then(function(data){
+                $location.path('dashboard/categories');
+            });
+        }        
+    }
 
     $scope.deleteCategory = function(category, index) {
         var message = "Ви справді бажаєте видалити категорію " + category.title + " та всі її підкатегорії?";
@@ -296,6 +310,22 @@ function sendFile(file) {
 
     }
 
+    $scope.deleteSsubcategory = function(ssubcategory, parentIndex, index) {
+        var id = ssubcategory.ss_id;
+        var message = "Ви справді бажаєте видалити підкатегорію " + ssubcategory.title + " ?";
+        confirmService.openConfirm(message).then(function(data){
+            if (data === true) {
+                catService.deleteSsubcat(id).then(function(data){
+                    $scope.categories[parentIndex].subcats.splice(index, 1);
+                    $modalStack.dismissAll();
+                });
+            } else {
+                $modalStack.dismissAll();
+            }
+        });
+
+    }
+
 
     $scope.triggerInput = function() {
             $('#photo-input').click();    
@@ -305,39 +335,22 @@ function sendFile(file) {
         cropperService.openCropper(file, 1.6, 900).then(function(data){
             $('#photo-input').val(null);
             $scope.subcategory.images = data;
+            $scope.ssubcategory.images = data;
         });
     }
 
     $scope.deletePhoto = function(index) {
         $scope.subcategory.images = null;
+        $scope.ssubcategory.images = null;
     }
 
 }])
 
-.controller('DashboardNewsController', ['$scope', '$modalStack', 'newsService', 'confirmService', function($scope, $modalStack, newsService, confirmService) {
-    newsService.getNews().then(function(data){
-        $scope.news = data;
-    })
 
-    $scope.deleteArticle = function(article, index) {
-        var message = "Ви справді бажаєте видалити cтаттю " + article.title + " ?";
-        confirmService.openConfirm(message).then(function(data){
-            if (data === true) {
-                newsService.deleteArticle(article.id).then(function(data){
-                    $scope.news.splice(index, 1);
-                    $modalStack.dismissAll();
-                })    
-            } else {
-                $modalStack.dismissAll();
-            }
-        })        
-    }
-
-}])
 
 .controller('DashboardProductsController', ['$scope', '$modalStack', 'productsService', 'confirmService', function($scope, $modalStack, productsService, confirmService) {
     productsService.getProducts().then(function(data){
-        $scope.products = data;
+        $scope.products = data.reverse();
     })
 
     $scope.deleteProduct = function(product, index) {
@@ -356,45 +369,15 @@ function sendFile(file) {
 
 }])
 
+.controller('DashboardOrdersController', ['$scope', '$modalStack', 'ordersService', 'confirmService', '$stateParams', function($scope, $modalStack, ordersService, confirmService, $stateParams) {
+    ordersService.getOrders().then(function(data){
+        $scope.orders = data.reverse();
+    })
 
-
-
-.controller('DashboardAddArticleController', ['$scope', '$stateParams', '$location', 'cropperService', 'newsService', function($scope, $stateParams, $location, cropperService, newsService) {
-    $scope.article = {};
-
-    if ($stateParams.articleId) {
-        newsService.getArticle($stateParams.articleId).then(function(data){
-            $scope.article = data;
-        }) 
-    }
- 
-    $scope.submitArticle = function(article) {
-        if ($stateParams.articleId) {
-            newsService.editArticle(article).then(function(data){
-                $location.path('dashboard/news');
-            })
-        } else {
-            newsService.createArticle(article).then(function(data){
-                $location.path('dashboard/news')
-            })
-        }
-        
-    }
-
-    $scope.triggerInput = function() {
-        $('#photo-input').click();
-    }
-
-    $scope.onFile = function(file) {
-        cropperService.openCropper(file, 1.6, 900).then(function(data){
-            $('#photo-input').val(null);
-            $scope.article.image = data;
-        });
-    }
-
-    $scope.deletePhoto = function(index) {
-        $scope.article.image = null;
-    }
+    ordersService.getOrder($stateParams.orderId).then(function(data){
+        $scope.order = data;
+        console.log($scope.order);
+    })
 
 }])
 
@@ -422,26 +405,71 @@ function sendFile(file) {
     $scope.product = {};
 
     $scope.getSubcatsList = function() {
+         $scope.subSubcatsList = null;
         for (var i = 0; i < $scope.categories.length; i++) {
             if ($scope.categories[i].c_id === $scope.product.c_id) {
                 $scope.subcatsList = $scope.categories[i].subcats;
+                console.log($scope.subcatsList)
+                break
+            }
+        }
+    }
+
+    $scope.getSubSubcatsList = function() {
+        for (var i = 0; i < $scope.subcatsList.length; i++) {
+            if ($scope.subcatsList[i].s_id === $scope.product.s_id) {
+                $scope.subSubcatsList = $scope.subcatsList[i].subcats;
+                console.log($scope.subSubcatsList)
                 break
             }
         }
     }
  
     $scope.submitProduct = function(product) {
+        var dataToSend = $scope.getData(product);
         if ($stateParams.productId) {
-            productsService.editProduct(product).then(function(data){
+            productsService.editProduct(dataToSend).then(function(data){
                 $location.path('dashboard/products');
             })
         } else {
-            productsService.createProduct(product).then(function(data){
+            productsService.createProduct(dataToSend).then(function(data){
                 $location.path('dashboard/products')
             })
         }
-        
     }
+
+    $scope.getData = function(product) {
+        var data = {};
+ 
+        if (product.title) {
+            data.title = product.title;
+        }
+        if (product.spec) {
+            data.spec = product.spec;
+        }
+        if (product.price) {
+            data.price = product.price;
+        }   
+        if (product.c_id) {
+            data.c_id = product.c_id;
+        }
+        if (product.s_id) {
+            data.s_id = product.s_id;
+        }
+        if (product.ss_id) {
+            data.ss_id = product.ss_id;
+        }
+        if (product.image) {
+            data.image = product.image;
+        } 
+        if (product.text) {
+            data.text = product.text;
+        }
+        return data;
+
+    }
+
+
 
     $scope.triggerInput = function() {
         $('#photo-input').click();
@@ -459,11 +487,11 @@ function sendFile(file) {
     }
 
     catService.getCats().then(function(data){
-  $scope.services = data;
-  console.log(data);
-})
+        $scope.services = data;
+        console.log(data);
+        })
 
-catService.getCats().then(function(data){
+    catService.getCats().then(function(data){
         $scope.categories = data;
         
     });
@@ -495,69 +523,7 @@ catService.getCats().then(function(data){
     }
 }])
 
-.controller('DashboardAddPortfolioController', ['$scope', '$stateParams', '$location', '$timeout', 'catService', 'cropperService', 'portfolioService', function($scope, $stateParams, $location, $timeout, catService, cropperService, portfolioService) {
-    catService.getCats().then(function(data){
-        $scope.categories = data;
 
-        if ($stateParams.itemId) {
-            portfolioService.getItem($stateParams.itemId).then(function(data){
-                $scope.item = data;  
-                $scope.getSubcatsList();
-            })
-        };
-    });
-
-    $scope.item = {};
-
-    $scope.getSubcatsList = function() {
-        for (var i = 0; i < $scope.categories.length; i++) {
-            if ($scope.categories[i].c_id === $scope.item.c_id) {
-                $scope.subcatsList = $scope.categories[i].subcats;
-                $timeout(function() {
-                    console.log($scope.item.s_id)
-                }, 1000);
-                break
-            }
-        }
-    }
-
-    $scope.sendPortfolio = function(item) {
-        console.log(item);
-        if ($stateParams.itemId) {
-
-            portfolioService.editItem(item).then(function(data){
-                console.log(data);
-                $location.path('dashboard/portfolio');
-            })
-        } else {
-            portfolioService.createItem(item).then(function(data){
-                $location.path('dashboard/portfolio');
-            })
-        }
-    }
-
-    $scope.triggerInput = function() {
-        if (!$scope.item.images || $scope.item.images.length < 4) {
-            $('#photo-input').click();
-        } else {
-            $scope.maxPhoto = true;
-        }
-    }
-
-    $scope.onFile = function(file) {
-        cropperService.openCropper(file, 1.6, 900).then(function(data){
-            $('#photo-input').val(null);
-            if (!$scope.item.images) {
-                $scope.item.images = [];
-            }
-            $scope.item.images.push(data);
-        });
-    }
-
-    $scope.deletePhoto = function(index) {
-        $scope.item.images.splice(index, 1);
-    }
-}])
 
 .controller('DashboardTeamController', ['$scope', '$modalStack', 'confirmService', 'teamService', function($scope, $modalStack, confirmService, teamService) {
 

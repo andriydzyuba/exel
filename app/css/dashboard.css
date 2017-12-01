@@ -21,6 +21,14 @@
     background-color: transparent;
     color: #333; }
 
+.list-group .ssubcat {
+  margin-left: 100px; }
+  .list-group .ssubcat .btn {
+    margin-left: 20px; }
+  .list-group .ssubcat:hover {
+    background-color: transparent;
+    color: #333; }
+
 .summernote {
   height: 400px;
   margin-top: 30px;

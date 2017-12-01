@@ -5,7 +5,7 @@ include '../credentials.php';
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 mysqli_set_charset($conn,"utf8");
-$sql = "SELECT * FROM Products";
+$sql = "SELECT * FROM Orders";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

@@ -1,11 +1,10 @@
 angular.module('exel').factory('productsService', ['$http', '$q', '$modal', function($http, $q, $modal, Cropper) {
      
     var productsService = {};
-    var defer;
 
 
     _createProduct = function(product) {
-    	defer = $q.defer();
+    	var defer = $q.defer();
     	console.log("dd");
     	$http.post('api/products/createProduct.php', product).success(function(data){
             defer.resolve(data);
@@ -14,7 +13,7 @@ angular.module('exel').factory('productsService', ['$http', '$q', '$modal', func
     }
   
 	_getProducts = function() {
-		defer = $q.defer();
+		var defer = $q.defer();
 		$http.get('api/products/getProducts.php').success(function(data){
 	        defer.resolve(data);
 	    });
@@ -30,7 +29,7 @@ angular.module('exel').factory('productsService', ['$http', '$q', '$modal', func
 	};
 
 	_editProduct = function(product) {
-		defer = $q.defer();
+		var defer = $q.defer();
 		$http.post('api/products/editProduct.php', product).success(function(data){
 			defer.resolve(data);
 		});
@@ -38,7 +37,7 @@ angular.module('exel').factory('productsService', ['$http', '$q', '$modal', func
 	}
 
 	_deleteProduct = function(id) {
-		defer = $q.defer();
+		var defer = $q.defer();
 		$http.post('api/products/deleteProduct.php', id).success(function(data){
 			defer.resolve(data);
 		});
@@ -46,7 +45,7 @@ angular.module('exel').factory('productsService', ['$http', '$q', '$modal', func
 	};
 
 	_getListByCategoryId = function(id) {
-		defer = $q.defer();
+		var defer = $q.defer();
 		$http.post('api/products/getProductsByCategoryId.php', id).success(function(data){
 			defer.resolve(data);
 		});
@@ -54,8 +53,16 @@ angular.module('exel').factory('productsService', ['$http', '$q', '$modal', func
 	};
 	
 	_getListBySubCategoryId = function(id) {
-		defer = $q.defer();
+		var defer = $q.defer();
 		$http.post('api/products/getProductsBySubCategoryId.php', id).success(function(data){
+			defer.resolve(data);
+		});
+		return defer.promise
+	};
+
+	_getListBySsubCategoryId = function(id) {
+		var defer = $q.defer();
+		$http.post('api/products/getProductsBySsubCategoryId.php', id).success(function(data){
 			defer.resolve(data);
 		});
 		return defer.promise
@@ -72,6 +79,7 @@ angular.module('exel').factory('productsService', ['$http', '$q', '$modal', func
 	productsService.deleteProduct = _deleteProduct;
 	productsService.getListByCategoryId = _getListByCategoryId;
 	productsService.getListBySubCategoryId = _getListBySubCategoryId;
+	productsService.getListBySsubCategoryId = _getListBySsubCategoryId;
 	
     return productsService;
 }]);

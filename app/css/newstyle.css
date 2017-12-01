@@ -39,6 +39,23 @@ body {
   text-decoration: none;
 }
 
+#navButton {
+	background-color: #54C0EB;
+	border: 2px solid #324A5E;
+	position: relative;
+	top: -70px;
+}
+
+#navButton:active {
+	background-color: #84DBFF;
+}
+
+#navButtonNext {
+  font-size: 20px;
+  color: #324A5E;
+  padding:2px 3px 0px 3px;
+}
+
 .cat .navbar-default .navbar-nav > li > a {
 	color: #324A5E;
 	padding: 10px;
@@ -46,7 +63,47 @@ body {
 	font-weight: bold;
 }
 
-#catMenu {
+#seachInput {
+  padding: 5px 20px 5px 20px;
+  border-radius: 4px;
+  text-align: right;
+}
+
+#formSearch {
+  height: 40px;
+  width: 34%;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+.dropSubMenu {
+    position: relative;
+}
+
+.dropMenu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+
+#subSubcatMenu {
+  color: #324A5E;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  line-height: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+#subSubcatMenu > a {
+  text-align: left;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+#subCatMenu {
   color: #324A5E;
   font-size: 16px;
   font-weight: bold;
@@ -55,14 +112,29 @@ body {
   margin: 0;
   padding: 0;
 }
+#catMenu {
+  color: #324A5E;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.3em;
+  margin: 0;
+  padding: 0;
+}
 
-  #overflowTitle {
-    font-size: 1.1em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
-    height: 50px;
-  }
+#productState {
+  width: 100%;
+	border-radius: 10px;
+}
+
+
+#overflowTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 95%;
+  height: 45px;
+}
+
 
 #stylePrice {
   font-size: 1em;

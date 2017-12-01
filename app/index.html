@@ -24,8 +24,9 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
 
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="bower_components/summernote/dist/summernote.css">
@@ -69,7 +70,7 @@
               <div class="container-fluid">
                 <div class="navbar-header">
                   <button id="navButton" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                  <i class="fa fa-chevron-circle-down" aria-hidden="true" style="font-size:20px;color:#324A5E;padding:2px 3px 0px 3px;"></i>
+                  <i id="navButtonNext" class="fa fa-chevron-circle-down" aria-hidden="true"></i>
                   </button>
                 </div>
                 <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
@@ -90,6 +91,34 @@
   </div>
 </header>
 
+  <nav class="navbar navbar-default">
+    <div class="row">
+
+      <div class="col-md-8">
+        <ul class="nav navbar-nav" ng-repeat="cat in categories track by $index" class="cat">
+          <li id="catMenu" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" class="text-center">{{cat.title}}<span class="caret"></span></a>
+            <ul id="subCatMenu" class="dropdown-menu">
+              <li class="dropdown" ng-repeat="subcat in cat.subcats track by $index">
+                <a class="dropSubMenu" tabindex="-1" ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}}<span class="caret"></span></span></a>
+                <ul class="dropdown-menu dropMenu">
+                  <li id="subSubcatMenu" class="dropdown" ng-repeat="subsubcat in subcat.subcats track by $index">
+                    <a tabindex="-1" ui-sref="main.ssubcategory({ ssubcatId: subsubcat.ss_id })" class="text-center"><span><img ng-src="{{subsubcat.images}}" alt="" style="height: 50%; width: 50%;"> {{subsubcat.title}}</span></a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-4">
+        <div id="seachInput" class="row"><span id="clickSearch"><input id="formSearch" ng-model="$products.query" placeholder="Пошук">
+        </span></div>
+      </div>
+
+    </div>
+  </nav>
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -156,7 +185,9 @@
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <!--<script src="bower_components/jquery/dist/jquery.min.js"></script>-->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+
   <script src="bower_components/summernote/dist/summernote.min.js"></script>
   <script src="bower_components/summernote/plugin/summernote-ext-video.js"></script>
   <script src="bower_components/angular/angular.js"></script>
@@ -166,7 +197,9 @@
 
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!--<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="bower_components/ng-cropper/dist/ngCropper.all.min.js"></script>
 
   <script src="app.js"></script>
@@ -183,22 +216,18 @@
   <script src="Factories/cropFactory.js"></script>
   <script src="Factories/categoriesFactory.js"></script>
   <script src="Factories/confirmFactory.js"></script>
-  <script src="Factories/newsFactory.js"></script>
   <script src="Factories/productsFactory.js"></script>
-  <script src="Factories/portfolioFactory.js"></script>
   <script src="Factories/modalsFactory.js"></script>
   <script src="Factories/teamFactory.js"></script>
   <script src="Factories/ordersFactory.js"></script>
 
   <script src="main/main.js"></script>
   <script src="about/about.js"></script>
-  <script src="services/services.js"></script>
-  <script src="portfolio/portfolio.js"></script>
   <script src="contacts/contacts.js"></script>
-  <script src="news/news.js"></script>
   <script src="products/products.js"></script>
   <script src="products/order-modal/order-modal.controller.js"></script>
   <script src="dashboard/dashboard.js"></script>
+
 
 </body>
 </html>
