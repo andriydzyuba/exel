@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../credentials.php';
- 
+
 
 $postdata = file_get_contents("php://input");
 $request = json_decode($postdata);
@@ -13,7 +13,7 @@ mysqli_set_charset($conn,"utf8");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
+}
 
 
 $request->title = addslashes($request->title);

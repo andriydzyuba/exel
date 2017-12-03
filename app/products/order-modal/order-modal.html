@@ -1,22 +1,30 @@
 <div class="modal-header">
-    <button type="button" class="close" ng-click="$dismiss()"><span aria-hidden="true">&times;</span><span class="sr-only">Закрити</span></button>
+    <button type="button" class="close" ng-click="$dismiss()" style="font-size:2em;"><span aria-hidden="true">&times;</span><span class="sr-only">Закрити</span></button>
     <h4 class="modal-title" id="{{$index}}-label">Оформлення замовлення</h4>
 </div>
 
 <div class="modal-body">
-    <h3 style="color:#FF7058;">Заповніть форму!</h3>
-    <h2 class="no-top-margin">{{product.title}}</h2>
-      <p><span id="productPrice">{{product.price + ' ₴'}}</span></p><hr/><br/>
-      <p>{{product.spec}}</p><br/>
-      <img ng-src="{{product.image}}">
+    <!--<h3 style="color:#FF7058;">Заповніть форму!</h3>-->
+    <h3 class="no-top-margin" style="margin: 0;">{{product.title}}</h3><hr/>
+      <div class="row">
+        <div class="col-md-5">
+          <img ng-src="{{product.image}}">
+        </div>
+        <div class="col-md-7">
+          <p style="font-size:0.8em;">{{product.spec}}</p>
+          <p><span id="productPrice">{{product.price + ' ₴'}}</span></p>
+        </div>
+      </div>
   <form ng-submit="createOrder()">
     <div class="input-group">
-      <input type="text" ng-model="order.name" class="form-control" placeholder="Ваше ім’я..." required style="border-radius:4px;">
-      <input type="tel" ng-model="order.phone" class="form-control" placeholder="Ваш номер телефону..." required style="border-radius:4px;">
-      <textarea ng-model="order.comment" placeholder="Коментар до замовлення" class="form-control" style="border-radius:4px;"></textarea>
+      <input type="text" maxlength="40" ng-model="order.name" class="form-control" placeholder="Ваше ім’я та прізвище..." required style="border-radius:4px;">
+      <input type="tel" maxlength="10" pattern="[0-9]{10}" ng-model="order.phone" class="form-control" placeholder="Ваш номер телефону... (Формат введення 0XXXXXXXXX)" required style="border-radius:4px;">
+      <textarea maxlength="200" ng-model="order.comment" placeholder="Коментар до замовлення..." class="form-control" style="border-radius:4px;"></textarea>
     </div>
+    <div vc-recaptcha key="'6LfjUzsUAAAAAMiFq60ybPe-inQErJf_zpn2WjNg'" style="margin: 10px 0 15px 0;"></div>
     <button type="submit" value="Створити замовлення" class="btn btn-success">Підтвердити</button>
   </form>
+
 
   <div class="success-message" data-ng-show="isOrderSubmitted">
     <p>Вітаємо, Ви замовили товар, очікуйте повідомлення на email!<p>
@@ -25,6 +33,6 @@
 
 </div>
 
-<div class="modal-footer">
+<!--<div class="modal-footer">
     <button type="button" class="btn btn-sm btn-danger" ng-click="$dismiss()">Закрити</button>
-</div>
+</div>-->
