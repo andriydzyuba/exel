@@ -51,7 +51,7 @@ angular.module('exel').factory('productsService', ['$http', '$q', '$modal', func
 		});
 		return defer.promise
 	};
-	
+	/*
 	_getListBySubCategoryId = function(id) {
 		var defer = $q.defer();
 		$http.post('api/products/getProductsBySubCategoryId.php', id).success(function(data){
@@ -59,6 +59,15 @@ angular.module('exel').factory('productsService', ['$http', '$q', '$modal', func
 		});
 		return defer.promise
 	};
+	*/
+	_getListBySubCategoryId = function(params) {
+		var defer = $q.defer();
+		$http.post('api/products/getProductsBySubCategoryId.php', params).success(function(data){
+			defer.resolve(data);
+		});
+		return defer.promise
+	};
+
 
 	_getListBySsubCategoryId = function(id) {
 		var defer = $q.defer();
@@ -66,7 +75,7 @@ angular.module('exel').factory('productsService', ['$http', '$q', '$modal', func
 			defer.resolve(data);
 		});
 		return defer.promise
-	};
+	}; 
 
 	
 

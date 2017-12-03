@@ -120,15 +120,45 @@ angular.module('exel.main', ['ngRoute'])
 
    $scope.category = {};
 
-
-    productsService.getListBySubCategoryId($stateParams.subcatId).then(function(data){
-        $scope.products = data;
-    })
-
-    catService.getSsubcatsBySubCategoryId($stateParams.subcatId).then(function(data){
+   catService.getSsubcatsBySubCategoryId($stateParams.subcatId).then(function(data){
         $scope.ssubs = data;
         console.log($scope.ssubs);
     })
+
+
+    /*productsService.getListBySubCategoryId($stateParams.subcatId).then(function(data){
+        $scope.products = data;
+    }) */
+
+    $scope.products = [];
+
+    
+    $scope.loadMore = function() {
+
+        var params = {
+        s_id: $stateParams.subcatId,
+        limit: 10,
+        offset: $scope.products.length
+        
+        }
+
+        productsService.getListBySubCategoryId(params).then(function(response) {
+                console.log(response);
+            if (response) {
+
+                for (var i =0; i < response.length; i++) {
+
+                $scope.products.push(response[i]);
+
+                }
+            }
+        })
+    }
+
+    $scope.loadMore();
+
+
+
 
 }])
 

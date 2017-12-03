@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 }
 
 
-$request->product_id = addslashes($request->product_id);
+
 $request->name = addslashes($request->name);
 $request->phone = addslashes($request->phone);
 $request->comment = addslashes($request->comment);

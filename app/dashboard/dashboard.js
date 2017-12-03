@@ -1,4 +1,4 @@
-'use strict';  
+'use strict';   
 
 angular.module('exel')
 
@@ -427,6 +427,7 @@ function sendFile(file) {
  
     $scope.submitProduct = function(product) {
         var dataToSend = $scope.getData(product);
+        
         if ($stateParams.productId) {
             productsService.editProduct(dataToSend).then(function(data){
                 $location.path('dashboard/products');
@@ -440,7 +441,10 @@ function sendFile(file) {
 
     $scope.getData = function(product) {
         var data = {};
- 
+        
+        if (product.id) {
+            data.id = product.id;
+        }
         if (product.title) {
             data.title = product.title;
         }

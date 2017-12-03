@@ -9,6 +9,7 @@ angular.module('exel', [
   'summernote',
   'uiGmapgoogle-maps',
   'ngCropper',
+  'infinite-scroll',
   'exel.CONFIG',
   'exel.main',
   'exel.about',

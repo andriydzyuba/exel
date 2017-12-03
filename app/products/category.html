@@ -7,8 +7,9 @@
 <div ng-repeat="ssub in ssubs track by $index">
 	<a ui-sref="main.ssubcategory({ ssubcatId: ssub.ss_id })" class="text-center"><span><img ng-src="{{ssub.images}}" alt="" style="height: 25%; width: 25%;">{{ssub.title}}</span></a>
 </div>
+<!--infinite-scroll='loadMore()' infinite-scroll-distance='2' Place on div for infinity scrol-->
 
-<div ng-cloak class="ng-cloak portfolio-container row grid-space-20">
+<div ng-cloak class="ng-cloak portfolio-container row grid-space-20" >
 	<div  ng-repeat="product in products|priceLessThan:priceterm | filter:$products.query track by $index" class="col-sm-6 col-md-4 portfolio-item {{product.title}}">
 		<div class="image-box">
 			<p id="overflowTitle">{{product.title}}</p>
@@ -23,3 +24,4 @@
 		</div>
 	</div>
 </div>
+<a href="" class="btn btn-primary" ng-click="loadMore()">Загрузити ще товарів</a>
