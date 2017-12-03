@@ -92,6 +92,12 @@ body {
 	}
 }
 
+@media only screen and (max-width: 1080px) {
+  #productBar {
+		display: none;
+	}
+}
+
 a, a:visited, a:focus, a:active, a:hover{
     outline:0 none !important;
 }
