@@ -63,6 +63,30 @@ body {
 	font-weight: bold;
 }
 
+#navMenu {
+  padding: 0;
+}
+
+#subCatMenu {
+  color: #324A5E;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.3em;
+  margin: 0;
+  padding: 0;
+}
+
+#catMenu {
+  color: #324A5E;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.3em;
+  margin: 0;
+  padding: 0;
+}
+
 #seachInput {
   padding: 5px 20px 5px 20px;
   border-radius: 4px;
@@ -103,30 +127,17 @@ body {
   margin-right: 10px;
 }
 
-#subCatMenu {
-  color: #324A5E;
-  font-size: 16px;
+#nameSubSunCat {
+  width: 100%;
+  font-size: 1.2em;
   font-weight: bold;
   text-align: center;
-  line-height: 1.3em;
-  margin: 0;
-  padding: 0;
-}
-#catMenu {
-  color: #324A5E;
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 1.3em;
-  margin: 0;
-  padding: 0;
 }
 
 #productState {
   width: 100%;
 	border-radius: 10px;
 }
-
 
 #overflowTitle {
   overflow: hidden;
@@ -135,14 +146,24 @@ body {
   height: 45px;
 }
 
-
 #stylePrice {
   font-size: 1em;
   color: #ffffff;
-  margin: 5px 0 0 10px;
   padding: 1px 6px 2px 6px;
   background-color: #54C0EB;
   border-radius: 10px;
+}
+
+#overlaySpec {
+  color: #ffffff;
+  padding: 5px;
+  font-size: 0.8em;
+}
+
+#overlaySpecMain {
+  color: #ffffff;
+  padding: 5px;
+  font-size: 1em;
 }
 
 #productArea {
@@ -159,13 +180,6 @@ body {
   background-color: #54C0EB;
   border-radius: 10px;
   padding: 1px 6px 2px 6px;
-}
-
-#hiddenBar {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  height: 700px;
-  border-bottom: 10px solid rgba(84, 192, 235, 0.6);
 }
 
 #fb-button-container {

@@ -1,27 +1,31 @@
 <!--<p>{{products}}</p>-->
-<div>
+<!--<div>
 <input type="number" class="form-control" placeholder="Максимальна вартість товару" ng-model="priceterm" />
     <br/>
-</div>
+</div>-->
 
-<div ng-repeat="ssub in ssubs track by $index">
-	<a ui-sref="main.ssubcategory({ ssubcatId: ssub.ss_id })" class="text-center"><span><img ng-src="{{ssub.images}}" alt="" style="height: 25%; width: 25%;">{{ssub.title}}</span></a>
-</div>
+<div class="container-fluid">
+    <div ng-repeat="ssub in ssubs track by $index" class="col-xs-6 col-sm-3 col-md-2">
+    	<a ui-sref="main.ssubcategory({ ssubcatId: ssub.ss_id })" class="text-center" id="nameSubSunCat"><img ng-src="{{ssub.images}}" alt="" style="height: 100%; width: 100%;"><br/><p>{{ssub.title}}</p></a>
+    </div>
+</div><hr/>
+
 <!--infinite-scroll='loadMore()' infinite-scroll-distance='2' Place on div for infinity scrol-->
+<div class="container-fluid">
+  <div id="gridPortfolioMain" ng-cloak class="ng-cloak portfolio-container">
+  	<div  ng-repeat="product in products|priceLessThan:priceterm | filter:$products.query track by $index" class=" portfolio-item {{product.title}}">
+  		<div class="image-box">
+  			<p id="overflowTitle">{{product.title}}</p>
+  			<div class="overlay-container">
+  				<img ng-src="{{product.image}}" alt="">
+  				<a class="overlay" ui-sref="products({productId:product.id})" data-target="#{{$index}}">
+  				<p id="overlaySpecMain">{{product.spec}}</p>
+  				</a>
+  				<span id="stylePrice">{{product.price + ' ₴'}}</span>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+</div><br/>
 
-<div ng-cloak class="ng-cloak portfolio-container row grid-space-20" >
-	<div  ng-repeat="product in products|priceLessThan:priceterm | filter:$products.query track by $index" class="col-sm-6 col-md-4 portfolio-item {{product.title}}">
-		<div class="image-box">
-			<p id="overflowTitle">{{product.title}}</p>
-			<div class="overlay-container">
-				<img ng-src="{{product.image}}" alt="">
-				<a class="overlay" ui-sref="products({productId:product.id})" data-target="#{{$index}}">
-				<i class="glyphicon glyphicon-zoom-in"></i>
-				<span>{{product.price + ' ₴'}}</span>
-				</a>
-				<span id="stylePrice">{{product.price + ' ₴'}}</span>
-			</div>
-		</div>
-	</div>
-</div>
-<a href="" class="btn btn-primary" ng-click="loadMore()">Загрузити ще товарів</a>
+<div class="text-center"><a href="" class="btn btn-primary" ng-click="loadMore()">Показати ще товарів</a></div><hr/>
