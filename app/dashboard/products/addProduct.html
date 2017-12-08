@@ -1,4 +1,4 @@
-<!--<p>{{product}}</p>-->
+<!--<p>{{product}}</p>--> 
 <form ng-submit="submitProduct(product)">
 	<div class="input-group">
 		<input ng-model="product.title" placeholder="Назва товару" class="form-control" required>
@@ -15,6 +15,8 @@
 		<select ng-if="subSubcatsList" ng-options="subsubcat.ss_id as subsubcat.title for subsubcat in subSubcatsList" ng-model="product.ss_id">
 		<option selected disabled value="">Вкажіть субкатегорію</option>
 		</select>
+
+		<input ng-model="product.maker" placeholder="Виробник" class="form-control">
 
 		<br><br>
 		<input type="file" id='photo-input' onchange="angular.element(this).scope().onFile(this.files[0])">

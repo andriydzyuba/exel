@@ -1,20 +1,20 @@
 <?php
-
 include '../credentials.php';
 
 $postdata = file_get_contents("php://input");
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 mysqli_set_charset($conn,"utf8");
-$sql = "SELECT * FROM Orders WHERE id=$postdata";
+$id = $postdata;
 
+$sql = "DELETE FROM Makers WHERE id=$id";
 
-
-$result = $conn->query($sql);
-
-$result = $result->fetch_object();
-
-print json_encode($result);
+if ($conn->query($sql) === TRUE) {
+    echo "Record deleted successfully";
+} else {
+    echo "Error deleting record: " . $conn->error;
+}
 
 $conn->close();
+
 ?>

@@ -1,0 +1,20 @@
+<!--<p>{{product}}</p>--> 
+<form ng-submit="submitMaker(maker)">
+	<div class="input-group">
+		<input ng-model="maker.name" placeholder="Назва виробника" class="form-control" required>
+		<select ng-options="cat.c_id as cat.title for cat in categories" ng-model="maker.c_id" ng-change="getSubcatsList()" required>
+		<option selected disabled value="">Вкажіть категорію</option>
+		</select>
+
+		<select ng-if="subcatsList" ng-options="subcat.s_id as subcat.title for subcat in subcatsList" ng-model="maker.s_id" ng-change="getSubSubcatsList()" required>
+		<option selected disabled value="">Вкажіть підкатегорію</option>
+		</select>
+
+		<select ng-if="subSubcatsList" ng-options="subsubcat.ss_id as subsubcat.title for subsubcat in subSubcatsList" ng-model="maker.ss_id">
+		<option selected disabled value="">Вкажіть субкатегорію</option>
+		</select>
+		<br><br>
+	</div>
+	<input type="submit" value="Створити" class="btn btn-success">
+</form> 
+				 

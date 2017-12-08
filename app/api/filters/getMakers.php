@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include '../credentials.php';
 $postdata = file_get_contents("php://input");
@@ -9,7 +9,7 @@ mysqli_set_charset($conn,"utf8");
 
 $sql = getSqlQuery($request->limit, $request->offset);
 function getSqlQuery($limit=NULL, $offset=NULL) {
-    $sql = "SELECT * FROM Products ORDER BY ID DESC";
+    $sql = "SELECT * FROM Makers ORDER BY ID DESC";
     if ($limit) {
         $sql .= " LIMIT $limit";
     }

@@ -11,13 +11,12 @@ angular.module('exel').factory('productsService', ['$http', '$q', '$modal', func
         });
         return defer.promise;
     }
-  
-	_getProducts = function() {
+	_getProducts = function(params) {
 		var defer = $q.defer();
-		$http.get('api/products/getProducts.php').success(function(data){
-	        defer.resolve(data);
-	    });
-	    return defer.promise;
+		$http.post('api/products/getProducts.php', params).success(function(data){
+			defer.resolve(data);
+		});
+		return defer.promise
 	};
 
 	_getProduct = function(id) {
@@ -51,15 +50,7 @@ angular.module('exel').factory('productsService', ['$http', '$q', '$modal', func
 		});
 		return defer.promise
 	};
-	/*
-	_getListBySubCategoryId = function(id) {
-		var defer = $q.defer();
-		$http.post('api/products/getProductsBySubCategoryId.php', id).success(function(data){
-			defer.resolve(data);
-		});
-		return defer.promise
-	};
-	*/
+	
 	_getListBySubCategoryId = function(params) {
 		var defer = $q.defer();
 		$http.post('api/products/getProductsBySubCategoryId.php', params).success(function(data){
@@ -68,15 +59,21 @@ angular.module('exel').factory('productsService', ['$http', '$q', '$modal', func
 		return defer.promise
 	};
 
-
-	_getListBySsubCategoryId = function(id) {
+	_getListBySsubCategoryId = function(params) {
 		var defer = $q.defer();
-		$http.post('api/products/getProductsBySsubCategoryId.php', id).success(function(data){
+		$http.post('api/products/getProductsBySsubCategoryId.php', params).success(function(data){
 			defer.resolve(data);
 		});
 		return defer.promise
 	}; 
 
+	_searchProduct = function(params) {
+		var defer = $q.defer();
+		$http.post('api/products/searchProduct.php', params).success(function(data){
+			defer.resolve(data);
+		});
+		return defer.promise
+	};
 	
 
 
@@ -89,6 +86,7 @@ angular.module('exel').factory('productsService', ['$http', '$q', '$modal', func
 	productsService.getListByCategoryId = _getListByCategoryId;
 	productsService.getListBySubCategoryId = _getListBySubCategoryId;
 	productsService.getListBySsubCategoryId = _getListBySsubCategoryId;
+	productsService.searchProduct = _searchProduct;
 	
     return productsService;
 }]);

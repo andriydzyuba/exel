@@ -92,14 +92,14 @@ angular.module('exel.main', ['ngRoute'])
 
     $scope.category = {};
 
-
+    /*
     productsService.getListByCategoryId($stateParams.catId).then(function(data){
         $scope.products = data;
     })
-
+    */
 }])
 
-.controller('SubCategoryController', ['$scope', '$http', '$location', '$timeout', '$modal', '$stateParams', 'cropperService', '$modalStack', 'catService', 'productsService', 'confirmService', function($scope, $http, $location, $timeout, $modal, $stateParams, cropperService, $modalStack, catService, productsService, confirmService) {
+.controller('SubCategoryController', ['$scope', '$http', '$location', '$timeout', '$modal', '$stateParams', 'cropperService', '$modalStack', 'catService', 'productsService', 'confirmService', 'filtersService', function($scope, $http, $location, $timeout, $modal, $stateParams, cropperService, $modalStack, catService, productsService, confirmService, filtersService) {
     console.log('çontroller runs');
     $scope.categoryId = $stateParams.catId;
     $scope.subcatId = $stateParams.subcatId;
@@ -112,34 +112,54 @@ angular.module('exel.main', ['ngRoute'])
         })
     }
 
+    $scope.category = {};
 
-//    catService.getCats().then(function(data){
-//        $scope.categories = data;
-
-//    });
-
-   $scope.category = {};
-
-   catService.getSsubcatsBySubCategoryId($stateParams.subcatId).then(function(data){
+    catService.getSsubcatsBySubCategoryId($stateParams.subcatId).then(function(data){
         $scope.ssubs = data;
         console.log($scope.ssubs);
     })
 
+    $scope.makers = [];
+    $scope.loadMakers = function() {
 
-    /*productsService.getListBySubCategoryId($stateParams.subcatId).then(function(data){
-        $scope.products = data;
-    }) */
+        var params = {
+        s_id: $stateParams.subcatId,
+        limit: 20,
+        offset: $scope.makers.length
+        }
+
+        filtersService.getListBySubCategoryId(params).then(function(response) {
+                console.log(response);
+            if (response) {
+
+                for (var i =0; i < response.length; i++) {
+
+                $scope.makers.push(response[i]);
+
+                }
+            }
+        })
+    }
+    $scope.loadMakers();
 
     $scope.products = [];
 
-    
+    $scope.onSelectOptionChanged = function() {
+        $scope.products.length = 0;
+        $scope.loadMore();
+    }
+
     $scope.loadMore = function() {
 
         var params = {
         s_id: $stateParams.subcatId,
         limit: 10,
         offset: $scope.products.length
-        
+
+        }
+
+        if ($scope.maker) {
+            params.maker = $scope.maker
         }
 
         productsService.getListBySubCategoryId(params).then(function(response) {
@@ -154,15 +174,24 @@ angular.module('exel.main', ['ngRoute'])
             }
         })
     }
-
     $scope.loadMore();
 
+
+    $scope.maker = null;
+
+    $scope.cleanFilter = function() {
+
+        $scope.products.length = 0;
+        $scope.maker = null;
+        $scope.loadMore();
+
+    }
 
 
 
 }])
 
-.controller('SsubCategoryController', ['$scope', '$http', '$location', '$timeout', '$modal', '$stateParams', 'cropperService', '$modalStack', 'catService', 'productsService', 'confirmService', function($scope, $http, $location, $timeout, $modal, $stateParams, cropperService, $modalStack, catService, productsService, confirmService) {
+.controller('SsubCategoryController', ['$scope', '$http', '$location', '$timeout', '$modal', '$stateParams', 'cropperService', '$modalStack', 'catService', 'productsService', 'confirmService', 'filtersService', function($scope, $http, $location, $timeout, $modal, $stateParams, cropperService, $modalStack, catService, productsService, confirmService, filtersService) {
     console.log('çontroller runs');
     $scope.subcategoryId = $stateParams.subcatId;
     $scope.ssubcatId = $stateParams.ssubcatId;
@@ -182,28 +211,104 @@ angular.module('exel.main', ['ngRoute'])
 
     $scope.category = {};
 
+    $scope.makers = [];
+    $scope.loadMakers = function() {
 
-    productsService.getListBySsubCategoryId($stateParams.ssubcatId).then(function(data){
-        $scope.products = data;
-    })
+        var params = {
+        s_id: $stateParams.subcatId,
+        limit: 20,
+        offset: $scope.makers.length
+        }
+
+        filtersService.getListBySubCategoryId(params).then(function(response) {
+                console.log(response);
+            if (response) {
+
+                for (var i =0; i < response.length; i++) {
+
+                $scope.makers.push(response[i]);
+
+                }
+            }
+        })
+    }
+    $scope.loadMakers();
+
+    $scope.products = [];
+
+    $scope.onSelectOptionChanged = function() {
+        $scope.products.length = 0;
+        $scope.loadMore();
+    }
+
+    $scope.loadMore = function() {
+
+        var params = {
+        s_id: $stateParams.subcatId,
+        limit: 10,
+        offset: $scope.products.length
+
+        }
+
+        if ($scope.maker) {
+            params.maker = $scope.maker
+        }
+
+        productsService.getListBySsubCategoryId(params).then(function(response) {
+                console.log(response);
+            if (response) {
+
+                for (var i =0; i < response.length; i++) {
+
+                $scope.products.push(response[i]);
+
+                }
+            }
+        })
+    }
+    $scope.loadMore();
+
+    $scope.maker = null;
+
+    $scope.cleanFilter = function() {
+
+        $scope.products.length = 0;
+        $scope.maker = null;
+        $scope.loadMore();
+
+    }
+
+
+
 
 }])
 
 
 
-.controller('MainPageController', ['$scope', '$http', '$animate', 'productsService', 'catService',
-    function($scope, $http, $animate, productsService, catService) {
+.controller('MainPageController', ['$scope', '$http', '$animate', 'productsService', 'catService', '$stateParams',
+    function($scope, $http, $animate, productsService, catService, $stateParams) {
 
+    $scope.newProducts = [];
+    $scope.loadMore = function() {
 
+        var params = {
+        limit: 10,
+        offset: $scope.newProducts.length
+        }
 
-    productsService.getProducts().then(function(data){
-        console.log(data);
-      $scope.products = data.reverse();
-      if ($scope.products.length > 4) {
-        $scope.products = $scope.products.splice(0, 9);
-      }
-      //$scope.mainProduct = $scope.products.splice(0, 1)[0];
-    })
+        productsService.getProducts(params).then(function(response) {
+                console.log(response);
+            if (response) {
+
+                for (var i =0; i < response.length; i++) {
+
+                $scope.newProducts.push(response[i]);
+
+                }
+            }
+        })
+    }
+    $scope.loadMore();
 
 
     catService.getCats().then(function(data){

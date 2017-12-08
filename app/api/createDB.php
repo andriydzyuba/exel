@@ -119,11 +119,20 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
  //id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 // name VARCHAR(15) NOT NULL,
  //phone VARCHAR(13) NOT NULL,
- //comment VARCHAR(100) NOT NULL,
+ //comment VARCHAR(100) NULL,
  //product_id INT(6) UNSIGNED,
 // FOREIGN KEY (product_id) REFERENCES Products(id)
 // )";
 
+   //$sql = "CREATE TABLE Makers (
+   //id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  // name VARCHAR(15) NOT NULL,
+  // s_id INT(6) UNSIGNED,
+ //  ss_id INT(6) UNSIGNED,
+ //  FOREIGN KEY (c_id) REFERENCES Categories(c_id),
+ //  FOREIGN KEY (s_id) REFERENCES Subcats(s_id),
+ //  FOREIGN KEY (ss_id) REFERENCES Ssubcats(ss_id)
+//   )";
 
 
 if ($conn->query($sql) === TRUE) {

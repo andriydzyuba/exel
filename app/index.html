@@ -113,8 +113,11 @@
       </div>
 
       <div class="col-md-4">
-        <div id="seachInput" class="row"><span id="clickSearch"><input id="formSearch" ng-model="$products.query" placeholder="Пошук">
-        </span></div>
+        <div id="seachInput" class="row">
+          <span id="clickSearch"><input ng-model="title" id="formSearch" placeholder="Пошук"></span>
+          <a href="" class="btn btn-primary" ng-click="onSelectOptionChanged()">Пошук</a>
+          <a href="" class="btn btn-primary" ng-click="cleanFilter()">Очистити</a>
+        </div>
       </div>
 
     </div>
@@ -123,8 +126,7 @@
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-
-  <div ui-view></div>
+  <div ui-view>​</div>
 
   <footer id="footer">
       <div class="subfooter">
@@ -221,6 +223,7 @@
   <script src="Factories/modalsFactory.js"></script>
   <script src="Factories/teamFactory.js"></script>
   <script src="Factories/ordersFactory.js"></script>
+  <script src="Factories/filtersFactory.js"></script>
 
   <script src="main/main.js"></script>
   <script src="about/about.js"></script>

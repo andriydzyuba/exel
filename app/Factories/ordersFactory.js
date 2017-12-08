@@ -1,8 +1,6 @@
 angular.module('exel').factory('ordersService', ['$http', '$q', '$modal', function($http, $q, $modal) {
      
     var ordersService = {};
-    
-
 
     _createOrder = function(order) {
     	var defer = $q.defer();
@@ -20,14 +18,13 @@ angular.module('exel').factory('ordersService', ['$http', '$q', '$modal', functi
 	    return defer.promise;
 	};
 
-	_getOrders = function() {
+	_getOrders = function(params) {
 		var defer = $q.defer();
-		$http.get('api/orders/getOrders.php').success(function(data){
-	        defer.resolve(data);
-	    });
-	    return defer.promise;
+		$http.post('api/orders/getOrders.php', params).success(function(data){
+			defer.resolve(data);
+		});
+		return defer.promise
 	};
-
 
 	_deleteOrder = function(id) {
 		var defer = $q.defer();

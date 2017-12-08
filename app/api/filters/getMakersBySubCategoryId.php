@@ -1,52 +1,27 @@
 <?php 
 session_start();
-
 include '../credentials.php';
-
-
 $postdata = file_get_contents("php://input");
 $request = json_decode($postdata);
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 mysqli_set_charset($conn,"utf8");
 
-
-if (isset($request->title)) {
-    $title = $request->title;
+if (isset($request->ss_id)) {
+    $ss_id = $request->ss_id;
 } else {
-    $title = NULL;
+    $ss_id = NULL;
 }
-
-if (isset($request->c_id)) {
-    $c_id = $request->c_id;
-} else {
-    $c_id = NULL;
-}
-
 if (isset($request->s_id)) {
     $s_id = $request->s_id;
 } else {
     $s_id = NULL;
 }
 
-if (isset($request->ss_id)) {
-    $ss_id = $request->ss_id;
-} else {
-    $ss_id = NULL;
-}
+$sql = getSqlQuery($s_id, $request->limit, $request->offset, $ss_id);
+function getSqlQuery($s_id, $limit=NULL, $offset=NULL, $ss_id) {
+    $sql = "SELECT * FROM Makers WHERE 1=1";
 
-
-
-$sql = getSqlQuery($title, $c_id, $s_id, $ss_id, $request->limit, $request->offset );
-function getSqlQuery($title, $c_id, $s_id, $ss_id, $limit=NULL, $offset=NULL) {
-    $sql = "SELECT * FROM Products WHERE 1=1";
-
-    if ($title) {
-        $sql .= " AND title LIKE '%$title%'";
-    }
-    if ($c_id) {
-        $sql .= " AND c_id=$c_id";
-    }
     if ($s_id) {
         $sql .= " AND s_id=$s_id";
     }
@@ -75,7 +50,6 @@ if ($result->num_rows > 0) {
 } else {
     echo json_encode(array());
 }
-
 
 $conn->close();
 ?>

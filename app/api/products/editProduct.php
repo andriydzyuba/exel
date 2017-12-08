@@ -16,9 +16,9 @@ $request->spec = addslashes($request->spec);
 $request->price = addslashes($request->price);
 
 if ($request->ss_id) {
-$sql = "UPDATE Products SET title='$request->title', spec='$request->spec', text='$request->text', image='$request->image', price='$request->price', c_id='$request->c_id', s_id='$request->s_id', ss_id='$request->ss_id' WHERE id='$request->id'";
+$sql = "UPDATE Products SET title='$request->title', spec='$request->spec', text='$request->text', image='$request->image', price='$request->price', c_id='$request->c_id', s_id='$request->s_id', ss_id='$request->ss_id', maker='$request->maker' WHERE id='$request->id'";
 } else {
-$sql = "UPDATE Products SET title='$request->title', spec='$request->spec', text='$request->text', image='$request->image', price='$request->price', c_id='$request->c_id', s_id='$request->s_id' WHERE id='$request->id'";
+$sql = "UPDATE Products SET title='$request->title', spec='$request->spec', text='$request->text', image='$request->image', price='$request->price', c_id='$request->c_id', s_id='$request->s_id', maker='$request->maker' WHERE id='$request->id'";
 }
 
 if ($conn->query($sql) === TRUE) {

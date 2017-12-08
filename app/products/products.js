@@ -19,9 +19,27 @@ angular.module('exel')
         console.log($scope.product);
     })
 
-    productsService.getProducts().then(function(data){
-        $scope.products = data.reverse();
-    })
+    $scope.products = [];
+    $scope.loadMore = function() {
+
+        var params = {
+        limit: 5,
+        offset: $scope.products.length        
+        }
+
+        productsService.getProducts(params).then(function(response) {
+                console.log(response);
+            if (response) {
+
+                for (var i =0; i < response.length; i++) {
+
+                $scope.products.push(response[i]);
+
+                }
+            }
+        })
+    }
+    $scope.loadMore();
 
     $scope.callModal = function () {
         modalsService.openModal();

@@ -1,19 +1,38 @@
-<!--
-<a href="" class="btn btn-success" ui-sref="dashboard.addproduct"><i class="fa fa-plus"></i> Додати товар</a>
-<br><br>
-<div class="list-group">
-  <div ng-repeat="product in products track by $index" class="cat">
-  	<div class="list-group-item cat"><img ng-src="{{product.image}}"> {{product.title}} 	
-      <a href="" ng-click="deleteProduct(product, $index)"  class="btn btn-danger">Видалити товар</a>
-      <a ui-sref="dashboard.editproduct({productId: product.id})" class="btn btn-default">Редагувати товар</a>
-  	</div>
-  	<br>
+ 
 
-  </div>
+<div class="row"> 
+	<div class="container col-md-2">
+		<a href="" class="btn btn-success" ui-sref="dashboard.addproduct"><i class="fa fa-plus"></i> Додати товар</a>
+	</div>
+	<div class="container col-md-10">
+		<div class="row">
+			<div class="col-md-4">
+				<input ng-model="title" class="form-control" placeholder="Пошук" required>
+			</div>
+			<div class="input-group col-md-8">
+				<select ng-options="cat.c_id as cat.title for cat in categories" ng-model="product.c_id" ng-change="getSubcatsList()">
+				<option selected disabled value="">Вкажіть категорію</option>
+				</select>
+
+				<select ng-if="subcatsList" ng-options="subcat.s_id as subcat.title for subcat in subcatsList" ng-model="product.s_id" ng-change="getSubSubcatsList()">
+				<option selected disabled value="">Вкажіть підкатегорію</option>
+				</select>
+
+				<select ng-if="subSubcatsList" ng-options="subsubcat.ss_id as subsubcat.title for subsubcat in subSubcatsList" ng-model="product.ss_id">
+				<option selected disabled value="">Вкажіть субкатегорію</option>
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-2"><a href="" class="btn btn-primary" ng-click="onSelectOptionChanged()">Сортувати товари</a></div>
+			<div class="col-md-2"><a href="" class="btn btn-primary" ng-click="cleanFilter()">Скинути критерії</a></div>
+			
+		</div>
+	</div>
 </div>
--->
 
-<a href="" class="btn btn-success" ui-sref="dashboard.addproduct"><i class="fa fa-plus"></i> Додати товар</a>
+
 <hr>
 <div ng-cloak class="ng-cloak portfolio-container row grid-space-20">
 	<div  ng-repeat="product in products track by $index" class="col-sm-6 col-md-2 portfolio-item {{product.title}}">
@@ -30,3 +49,4 @@
 		</div>
 	</div>
 </div> 
+<a href="" class="btn btn-primary" ng-click="loadMore()">Загрузити ще товарів</a>
