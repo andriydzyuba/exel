@@ -11,7 +11,7 @@ body {
 }
 
 body {
-	font-family: 'Play', sans-serif;
+	font-family: 'Roboto Condensed', sans-serif;
 	/*font-family: 'Open Sans', sans-serif;
 	font-family: 'Roboto', sans-serif;*/
 	font-size: 1.5em;
@@ -130,15 +130,27 @@ padding: 0;
 }
 
 /* Other pages*/
+
+
 .page-heading {
-	background: url(../images/banner.jpg) 100% 40% no-repeat;
-	background-size: 100% auto;
-	color: white;
+	background: url(../images/banner.jpg) 100% 27% no-repeat;
+	height: 250px;
 }
-.page-headers {
+
+.contacts-heading {
+	background: url(../images/contacts.jpg) 100% 27% no-repeat;
+	height: 320px;
+}
+
+.page-heading, .contacts-heading {
+	background-size: 100% auto;
+	position: relative;
+	top: -20px;
+}
+/*.page-headers {
 	padding: 12px 0 12px 10%;
 	background: rgba(0,0,0,0.6);
-}
+}*/
 .page-headers h1 {
 	-webkit-animation: fadeIn 1s;
 	-moz-animation: fadeIn 0.5s;
@@ -251,7 +263,7 @@ footer li {
 }
 
 p {
-	font-family: 'Play', sans-serif;
+	font-family: 'Roboto Condensed', sans-serif;
 	padding-bottom: 3px;
 	margin: 0 5px;
 }
