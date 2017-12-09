@@ -8,24 +8,25 @@
   	$scope.offers = CONFIG.OFFERS;
   	$scope.portfolio = CONFIG.PORTFOLIO;
   	$scope.contacts = CONFIG.CONTACTS;
-     
-    $scope.isActive = function (viewLocation) { 
-    
+
+    $scope.isActive = function (viewLocation) {
+
         return viewLocation === $location.path().split('/')[1];
     };
 
     catService.getCats().then(function(data){
         $scope.categories = data;
-        
+
     });
 
     $scope.lostproducts = [];
 
     $scope.onSelectOptionChanged = function() {
+        $location.path('/main');
         $scope.lostproducts.length = 0;
         $scope.searchProduct();
     }
-   
+
     $scope.searchProduct = function() {
 
         var params = {
@@ -64,4 +65,4 @@
 
 
   }]);
-})(); 
+})();

@@ -88,9 +88,14 @@ body {
 }
 
 #seachInput {
-  padding: 5px 20px 5px 20px;
+  padding: 5px 15px 5px 0px;
   border-radius: 4px;
   text-align: right;
+}
+
+#seachButton {
+  padding: 10px 20px 5px 0px;
+  text-align: left;
 }
 
 #formSearch {
@@ -102,36 +107,51 @@ body {
 }
 
 .dropSubMenu {
-    position: relative;
+  position: relative;
 }
 
 .dropMenu {
-    top: 0;
-    left: 100%;
-    margin-top: -1px;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  width: 320%;
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
 }
 
 #subSubcatMenu {
-  color: #324A5E;
-  font-size: 14px;
-  font-weight: bold;
+  box-shadow: 2px 2px 4px #84DBFF;
+  background-color: #ffffff;
+  font-size: 1.1em;
   text-align: left;
-  line-height: 1em;
-  margin: 0;
-  padding: 0;
+  padding: 5px 0 5px 10px;
+  font-weight: normal;
 }
 
 #subSubcatMenu > a {
-  text-align: left;
-  padding: 5px;
-  margin-right: 10px;
+  color: #000000;
+  text-decoration: none;
+
 }
 
-#nameSubSunCat {
-  width: 100%;
-  font-size: 1.2em;
+#subSubcatMenu > a:hover {
+  color: #1D73B8;
   font-weight: bold;
+}
+
+#nameSubSubCat {
+  width: 100%;
+  font-size: 1em;
   text-align: center;
+  color: #000000;
+  text-decoration: none;
+
+}
+
+#nameSubSubCat:hover {
+  color: #1D73B8;
+  font-weight: bold;
 }
 
 #productState {

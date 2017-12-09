@@ -1,54 +1,52 @@
 
-<div  ng-repeat="product in lostproducts track by $index" class="col-sm-6 col-md-4 portfolio-item">
-	<div class="image-box">
-		<p id="overflowTitle">{{product.title}}</p>
-		<div class="overlay-container">
-			<img ng-src="{{product.image}}" alt="">
-			<a class="overlay" ui-sref="products({productId:product.id})" data-target="#{{$index}}">
-			<i class="glyphicon glyphicon-zoom-in"></i>
-			<span>{{product.price + ' ₴'}}</span>
-			</a>
-			<span id="stylePrice">{{product.price + ' ₴'}}</span>
+<div class="container-fluid">
+	<div id="gridPortfolioSearch" ng-cloak class="ng-cloak portfolio-container">
+		<div  ng-repeat="product in lostproducts track by $index" class="portfolio-item">
+			<div class="image-box">
+				<p id="overflowTitle">{{product.title}}</p>
+				<div class="overlay-container">
+					<img ng-src="{{product.image}}" alt="">
+					<a class="overlay" ui-sref="products({productId:product.id})" data-target="#{{$index}}">
+					<p id="overlaySpecMain">{{product.spec}}</p>
+					</a>
+					<span id="stylePrice">{{product.price + ' ₴'}}</span>
+				</div>
+			</div>
 		</div>
-	</div>
+	</div><br/>
 </div>
-<a href="#/dashboard/products" class="text-center"><h2> Адмін панель</h2></a>
-<br>
+
+<!--<a href="#/dashboard/products" class="text-center"><h2> Адмін панель</h2></a>
+<br>-->
 
 <div class="container-fluid">
-<section class="products">
-		<div class="container-fluid">
-			<div class="row">
-				<!--
-				<div class="container col-md-3">
+	<section class="products">
 
+		<div class="row">
+			<div class="col-md-12">
+				<div ui-view></div>
+				<hr>
 
-				</div>-->
-
-				<div class="col-md-12">
-					<div ui-view></div>
-					<hr>
-
-					<h3>Новинки</h3><br/>
-					<div class="container-fluid">
-						<div id="gridPortfolio" ng-cloak class="ng-cloak portfolio-container">
-								<div ng-repeat="newProduct in newProducts track by $index" class="portfolio-item">
-									<div class="image-box">
-										<p id="overflowTitle">{{newProduct.title}}</p>
-										<div class="overlay-container">
-											<img ng-src="{{newProduct.image}}" alt="">
-											<a class="overlay" ui-sref="products({productId:newProduct.id})" data-target="#{{$index}}">
-											<p id="overlaySpec">{{newProduct.spec}}</p>
-											</a>
-											<span id="stylePrice">{{newProduct.price + ' ₴'}}</span>
-									  </div>
-	  							</div>
-	  						</div>
-	  				</div>
+				<h3>Новинки</h3><br/>
+				<div class="container-fluid">
+					<div id="gridPortfolio" ng-cloak class="ng-cloak portfolio-container">
+						<div ng-repeat="newProduct in newProducts track by $index" class="portfolio-item">
+							<div class="image-box">
+								<p id="overflowTitle">{{newProduct.title}}</p>
+								<div class="overlay-container">
+									<img ng-src="{{newProduct.image}}" alt="">
+									<a class="overlay" ui-sref="products({productId:newProduct.id})" data-target="#{{$index}}">
+									<p id="overlaySpec">{{newProduct.spec}}</p>
+									</a>
+									<span id="stylePrice">{{newProduct.price + ' ₴'}}</span>
+							  </div>
+							</div>
+						</div>
 					</div>
+				</div>
 
 			</div>
-	    </div>
+	  </div>
 
-</section>
+	</section>
 </div>

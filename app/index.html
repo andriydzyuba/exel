@@ -80,6 +80,7 @@
                     <!-- <li ng-class="{ active: isActive('services')}"><a ui-sref="services.detail ({id: '20'})">{{offers}}</a></li> -->
                     <!-- <li ng-class="{ active: isActive('portfolio')}"><a ui-sref="portfolio.all({filterId: ''})">{{portfolio}}</a></li> -->
                     <li ng-class="{ active: isActive('contacts')}"><a ui-sref="contacts" style="font-size:1.5em; padding: 15px;">{{contacts}}</a></li>
+                    <li ><a href="#/cart" style="font-size:1.5em; padding: 15px;">Корзина</a></li>
                   </ul>
                 </div>
               </div>
@@ -102,9 +103,9 @@
               <li class="dropdown" ng-repeat="subcat in cat.subcats track by $index">
                 <a class="dropSubMenu" tabindex="-1" ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}}<span class="caret"></span></span></a>
                 <ul class="dropdown-menu dropMenu">
-                  <li id="subSubcatMenu" class="dropdown" ng-repeat="subsubcat in subcat.subcats track by $index">
-                    <a tabindex="-1" ui-sref="main.ssubcategory({ ssubcatId: subsubcat.ss_id })" class="text-center"><span><img ng-src="{{subsubcat.images}}" alt="" style="height: 50%; width: 50%;"> {{subsubcat.title}}</span></a>
-                  </li>
+                  <div class="col-md-3" id="subSubcatMenu" class="dropdown" ng-repeat="subsubcat in subcat.subcats track by $index">
+                    <a tabindex="-1" ui-sref="main.ssubcategory({ ssubcatId: subsubcat.ss_id })"><span>{{subsubcat.title}}</span></a>
+                  </div>
                 </ul>
               </li>
             </ul>
@@ -113,10 +114,18 @@
       </div>
 
       <div class="col-md-4">
-        <div id="seachInput" class="row">
-          <span id="clickSearch"><input ng-model="title" id="formSearch" placeholder="Пошук"></span>
-          <a href="" class="btn btn-primary" ng-click="onSelectOptionChanged()">Пошук</a>
-          <a href="" class="btn btn-primary" ng-click="cleanFilter()">Очистити</a>
+        <div class="row">
+          <div class="col-md-7">
+            <div id="seachInput" class="row">
+              <span id="clickSearch"><input ng-model="title" id="formSearch" placeholder="Пошук"></span>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div id="seachButton" class="row">
+              <a href="" class="btn btn-primary btn-sm" ng-click="onSelectOptionChanged()">Шукати</a>
+              <a href="" class="btn btn-danger btn-sm" ng-click="cleanFilter()">Очистити</a>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -231,6 +240,7 @@
   <script src="products/products.js"></script>
   <script src="products/order-modal/order-modal.controller.js"></script>
   <script src="dashboard/dashboard.js"></script>
+  <script src="cart/cart.js"></script>
 
 
 </body>

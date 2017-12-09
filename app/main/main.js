@@ -153,7 +153,7 @@ angular.module('exel.main', ['ngRoute'])
 
         var params = {
         s_id: $stateParams.subcatId,
-        limit: 10,
+        limit: 12,
         offset: $scope.products.length
 
         }
@@ -245,7 +245,7 @@ angular.module('exel.main', ['ngRoute'])
 
         var params = {
         s_id: $stateParams.subcatId,
-        limit: 10,
+        limit: 12,
         offset: $scope.products.length
 
         }
@@ -292,7 +292,7 @@ angular.module('exel.main', ['ngRoute'])
     $scope.loadMore = function() {
 
         var params = {
-        limit: 10,
+        limit: 12,
         offset: $scope.newProducts.length
         }
 
