@@ -91,6 +91,7 @@ body {
   padding: 5px 15px 5px 0px;
   border-radius: 4px;
   text-align: right;
+
 }
 
 #seachButton {
@@ -101,9 +102,21 @@ body {
 #formSearch {
   height: 40px;
   width: 34%;
+  border: none;
   border-radius: 4px;
-  text-align: center;
-  font-size: 1.3em;
+  padding-left: 5px;
+  text-align: left;
+  text-transform: lowercase;
+  font-size: 1.2em;
+  background-image: url("../images/search_icon.png");
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+#formSearch:focus {
+  border-color: #F8F8F8;
+  outline: 0;
+  font-style: italic;
 }
 
 .dropSubMenu {
