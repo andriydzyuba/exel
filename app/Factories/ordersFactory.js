@@ -4,6 +4,7 @@ angular.module('exel').factory('ordersService', ['$http', '$q', '$modal', functi
 
     _createOrder = function(order) {
     	var defer = $q.defer();
+    	console.log("dd");
     	$http.post('api/orders/createOrder.php', order).success(function(data){
             defer.resolve(data);
         });
@@ -34,7 +35,7 @@ angular.module('exel').factory('ordersService', ['$http', '$q', '$modal', functi
 		return defer.promise
 	};
 
-
+ 
 
 	ordersService.createOrder = _createOrder;
 	ordersService.getOrder = _getOrder;

@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 include '../credentials.php';
 
@@ -22,7 +22,7 @@ $request->phone = addslashes($request->phone);
 $request->comment = addslashes($request->comment);
 
 
-$sql = "INSERT INTO Orders (product_id, name, phone, comment) VALUES ('$request->product_id', '$request->name', '$request->phone', '$request->comment')";
+$sql = "INSERT INTO Orders (product_id, name, phone, comment, email, town, delivery, cart) VALUES ('$request->product_id', '$request->name', '$request->phone', '$request->comment', '$request->email', '$request->town', '$request->delivery', '$request->cart')";
 
 if ($conn->query($sql) === TRUE) {
  	echo "Замовлення додано успішно.";

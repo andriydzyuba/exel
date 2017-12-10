@@ -559,10 +559,23 @@ function sendFile(file) {
         ordersService.getOrder($stateParams.orderId).then(function(data){
         $scope.order = data;
         console.log($scope.order);
+
+        $scope.cart = JSON.parse($scope.order.cart);
+        console.log(JSON.parse($scope.order.cart));
+        console.log($scope.cart);
         })
     }
 
+    
+
     $scope.orders = [];
+
+    
+
+
+
+
+
     $scope.loadMore = function() {
 
         var params = {

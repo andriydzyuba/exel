@@ -22,7 +22,9 @@
     $scope.lostproducts = [];
 
     $scope.onSelectOptionChanged = function() {
+
         $location.path('/main');
+
         $scope.lostproducts.length = 0;
         $scope.searchProduct();
     }
@@ -39,6 +41,7 @@
         }
 
         if ($scope.title.length > 2) {
+
           productsService.searchProduct(params).then(function(response) {
                   console.log(response);
               if (response) {
