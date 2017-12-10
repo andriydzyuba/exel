@@ -116,11 +116,11 @@
 .image-box {
 	padding: 5px;
 	margin-left: 0;
-	margin-right: 0;
+	margin-right: 5px;
 	margin-bottom: 5px;
 	border-radius: 10px;
-	border: 1px solid #b3e8ff;
-	box-shadow: 1px 1px 3px #84DBFF;
+	border: 1px solid #F8F8F8;
+	box-shadow: 1px 1px 3px #F0F0F0;
 }
 
 @media (max-width:480px) {
