@@ -1,12 +1,22 @@
-<div class="auth">
-	<div class="brand-form">
-		<form ng-submit="signIn(user)">
-			<p>логін</p>
-			<input ng-model="user.name" type="text" placeholder="Your Name" required>
-			<p>пароль</p>
-			<input ng-model="user.password" type="password" placeholder="yourPassword1991" required>
-			<p>{{message}}</p>
-			<input type="submit" value="sign in">
-		</form>
+<br><br><br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4 text-center">
+			<form ng-submit="signIn(user)">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					<input ng-model="user.name" type="text" class="form-control" placeholder="Ваш логін" required style="margin:0;">
+				</div><br>
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+					<input ng-model="user.password" type="password" class="form-control" placeholder="Ваш пароль" required style="margin:0;">
+				</div><br>
+				<p>{{message}}</p>
+				<input type="submit" class="btn" value="Вхід">
+			</form>
+		</div>
+		<div class="col-md-4"></div>
 	</div>
 </div>
+<br><br>

@@ -206,3 +206,7 @@ body {
   max-width: 100px;
   margin: auto;
 }
+
+#cartText {
+  font-size: 1.1em;
+}

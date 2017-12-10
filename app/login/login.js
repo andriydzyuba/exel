@@ -18,12 +18,12 @@ angular.module('exel')
         console.log('fs')
         authService.signIn(user.name, user.password).then(function(data){
             if (data) {
-                $location.path('dashboard/edit/principle');
+                $location.path('dashboard');
             }
         })
 
     }
 
-    
+
 
 }])

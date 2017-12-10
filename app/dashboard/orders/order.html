@@ -2,6 +2,7 @@
 
 	<div class = "col-md-6">
 		<h3 class = "no-top-margin">Номер замовлення: {{order.id}}</h3><hr/>
+		<p>Замовлений товар (клік): <a ui-sref="products({productId:order.product_id})" data-target="#{{$index}}">Перейта на товар-></a></p><hr/>
 		<p>Дата замовлення: {{order.date}}</p><hr/>
 		<p>Ім'я замовника: {{order.name}}</p><hr/>
 		<p>Телефон замовника: {{order.phone}}</p><hr/>
