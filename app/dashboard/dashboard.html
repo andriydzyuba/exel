@@ -1,13 +1,17 @@
-<div class="page-heading">
+<!--<div class="page-heading">
 	<div class="page-headers">
-		<h1 class="text-left" style="color: transparent;">Адміністративна панель</h1>
-		<p class="lead text-left" style="color: transparent;">Дізнайтесь про нас більше!</p>
-	</div>			
+		<h1 class="text-left">Адміністративна панель</h1>
+		<p class="lead text-left"></p>
+	</div>
 </div>
+<!--<div class="separator"></div>-->
+
+<h1 class="text-center">Адміністративна панель</h1>
 <div class="separator"></div>
 
 <div class="container-fluid dashboard-container">
 	<div class="row">
+
 		<div class="col-md-2 dashboard-nav">
 			<div class="btn-group-vertical" role="group" aria-label="...">
 			  <a ui-sref="dashboard.orders" class="btn btn-default">Замовлення</a>
@@ -15,12 +19,11 @@
 			  <hr>
 			  <a ui-sref="dashboard.categories" class="btn btn-default">Категорії</a>
 			  <a ui-sref="dashboard.makers" class="btn btn-default">Виробники</a>
-			  <a ui-sref="dashboard.team" class="btn btn-default">Команда</a>
+			  <!--<a ui-sref="dashboard.team" class="btn btn-default">Команда</a>-->
 			</div>
 		</div>
-		<div class="col-md-10" ui-view>
 
-		</div>
+		<div class="col-md-10" ui-view></div>
+
 	</div>
-</div> 
-
+</div>

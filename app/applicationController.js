@@ -38,17 +38,19 @@
             params.title = $scope.title
         }
 
-        productsService.searchProduct(params).then(function(response) {
-                console.log(response);
-            if (response) {
+        if ($scope.title.length > 2) {
+          productsService.searchProduct(params).then(function(response) {
+                  console.log(response);
+              if (response) {
 
-                for (var i =0; i < response.length; i++) {
+                  for (var i =0; i < response.length; i++) {
 
-                $scope.lostproducts.push(response[i]);
+                  $scope.lostproducts.push(response[i]);
 
-                }
-            }
-        })
+                  }
+              }
+          })
+        }
     }
 
 

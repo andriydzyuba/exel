@@ -1,14 +1,13 @@
 <div class="modal-header">
     <button type="button" class="close" ng-click="$dismiss()"><span aria-hidden="true">&times;</span><span class="sr-only">Закрити</span></button>
-    <h4 class="modal-title">Ви впевнені?</h4>
+    <h3 class="modal-title">Ви впевнені?</h3>
 </div>
 <div class="modal-body">
-        <h3>Видалити:</h3>
-        <p>{{message}}</p>
+        <h3><p>{{message}}</p></h3><br/>
         <a ng-click="answerSubmit(true)" href="" class="btn btn-danger">Видалити</a>
         <a ng-click="answerSubmit(false)" href="" class="btn btn-success">Скасувати</a>
     </div>
 </div>
-<div class="modal-footer">
+<!--<div class="modal-footer">
     <button type="button" class="btn btn-sm btn-default" ng-click="$dismiss()">Закрити</button>
-</div>
+</div>-->
