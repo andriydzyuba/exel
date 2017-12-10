@@ -1,45 +1,50 @@
-
-<hr>
-<div>
-	<h2 class="no-top-margin">Номер замовлення: {{order.id}}</h2>
-	<p>Дата замовлення: {{order.date}}</p><hr/>
-	<p>Ім'я замовника: {{order.name}}</p><hr/>
-	<p>Телефон замовника: {{order.phone}}</p><hr/>
-	<p>Коментар замовника: {{order.comment}}</p><hr/>
-</div>
-
 <div class="row">
-	<div class = "col-md-8">
+
+	<div class = "col-md-6">
+		<h3 class = "no-top-margin">Номер замовлення: {{order.id}}</h3><hr/>
+		<p>Дата замовлення: {{order.date}}</p><hr/>
+		<p>Ім'я замовника: {{order.name}}</p><hr/>
+		<p>Телефон замовника: {{order.phone}}</p><hr/>
+		<p>Email замовника (корзина): {{order.email}}</p><hr/>
+		<p>Місто замовника (корзина): {{order.town}}</p><hr/>
+		<p>Спосіб доставки (корзина): {{order.delivery}}</p><hr/>
+		<p>Коментар замовника: {{order.comment}}</p><hr/>
+	</div>
+
+	<div class ="col-md-6">
 		<div class = "panel panel-primary">
 			<div class = "panel-heading">
-				<h5>Корзина</h5>
+				<h4 class="text-center">Корзина</h4>
 			</div>
 			<div class = "panel-body table-responsive">
 				<table class = "table">
+
 					<thead>
 						<tr>
 							<th>Товар</th>
 							<th>Ціна</th>
-							<th></th>
 						</tr>
 					</thead>
+
 					<tbody>
 						<tr ng-repeat = "product in cart" ng-init = "setTotals(cart)">
 							<td>
-								<a ui-sref="products({productId:product.id})">
+								<a ui-sref = "products({productId:product.id})">
+									<img ng-src = "{{product.image}}" style="width: 25%"/><br/>
 									{{product.title}}
-									<img ng-src = "{{product.image}}" style="width: 25%"/>
 								</a>
 							</td>
-							<td>₴{{product.price}}</td>
+							<td>{{product.price}}₴</td>
 						</tr>
             <!--<tr>
 							<td align = "right">Сума замовлення</td>
 							<td>₴{{total}}</td>
 						</tr>-->
 					</tbody>
+
 				</table>
 			</div>
 		</div>
 	</div>
+
 </div>

@@ -1,4 +1,4 @@
-'use strict';   
+'use strict';
 
 angular.module('exel')
 
@@ -116,8 +116,8 @@ $scope.imageUpload = function(file) {
         sendFile(file[0]);
     }
 
-$scope.paste = function(e) { 
-    console.log('Called event paste'); 
+$scope.paste = function(e) {
+    console.log('Called event paste');
 }
 
 function sendFile(file) {
@@ -138,7 +138,7 @@ function sendFile(file) {
 
 }])
 
-.controller('ConfirmController', ['$scope',  '$modalStack', 'confirmService', 'message', function($scope, $modalStack, confirmService, message) { 
+.controller('ConfirmController', ['$scope',  '$modalStack', 'confirmService', 'message', function($scope, $modalStack, confirmService, message) {
     $scope.message = message;
     $scope.answerSubmit = function(answer) {
         confirmService.confirmResolve(answer);
@@ -210,7 +210,7 @@ function sendFile(file) {
     $scope.subcatId = $stateParams.subcatId;
     $scope.subcategory = {};
     $scope.subcategory.c_id = $scope.categoryId;
-    
+
     $scope.subcategoryId = $stateParams.subcatId;
     $scope.ssubcatId = $stateParams.ssubcatId;
     $scope.ssubcategory = {};
@@ -239,7 +239,7 @@ function sendFile(file) {
         $scope.modalInstance = $modal.open({
             templateUrl: 'dashboard/modals/catModal.html',
             size: 'lg',
-            scope: $scope	     
+            scope: $scope
         })
     };
 
@@ -263,7 +263,7 @@ function sendFile(file) {
             catService.editSubсat(subcategory).then(function(data){
                 $location.path('dashboard/categories');
             });
-        }        
+        }
     }
 
     $scope.createSsubcategory = function(ssubcategory) {
@@ -275,7 +275,7 @@ function sendFile(file) {
             catService.editSsubсat(ssubcategory).then(function(data){
                 $location.path('dashboard/categories');
             });
-        }        
+        }
     }
 
     $scope.deleteCategory = function(category, index) {
@@ -326,7 +326,7 @@ function sendFile(file) {
     }
 
     $scope.triggerInput = function() {
-            $('#photo-input').click();    
+            $('#photo-input').click();
     }
 
     $scope.onFile = function(file) {
@@ -380,8 +380,8 @@ function sendFile(file) {
     $scope.loadMore = function() {
 
         var params = {
-        limit: 20,
-        offset: $scope.products.length        
+        limit: 18,
+        offset: $scope.products.length
         }
 
         productsService.getProducts(params).then(function(response) {
@@ -404,7 +404,7 @@ function sendFile(file) {
         var params = {
         limit: 50,
         offset: $scope.products.length
-             
+
         }
 
         if ($scope.title) {
@@ -451,11 +451,11 @@ function sendFile(file) {
                 productsService.deleteProduct(product.id).then(function(data){
                     $scope.products.splice(index, 1);
                     $modalStack.dismissAll();
-                })    
+                })
             } else {
                 $modalStack.dismissAll();
             }
-        })        
+        })
     }
 
 
@@ -463,7 +463,7 @@ function sendFile(file) {
 
 
 .controller('DashboardMakersController', ['$scope', '$modalStack', 'filtersService', 'confirmService', 'catService', function($scope, $modalStack, filtersService, confirmService, catService) {
-   
+
 
     catService.getCats().then(function(data){
         $scope.categories = data;
@@ -504,7 +504,7 @@ function sendFile(file) {
         var params = {
         limit: 20,
         offset: $scope.makers.length,
-        s_id: $scope.maker.s_id      
+        s_id: $scope.maker.s_id
         }
 
         if ($scope.maker.ss_id) {
@@ -542,11 +542,11 @@ function sendFile(file) {
                 filtersService.deleteMaker(maker.id).then(function(data){
                     $scope.makers.splice(index, 1);
                     $modalStack.dismissAll();
-                })    
+                })
             } else {
                 $modalStack.dismissAll();
             }
-        })        
+        })
     }
 
 }])
@@ -554,7 +554,7 @@ function sendFile(file) {
 
 
 .controller('DashboardOrdersController', ['$scope', '$modalStack', 'ordersService', 'confirmService', '$stateParams', function($scope, $modalStack, ordersService, confirmService, $stateParams) {
-    
+
     if ($stateParams.orderId) {
         ordersService.getOrder($stateParams.orderId).then(function(data){
         $scope.order = data;
@@ -566,11 +566,11 @@ function sendFile(file) {
         })
     }
 
-    
+
 
     $scope.orders = [];
 
-    
+
 
 
 
@@ -580,7 +580,7 @@ function sendFile(file) {
 
         var params = {
         limit: 5,
-        offset: $scope.orders.length        
+        offset: $scope.orders.length
         }
 
         ordersService.getOrders(params).then(function(response) {
@@ -605,14 +605,14 @@ function sendFile(file) {
     if ($stateParams.productId) {
         productsService.getProduct($stateParams.productId).then(function(data){
             $scope.product = data;
-        }) 
+        })
     }
 
     catService.getCats().then(function(data){
         $scope.categories = data;
         if ($stateParams.productId) {
             productsService.getProduct($stateParams.productId).then(function(data){
-                $scope.product = data;  
+                $scope.product = data;
                 $scope.getSubcatsList();
             })
         };
@@ -638,10 +638,10 @@ function sendFile(file) {
             }
         }
     }
- 
+
     $scope.submitProduct = function(product) {
         var dataToSend = $scope.getData(product);
-        
+
         if ($stateParams.productId) {
             productsService.editProduct(dataToSend).then(function(data){
                 $location.path('dashboard/products');
@@ -655,7 +655,7 @@ function sendFile(file) {
 
     $scope.getData = function(product) {
         var data = {};
-        
+
         if (product.id) {
             data.id = product.id;
         }
@@ -667,7 +667,7 @@ function sendFile(file) {
         }
         if (product.price) {
             data.price = product.price;
-        }   
+        }
         if (product.c_id) {
             data.c_id = product.c_id;
         }
@@ -682,7 +682,7 @@ function sendFile(file) {
         }
         if (product.image) {
             data.image = product.image;
-        } 
+        }
         if (product.text) {
             data.text = product.text;
         }
@@ -713,14 +713,14 @@ function sendFile(file) {
     if ($stateParams.makerId) {
         filtersService.getMaker($stateParams.makerId).then(function(data){
             $scope.maker = data;
-        }) 
+        })
     }
 
     catService.getCats().then(function(data){
         $scope.categories = data;
         if ($stateParams.makerId) {
             filtersService.getMaker($stateParams.makerId).then(function(data){
-                $scope.maker = data;  
+                $scope.maker = data;
                 $scope.getSubcatsList();
             })
         };
@@ -746,10 +746,10 @@ function sendFile(file) {
             }
         }
     }
- 
+
     $scope.submitMaker = function(maker) {
         var dataToSend = $scope.getData(maker);
-        
+
         if ($stateParams.makerId) {
             filtersService.editMaker(dataToSend).then(function(data){
                 $location.path('dashboard/makers');
@@ -763,7 +763,7 @@ function sendFile(file) {
 
     $scope.getData = function(maker) {
         var data = {};
-        
+
         if (maker.id) {
             data.id = maker.id;
         }
@@ -799,11 +799,11 @@ function sendFile(file) {
                 teamService.deleteMember(member.id).then(function(data){
                     $scope.team.splice(index, 1);
                     $modalStack.dismissAll();
-                })    
+                })
             } else {
                 $modalStack.dismissAll();
             }
-        })        
+        })
     }
 
 }])
@@ -815,7 +815,7 @@ function sendFile(file) {
     if ($stateParams.memberId) {
         teamService.getMember($stateParams.memberId).then(function(data){
             $scope.member = data;
-            
+
         })
     }
 
@@ -847,14 +847,3 @@ function sendFile(file) {
     }
 
 }])
-
-
-
-
-
-
-
-
-
-
-

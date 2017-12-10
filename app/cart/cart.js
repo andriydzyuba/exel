@@ -64,6 +64,7 @@ angular.module('exel')
 
         ordersService.createOrder($scope.order).then(function(data){
             $scope.isOrderSubmitted = true;
+            localStorage.clear();
         })
     }
 
@@ -77,4 +78,3 @@ angular.module('exel')
 //localStorage.setItem("username","George");
   //  localStorage.clear(); //очищає повністю
   //  localStorage.removeItem("username","George");
-  
