@@ -1,0 +1,12 @@
+<div class="auth">
+	<div class="brand-form">
+		<form ng-submit="signIn(user)">
+			<p>логін</p>
+			<input ng-model="user.name" type="text" placeholder="Your Name" required>
+			<p>пароль</p>
+			<input ng-model="user.password" type="password" placeholder="yourPassword1991" required>
+			<p>{{message}}</p>
+			<input type="submit" value="sign in">
+		</form>
+	</div>
+</div>

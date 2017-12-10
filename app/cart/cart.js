@@ -45,6 +45,10 @@ angular.module('exel')
 
         $scope.save_cart = function(){
                 localStorage.setItem("shoppingCarts", JSON.stringify($scope.carts));
+                $scope.order = {
+                    cart: JSON.stringify($scope.carts)
+                };
+                console.log($scope.order);
         }
 
     $scope.shoppingCarts = JSON.parse(localStorage.getItem("shoppingCarts")) ;
@@ -54,18 +58,13 @@ angular.module('exel')
             }
         }
 
-
-    $scope.order = {
-            cart: JSON.stringify($scope.carts)
-        };
-     console.log($scope.order);
+    //console.log($scope.order);
     $scope.createOrder = function(order) {
-        console.log($scope.order);
-
         ordersService.createOrder($scope.order).then(function(data){
             $scope.isOrderSubmitted = true;
             localStorage.clear();
         })
+
     }
 
     $scope.closeCart = function() {

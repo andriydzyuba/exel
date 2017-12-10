@@ -7,87 +7,104 @@ angular.module('exel')
   .state('dashboard', {
     url:'/dashboard',
     templateUrl: 'dashboard/dashboard.html',
-    controller: 'DashboardController'
+    controller: 'DashboardController',
+    dashboard: true
   })
   .state('dashboard.categories', {
     url:'/categories',
     templateUrl: 'dashboard/categories/categories.html',
-    controller: 'DashboardCategoriesController'
+    controller: 'DashboardCategoriesController',
+    dashboard: true
   })
   .state('dashboard.products', {
     url:'/products',
     templateUrl: 'dashboard/products/products.html',
-    controller: 'DashboardProductsController'
+    controller: 'DashboardProductsController',
+    dashboard: true
   })
   .state('dashboard.addproduct', {
     url:'/addproduct',
     templateUrl: 'dashboard/products/addProduct.html',
-    controller: 'DashboardAddProductController'
+    controller: 'DashboardAddProductController',
+    dashboard: true
   })
   .state('dashboard.editproduct', {
     url:'/editproduct/:productId',
     templateUrl: 'dashboard/products/addProduct.html',
-    controller: 'DashboardAddProductController'
+    controller: 'DashboardAddProductController',
+    dashboard: true
   })
   .state('dashboard.makers', {
     url:'/makers',
     templateUrl: 'dashboard/makers/makers.html',
-    controller: 'DashboardMakersController'
+    controller: 'DashboardMakersController',
+    dashboard: true
   })
   .state('dashboard.addmaker', {
     url:'/addmaker',
     templateUrl: 'dashboard/makers/addMaker.html',
-    controller: 'DashboardAddMakerController'
+    controller: 'DashboardAddMakerController',
+    dashboard: true
   })
   .state('dashboard.editmaker', {
     url:'/editmaker/:makerId',
     templateUrl: 'dashboard/makers/addMaker.html',
-    controller: 'DashboardAddMakerController'
+    controller: 'DashboardAddMakerController',
+    dashboard: true
   })
   .state('dashboard.orders', {
     url:'/orders',
     templateUrl: 'dashboard/orders/orders.html',
-    controller: 'DashboardOrdersController'
+    controller: 'DashboardOrdersController',
+    dashboard: true
   })
   .state('dashboard.order', {
     url:'/orders/order/:orderId',
     templateUrl: 'dashboard/orders/order.html',
-    controller: 'DashboardOrdersController'
+    controller: 'DashboardOrdersController',
+    dashboard: true
   })
   .state('dashboard.team', {
     url:'/team',
     templateUrl: 'dashboard/team/team.html',
-    controller: 'DashboardTeamController'
+    controller: 'DashboardTeamController',
+    dashboard: true
   })
   .state('dashboard.addsubcat', {
     url:'/addsubcat/:catId',
     templateUrl: 'dashboard/categories/addSubcat.html',
-    controller: 'DashboardCategoriesController'
+    controller: 'DashboardCategoriesController',
+    dashboard: true
   })
   .state('dashboard.addssubcat', {
     url:'/addssubcat/:subcatId',
     templateUrl: 'dashboard/categories/addSsubcat.html',
-    controller: 'DashboardCategoriesController'
+    controller: 'DashboardCategoriesController',
+    dashboard: true
   })
   .state('dashboard.editsubcat', {
     url:'/editsubcat/:subcatId',
     templateUrl: 'dashboard/categories/addSubcat.html',
-    controller: 'DashboardCategoriesController'
+    controller: 'DashboardCategoriesController',
+    dashboard: true
   })
   .state('dashboard.editssubcat', {
     url:'/editssubcat/:ssubcatId',
     templateUrl: 'dashboard/categories/addSsubcat.html',
-    controller: 'DashboardCategoriesController'
+    controller: 'DashboardCategoriesController',
+    dashboard: true
   })
   .state('dashboard.addmember', {
     url:'/addmember',
     templateUrl: 'dashboard/team/addMember.html',
-    controller: 'DashboardAddMemberController'
+    controller: 'DashboardAddMemberController',
+    dashboard: true
   })
   .state('dashboard.editmember', {
     url:'/editmember/:memberId',
     templateUrl: 'dashboard/team/addMember.html',
-    controller: 'DashboardAddMemberController'
+    controller: 'DashboardAddMemberController',
+    dashboard: true
   })
 }])
 

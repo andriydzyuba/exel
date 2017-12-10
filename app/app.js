@@ -14,7 +14,17 @@ angular.module('exel', [
   'exel.main',
   'exel.about',
   'exel.contacts',
-]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/'});
+])
+.config(['$routeProvider', '$urlRouterProvider', function($routeProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise("/main");
+}])
+
+.run(['$rootScope', '$state', '$stateParams', 'authService', function ($rootScope, $state, $stateParams, authService) {
+
+    $rootScope.$state = $state;
+    $rootScope.$stateParams = $stateParams;
+    $rootScope.user = null;
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+      authService.checkAuthentication(event, toState);
+    });
 }]);

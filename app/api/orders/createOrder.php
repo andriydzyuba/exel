@@ -20,6 +20,12 @@ if ($conn->connect_error) {
 $request->name = addslashes($request->name);
 $request->phone = addslashes($request->phone);
 $request->comment = addslashes($request->comment);
+$request->cart = addslashes($request->cart);
+$request->email = addslashes($request->email);
+$request->town = addslashes($request->town);
+$request->delivery = addslashes($request->delivery);
+
+
 
 
 $sql = "INSERT INTO Orders (product_id, name, phone, comment, email, town, delivery, cart) VALUES ('$request->product_id', '$request->name', '$request->phone', '$request->comment', '$request->email', '$request->town', '$request->delivery', '$request->cart')";
