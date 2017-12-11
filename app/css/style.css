@@ -142,7 +142,12 @@ padding: 0;
 	height: 320px;
 }
 
-.page-heading, .contacts-heading {
+.cart-heading {
+	background: url(../images/shopping-cart.jpg) 100% 15% no-repeat;
+	height: 230px;
+}
+
+.page-heading, .contacts-heading, .cart-heading {
 	background-size: 100% auto;
 	position: relative;
 	top: -20px;
@@ -308,6 +313,10 @@ footer .mini-about {
 	font-size: 0.7em;
 	background-color: #1D1F20;
 	margin: 0;
+}
+
+#developers {
+	font-size: 0.8em;
 }
 
 /**********************************************************
