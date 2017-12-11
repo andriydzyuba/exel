@@ -12,12 +12,15 @@ angular.module('exel')
 }])
 
 
-.controller('CartController', ['$scope', '$location', '$state', '$stateParams', 'productsService', 'modalsService', 'catService', 'ordersService', function($scope, $location, $state, $stateParams, productsService, modalsService, catService, ordersService) {
-    console.log("xx")
-
+.controller('CartController', ['$scope', '$location', '$state', '$stateParams', 'productsService', 'modalsService', 'catService', 'ordersService', 'currencyService', function($scope, $location, $state, $stateParams, productsService, modalsService, catService, ordersService, currencyService) {
 
     $scope.carts=[]; //create a variable name carts, this will be the storage of the product that the buyer choose
          //this is an array of product that will be display in the mark uo
+
+    currencyService.getCurrency(1).then(function(data){
+            $scope.currency = data;
+            console.log($scope.currency);
+    })
 
         $scope.add_cart = function(product){ //set a function name add_cart
             if(product){ //check if the product is already declared within the function

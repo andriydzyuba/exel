@@ -134,6 +134,12 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
  //  FOREIGN KEY (ss_id) REFERENCES Ssubcats(ss_id)
 //   )";
 
+ //$sql = "CREATE TABLE Currency (
+ //id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+// title VARCHAR(30) NOT NULL,
+// cof INT(6) UNSIGNED
+// )";
+
 
 if ($conn->query($sql) === TRUE) {
     echo "Table subCats created successfully";

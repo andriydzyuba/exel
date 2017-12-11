@@ -29,12 +29,12 @@
 									<span id="cartText">{{cart.title}}</span>
 								</td>
 
-								<td id="cartText">{{cart.price}}₴</td>
-								<td><button type = "button" ng-click = "remove_cart(cart)" class = "btn btn-danger"><span class = "glyphicon glyphicon-remove"></span></button></td>
+							<td id="cartText">{{cart.price*currency.cof}}₴</td>
+							<td><button type = "button" ng-click = "remove_cart(cart)" class = "btn btn-danger"><span class = "glyphicon glyphicon-remove"></span></button></td>
 							</tr>
 							<tr>
 								<td align = "right" id="cartText">Сума замовлення</td>
-								<td id="cartText">{{total}}₴</td>
+								<td id="cartText">{{total*currency.cof}}₴</td>
 							</tr>
 						</tbody>
 					</table>
@@ -43,7 +43,7 @@
 		</div>
 	</div>
 
-	 <div class="container-fluid">
+	<div class="container-fluid">
 	  <form ng-submit="createOrder()">
 	    <div class="input-group col-md-12">
 				<div class="row">
@@ -78,6 +78,6 @@
 	    <h4 class = "text-center">Вітаємо, товар було замовлено, найближчим часом із Вам зв’яжутся для підтвердження покупки!</h4>
 	    <div class = "text-center"><button class="btn btn-info" data-ng-click="closeCart()">Гаразд</button></div>
 	  </div>
-
 	</div>
+
 </div>

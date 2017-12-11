@@ -40,7 +40,7 @@
       				<a class="overlay" ui-sref="products({productId:product.id})" data-target="#{{$index}}">
       				<p id="overlaySpecMain">{{product.spec}}</p>
       				</a>
-      				<span id="stylePrice">{{product.price + ' ₴'}}</span>
+      				<span id="stylePrice">{{product.price*currency.cof + ' ₴'}}</span>
       			</div>
       		</div>
       	</div>
