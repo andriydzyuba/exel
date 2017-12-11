@@ -79,8 +79,6 @@
                   <ul ng-cloak class="nav navbar-nav navbar-right">
                     <li ng-class="{ active: isActive('')}"><a ui-sref="main" style="font-size:1.5em; padding: 15px;">{{main}}</a></li>
                     <li ng-class="{ active: isActive('about')}"><a ui-sref="about" style="font-size:1.5em; padding: 15px;">{{about}}</a></li>
-                    <!-- <li ng-class="{ active: isActive('services')}"><a ui-sref="services.detail ({id: '20'})">{{offers}}</a></li> -->
-                    <!-- <li ng-class="{ active: isActive('portfolio')}"><a ui-sref="portfolio.all({filterId: ''})">{{portfolio}}</a></li> -->
                     <li ng-class="{ active: isActive('contacts')}"><a ui-sref="contacts" style="font-size:1.5em; padding: 15px;">{{contacts}}</a></li>
                     <!-- Cart image -->
                     <li ><a href="#/cart" style="font-size:1.5em; padding: 15px;"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li>
@@ -118,15 +116,15 @@
 
       <div class="col-md-4">
         <div class="row">
-          <div class="col-md-7">
+          <div class="col-md-9">
             <div id="seachInput" class="row">
-              <span id="clickSearch"><input ng-model="title" id="formSearch" placeholder="Пошук"></span>
+              <form id="clickSearch"><input ng-model="title" id="formSearch" placeholder="Пошук" ng-pattern="/^[A-z0-9]{3,}$/" required ng-keydown="$event.keyCode === 13 && onSelectOptionChanged()"></form>
             </div>
           </div>
-          <div class="col-md-5">
+          <div class="col-md-3">
             <div id="seachButton" class="row">
               <a href="" class="btn btn-primary btn-sm" ng-click="onSelectOptionChanged()">Шукати</a>
-              <a href="" class="btn btn-danger btn-sm" ng-click="cleanFilter()">Очистити</a>
+              <!--<a href="" class="btn btn-danger btn-sm" ng-click="cleanFilter()">Очистити</a>-->
             </div>
           </div>
         </div>
@@ -237,14 +235,17 @@
   <script src="Factories/teamFactory.js"></script>
   <script src="Factories/ordersFactory.js"></script>
   <script src="Factories/filtersFactory.js"></script>
+  <script src="Factories/authService.js"></script>
+  
 
   <script src="main/main.js"></script>
   <script src="about/about.js"></script>
   <script src="contacts/contacts.js"></script>
   <script src="products/products.js"></script>
+  <script src="cart/cart.js"></script>
   <script src="products/order-modal/order-modal.controller.js"></script>
   <script src="dashboard/dashboard.js"></script>
-  <script src="cart/cart.js"></script>
+  <script src="login/login.js"></script>
 
 
 </body>

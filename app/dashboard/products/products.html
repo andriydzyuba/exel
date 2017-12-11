@@ -1,15 +1,17 @@
- 
+ <div class="row">
 
-<div class="row"> 
 	<div class="container col-md-2">
 		<a href="" class="btn btn-success" ui-sref="dashboard.addproduct"><i class="fa fa-plus"></i> Додати товар</a>
 	</div>
+
 	<div class="container col-md-10">
 		<div class="row">
-			<div class="col-md-4">
+
+			<div class="col-md-5">
 				<input ng-model="title" class="form-control" placeholder="Пошук" required>
 			</div>
-			<div class="input-group col-md-8">
+
+			<div class="input-group col-md-7">
 				<select ng-options="cat.c_id as cat.title for cat in categories" ng-model="product.c_id" ng-change="getSubcatsList()">
 				<option selected disabled value="">Вкажіть категорію</option>
 				</select>
@@ -22,16 +24,18 @@
 				<option selected disabled value="">Вкажіть субкатегорію</option>
 				</select>
 			</div>
-		</div>
+
+		</div><hr/>
+
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-2"><a href="" class="btn btn-primary" ng-click="onSelectOptionChanged()">Сортувати товари</a></div>
-			<div class="col-md-2"><a href="" class="btn btn-primary" ng-click="cleanFilter()">Скинути критерії</a></div>
-			
+			<div class="col-md-2"><a href="" class="btn btn-danger" ng-click="cleanFilter()">Скинути критерії</a></div>
+      <div class="col-md-4"></div>
 		</div>
+
 	</div>
 </div>
-
 
 <hr>
 <div ng-cloak class="ng-cloak portfolio-container row grid-space-20">
@@ -39,14 +43,13 @@
 		<div class="image-box">
 			<div class="overlay-container">
 				<img ng-src="{{product.image}}" alt="">
-				<a class="overlay" ui-sref="dashboard.editproduct({productId: product.id})" data-target="#{{$index}}">
-					<!--<i class="glyphicon glyphicon-zoom-in"></i>-->
+				<a class="overlay">
 					<span>{{product.title}}</span>
 				</a>
 			</div>
-			<a href="" ng-click="deleteProduct(product, $index)"  class="btn btn-danger">Видалити товар</a>
-			<a class="btn btn-default btn-block" ui-sref="dashboard.editproduct({productId: product.id})" data-target="#{{$index}}"></a>
+      <a class="btn btn-warning btn-sm" ui-sref="dashboard.editproduct({productId: product.id})" data-target="#{{$index}}">Редагувати</a>
+			<a class="btn btn-danger btn-sm" href="" ng-click="deleteProduct(product, $index)">Видалити</a>
 		</div>
 	</div>
-</div> 
-<a href="" class="btn btn-primary" ng-click="loadMore()">Загрузити ще товарів</a>
+</div><br/>
+<div class="text-center"><a href="" class="btn btn-primary" ng-click="loadMore()">Показати ще товарів</a></div>

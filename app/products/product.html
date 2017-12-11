@@ -37,8 +37,8 @@
 				</div>
 				<div class="col-md-7 article">
 					<div class="container-fluid" user-buttons>
-						<a ui-sref="#" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>Додати у кошик</a>
-						<a ng-click="callOrderModal()" href="" type="button" class="btn btn-success"><span class="glyphicon glyphicon-usd"></span>Купити в один клік</a>
+            <a ng-click="add_cart(product)" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>Додати у кошик</a>
+      			<a ng-click="callOrderModal()" href="" type="button" class="btn btn-success"><span class="glyphicon glyphicon-usd"></span>Купити в один клік</a>
 					</div><br/>
 					<p>{{product.spec}}</p><br/>
 				</div>
@@ -60,7 +60,6 @@
 						</div>
 				</a>
 			</div>
-
 		</div>
 
 	</div>

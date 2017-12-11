@@ -19,6 +19,29 @@ angular.module('exel')
         console.log($scope.product);
     })
 
+    $scope.carts=[]; 
+
+        $scope.add_cart = function(product){ 
+            if(product){ 
+                $scope.carts.length = 0;
+                $scope.shoppingCarts = JSON.parse(localStorage.getItem("shoppingCarts")) ;
+                    if ($scope.shoppingCarts) {
+                        for (var i =0; i < $scope.shoppingCarts.length; i++) {
+                            $scope.carts.push($scope.shoppingCarts[i]);
+                        }
+                    }
+
+                $scope.carts.push({id: product.id, title: product.title,  image: product.image, price: product.price, product_id: product.id}); 
+                
+                $scope.save_cart();
+            }   
+        }
+        $scope.save_cart = function(){ 
+                localStorage.setItem("shoppingCarts", JSON.stringify($scope.carts));
+        }
+
+        console.log($scope.carts)
+
     $scope.products = [];
     $scope.loadMore = function() {
 

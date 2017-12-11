@@ -22,7 +22,9 @@
     $scope.lostproducts = [];
 
     $scope.onSelectOptionChanged = function() {
+
         $location.path('/main');
+
         $scope.lostproducts.length = 0;
         $scope.searchProduct();
     }
@@ -38,17 +40,20 @@
             params.title = $scope.title
         }
 
-        productsService.searchProduct(params).then(function(response) {
-                console.log(response);
-            if (response) {
+        if ($scope.title.length > 2) {
 
-                for (var i =0; i < response.length; i++) {
+          productsService.searchProduct(params).then(function(response) {
+                  console.log(response);
+              if (response) {
 
-                $scope.lostproducts.push(response[i]);
+                  for (var i =0; i < response.length; i++) {
 
-                }
-            }
-        })
+                  $scope.lostproducts.push(response[i]);
+
+                  }
+              }
+          })
+        }
     }
 
 

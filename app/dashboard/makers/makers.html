@@ -1,10 +1,9 @@
-
-
-
 <div class="row">
+
 	<div class="container col-md-3">
 		<a href="" class="btn btn-success" ui-sref="dashboard.addmaker"><i class="fa fa-plus"></i> Додати виробника</a>
 	</div>
+
 	<div class="container col-md-9">
 		<div class="row">
 			<div class="input-group">
@@ -19,27 +18,28 @@
 				<select ng-if="subSubcatsList" ng-options="subsubcat.ss_id as subsubcat.title for subsubcat in subSubcatsList" ng-model="maker.ss_id">
 				<option selected disabled value="">Вкажіть субкатегорію</option>
 				</select>
-				<br><br>
 			</div>
-			<div class="col-md-3"><a href="" class="btn btn-primary" ng-click="onSelectOptionChanged()">Сортувати виробників</a></div>
-			<div class="col-md-3"><a href="" class="btn btn-primary" ng-click="cleanFilter()">Скинути категорії</a></div>
-			
+		</div><br/>
+		<div class="row">
+			<a href="" class="btn btn-primary" ng-click="onSelectOptionChanged()">Сортувати виробників</a>
+			<a href="" class="btn btn-danger" ng-click="cleanFilter()">Скинути категорії</a>
 		</div>
-	</div> 
+	</div>
+
 </div>
 
-<hr>
+<hr/>
 <div ng-cloak class="ng-cloak portfolio-container row grid-space-20">
 	<div  ng-repeat="maker in makers track by $index" class="col-sm-6 col-md-2 portfolio-item">
 		<div class="image-box">
 			<div>
-				<a ui-sref="dashboard.editmaker({makerId: maker.id})" data-target="#{{$index}}">
-					<span>{{maker.name}}</span>
+				<a>
+					<span style="color:#000000;font-size:1.2em;">{{maker.name}}</span>
 				</a>
-			</div><br><br>
-			<a href="" ng-click="deleteMaker(maker, $index)"  class="btn btn-danger">Видалити</a>
-			<a class="btn btn-default btn-block" ui-sref="dashboard.editmaker({makerId: maker.id})" data-target="#{{$index}}"></a>
+			</div>
+			<a class="btn btn-warning btn-sm" ui-sref="dashboard.editmaker({makerId: maker.id})" data-target="#{{$index}}">Редагувати</a>
+			<a class="btn btn-danger btn-sm" href="" ng-click="deleteMaker(maker, $index)">Видалити</a>
 		</div>
 	</div>
-</div> 
-<a href="" class="btn btn-primary" ng-click="loadMore()">Загрузити ще виробників</a> 
+</div><br/>
+<div class="text-center"><a href="" class="btn btn-primary" ng-click="loadMore()">Показати ще виробників</a></div>

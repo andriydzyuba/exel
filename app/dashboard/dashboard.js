@@ -1,4 +1,4 @@
-'use strict';   
+'use strict';
 
 angular.module('exel')
 
@@ -7,87 +7,104 @@ angular.module('exel')
   .state('dashboard', {
     url:'/dashboard',
     templateUrl: 'dashboard/dashboard.html',
-    controller: 'DashboardController'
+    controller: 'DashboardController',
+    dashboard: true
   })
   .state('dashboard.categories', {
     url:'/categories',
     templateUrl: 'dashboard/categories/categories.html',
-    controller: 'DashboardCategoriesController'
+    controller: 'DashboardCategoriesController',
+    dashboard: true
   })
   .state('dashboard.products', {
     url:'/products',
     templateUrl: 'dashboard/products/products.html',
-    controller: 'DashboardProductsController'
+    controller: 'DashboardProductsController',
+    dashboard: true
   })
   .state('dashboard.addproduct', {
     url:'/addproduct',
     templateUrl: 'dashboard/products/addProduct.html',
-    controller: 'DashboardAddProductController'
+    controller: 'DashboardAddProductController',
+    dashboard: true
   })
   .state('dashboard.editproduct', {
     url:'/editproduct/:productId',
     templateUrl: 'dashboard/products/addProduct.html',
-    controller: 'DashboardAddProductController'
+    controller: 'DashboardAddProductController',
+    dashboard: true
   })
   .state('dashboard.makers', {
     url:'/makers',
     templateUrl: 'dashboard/makers/makers.html',
-    controller: 'DashboardMakersController'
+    controller: 'DashboardMakersController',
+    dashboard: true
   })
   .state('dashboard.addmaker', {
     url:'/addmaker',
     templateUrl: 'dashboard/makers/addMaker.html',
-    controller: 'DashboardAddMakerController'
+    controller: 'DashboardAddMakerController',
+    dashboard: true
   })
   .state('dashboard.editmaker', {
     url:'/editmaker/:makerId',
     templateUrl: 'dashboard/makers/addMaker.html',
-    controller: 'DashboardAddMakerController'
+    controller: 'DashboardAddMakerController',
+    dashboard: true
   })
   .state('dashboard.orders', {
     url:'/orders',
     templateUrl: 'dashboard/orders/orders.html',
-    controller: 'DashboardOrdersController'
+    controller: 'DashboardOrdersController',
+    dashboard: true
   })
   .state('dashboard.order', {
     url:'/orders/order/:orderId',
     templateUrl: 'dashboard/orders/order.html',
-    controller: 'DashboardOrdersController'
+    controller: 'DashboardOrdersController',
+    dashboard: true
   })
   .state('dashboard.team', {
     url:'/team',
     templateUrl: 'dashboard/team/team.html',
-    controller: 'DashboardTeamController'
+    controller: 'DashboardTeamController',
+    dashboard: true
   })
   .state('dashboard.addsubcat', {
     url:'/addsubcat/:catId',
     templateUrl: 'dashboard/categories/addSubcat.html',
-    controller: 'DashboardCategoriesController'
+    controller: 'DashboardCategoriesController',
+    dashboard: true
   })
   .state('dashboard.addssubcat', {
     url:'/addssubcat/:subcatId',
     templateUrl: 'dashboard/categories/addSsubcat.html',
-    controller: 'DashboardCategoriesController'
+    controller: 'DashboardCategoriesController',
+    dashboard: true
   })
   .state('dashboard.editsubcat', {
     url:'/editsubcat/:subcatId',
     templateUrl: 'dashboard/categories/addSubcat.html',
-    controller: 'DashboardCategoriesController'
+    controller: 'DashboardCategoriesController',
+    dashboard: true
   })
   .state('dashboard.editssubcat', {
     url:'/editssubcat/:ssubcatId',
     templateUrl: 'dashboard/categories/addSsubcat.html',
-    controller: 'DashboardCategoriesController'
+    controller: 'DashboardCategoriesController',
+    dashboard: true
   })
   .state('dashboard.addmember', {
     url:'/addmember',
     templateUrl: 'dashboard/team/addMember.html',
-    controller: 'DashboardAddMemberController'
+    controller: 'DashboardAddMemberController',
+    dashboard: true
   })
   .state('dashboard.editmember', {
     url:'/editmember/:memberId',
     templateUrl: 'dashboard/team/addMember.html',
-    controller: 'DashboardAddMemberController'
+    controller: 'DashboardAddMemberController',
+    dashboard: true
   })
 }])
 
@@ -116,8 +133,8 @@ $scope.imageUpload = function(file) {
         sendFile(file[0]);
     }
 
-$scope.paste = function(e) { 
-    console.log('Called event paste'); 
+$scope.paste = function(e) {
+    console.log('Called event paste');
 }
 
 function sendFile(file) {
@@ -138,7 +155,7 @@ function sendFile(file) {
 
 }])
 
-.controller('ConfirmController', ['$scope',  '$modalStack', 'confirmService', 'message', function($scope, $modalStack, confirmService, message) { 
+.controller('ConfirmController', ['$scope',  '$modalStack', 'confirmService', 'message', function($scope, $modalStack, confirmService, message) {
     $scope.message = message;
     $scope.answerSubmit = function(answer) {
         confirmService.confirmResolve(answer);
@@ -210,7 +227,7 @@ function sendFile(file) {
     $scope.subcatId = $stateParams.subcatId;
     $scope.subcategory = {};
     $scope.subcategory.c_id = $scope.categoryId;
-    
+
     $scope.subcategoryId = $stateParams.subcatId;
     $scope.ssubcatId = $stateParams.ssubcatId;
     $scope.ssubcategory = {};
@@ -239,7 +256,7 @@ function sendFile(file) {
         $scope.modalInstance = $modal.open({
             templateUrl: 'dashboard/modals/catModal.html',
             size: 'lg',
-            scope: $scope	     
+            scope: $scope
         })
     };
 
@@ -263,7 +280,7 @@ function sendFile(file) {
             catService.editSubсat(subcategory).then(function(data){
                 $location.path('dashboard/categories');
             });
-        }        
+        }
     }
 
     $scope.createSsubcategory = function(ssubcategory) {
@@ -275,7 +292,7 @@ function sendFile(file) {
             catService.editSsubсat(ssubcategory).then(function(data){
                 $location.path('dashboard/categories');
             });
-        }        
+        }
     }
 
     $scope.deleteCategory = function(category, index) {
@@ -326,7 +343,7 @@ function sendFile(file) {
     }
 
     $scope.triggerInput = function() {
-            $('#photo-input').click();    
+            $('#photo-input').click();
     }
 
     $scope.onFile = function(file) {
@@ -380,8 +397,8 @@ function sendFile(file) {
     $scope.loadMore = function() {
 
         var params = {
-        limit: 20,
-        offset: $scope.products.length        
+        limit: 18,
+        offset: $scope.products.length
         }
 
         productsService.getProducts(params).then(function(response) {
@@ -404,7 +421,7 @@ function sendFile(file) {
         var params = {
         limit: 50,
         offset: $scope.products.length
-             
+
         }
 
         if ($scope.title) {
@@ -451,11 +468,11 @@ function sendFile(file) {
                 productsService.deleteProduct(product.id).then(function(data){
                     $scope.products.splice(index, 1);
                     $modalStack.dismissAll();
-                })    
+                })
             } else {
                 $modalStack.dismissAll();
             }
-        })        
+        })
     }
 
 
@@ -463,7 +480,7 @@ function sendFile(file) {
 
 
 .controller('DashboardMakersController', ['$scope', '$modalStack', 'filtersService', 'confirmService', 'catService', function($scope, $modalStack, filtersService, confirmService, catService) {
-   
+
 
     catService.getCats().then(function(data){
         $scope.categories = data;
@@ -504,7 +521,7 @@ function sendFile(file) {
         var params = {
         limit: 20,
         offset: $scope.makers.length,
-        s_id: $scope.maker.s_id      
+        s_id: $scope.maker.s_id
         }
 
         if ($scope.maker.ss_id) {
@@ -542,11 +559,11 @@ function sendFile(file) {
                 filtersService.deleteMaker(maker.id).then(function(data){
                     $scope.makers.splice(index, 1);
                     $modalStack.dismissAll();
-                })    
+                })
             } else {
                 $modalStack.dismissAll();
             }
-        })        
+        })
     }
 
 }])
@@ -554,20 +571,33 @@ function sendFile(file) {
 
 
 .controller('DashboardOrdersController', ['$scope', '$modalStack', 'ordersService', 'confirmService', '$stateParams', function($scope, $modalStack, ordersService, confirmService, $stateParams) {
-    
+
     if ($stateParams.orderId) {
         ordersService.getOrder($stateParams.orderId).then(function(data){
         $scope.order = data;
         console.log($scope.order);
+
+        $scope.cart = JSON.parse($scope.order.cart);
+        console.log(JSON.parse($scope.order.cart));
+        console.log($scope.cart);
         })
     }
 
+
+
     $scope.orders = [];
+
+
+
+
+
+
+
     $scope.loadMore = function() {
 
         var params = {
         limit: 5,
-        offset: $scope.orders.length        
+        offset: $scope.orders.length
         }
 
         ordersService.getOrders(params).then(function(response) {
@@ -592,14 +622,14 @@ function sendFile(file) {
     if ($stateParams.productId) {
         productsService.getProduct($stateParams.productId).then(function(data){
             $scope.product = data;
-        }) 
+        })
     }
 
     catService.getCats().then(function(data){
         $scope.categories = data;
         if ($stateParams.productId) {
             productsService.getProduct($stateParams.productId).then(function(data){
-                $scope.product = data;  
+                $scope.product = data;
                 $scope.getSubcatsList();
             })
         };
@@ -625,10 +655,10 @@ function sendFile(file) {
             }
         }
     }
- 
+
     $scope.submitProduct = function(product) {
         var dataToSend = $scope.getData(product);
-        
+
         if ($stateParams.productId) {
             productsService.editProduct(dataToSend).then(function(data){
                 $location.path('dashboard/products');
@@ -642,7 +672,7 @@ function sendFile(file) {
 
     $scope.getData = function(product) {
         var data = {};
-        
+
         if (product.id) {
             data.id = product.id;
         }
@@ -654,7 +684,7 @@ function sendFile(file) {
         }
         if (product.price) {
             data.price = product.price;
-        }   
+        }
         if (product.c_id) {
             data.c_id = product.c_id;
         }
@@ -669,7 +699,7 @@ function sendFile(file) {
         }
         if (product.image) {
             data.image = product.image;
-        } 
+        }
         if (product.text) {
             data.text = product.text;
         }
@@ -700,14 +730,14 @@ function sendFile(file) {
     if ($stateParams.makerId) {
         filtersService.getMaker($stateParams.makerId).then(function(data){
             $scope.maker = data;
-        }) 
+        })
     }
 
     catService.getCats().then(function(data){
         $scope.categories = data;
         if ($stateParams.makerId) {
             filtersService.getMaker($stateParams.makerId).then(function(data){
-                $scope.maker = data;  
+                $scope.maker = data;
                 $scope.getSubcatsList();
             })
         };
@@ -733,10 +763,10 @@ function sendFile(file) {
             }
         }
     }
- 
+
     $scope.submitMaker = function(maker) {
         var dataToSend = $scope.getData(maker);
-        
+
         if ($stateParams.makerId) {
             filtersService.editMaker(dataToSend).then(function(data){
                 $location.path('dashboard/makers');
@@ -750,7 +780,7 @@ function sendFile(file) {
 
     $scope.getData = function(maker) {
         var data = {};
-        
+
         if (maker.id) {
             data.id = maker.id;
         }
@@ -786,11 +816,11 @@ function sendFile(file) {
                 teamService.deleteMember(member.id).then(function(data){
                     $scope.team.splice(index, 1);
                     $modalStack.dismissAll();
-                })    
+                })
             } else {
                 $modalStack.dismissAll();
             }
-        })        
+        })
     }
 
 }])
@@ -802,7 +832,7 @@ function sendFile(file) {
     if ($stateParams.memberId) {
         teamService.getMember($stateParams.memberId).then(function(data){
             $scope.member = data;
-            
+
         })
     }
 
@@ -834,14 +864,3 @@ function sendFile(file) {
     }
 
 }])
-
-
-
-
-
-
-
-
-
-
-

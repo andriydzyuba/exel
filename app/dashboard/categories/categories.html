@@ -1,30 +1,27 @@
-<br>
 <a href="" class="btn btn-success" ng-click="catModal()"><i class="fa fa-plus"></i> Додати категорію</a>
-<br><br> 
-<div class="list-group">
+<br/><br/>
+
+<div class="list-group" style="font-size:1.4em;">
   <div ng-repeat="cat in categories track by $index" class="cat">
 
-  	<div class="list-group-item cat">{{cat.title}} 	
+  	<div class="list-group-item cat">{{cat.title}}
       <a href="" ng-click="deleteCategory(cat, $index)"  class="btn btn-danger">Видалити категорію</a>
-      <a ui-sref="dashboard.addsubcat({catId: cat.c_id})" class="btn btn-default"><i class="fa fa-plus"></i> Додати підкатегорію</a>
+      <a ui-sref="dashboard.addsubcat({catId: cat.c_id})" class="btn btn-success">Додати підкатегорію</a><br/><br/>
   	</div>
-  	
+
 		<div ng-repeat="subcat in cat.subcats track by $index" class="list-group-item subcat">
 			<span>{{subcat.title}}</span>
-      <a ui-sref="dashboard.addssubcat({subcatId: subcat.s_id})" class="btn btn-warning">Додати субкатегорію</a>
-      <a ui-sref="dashboard.editsubcat({subcatId: subcat.s_id})" class="btn btn-warning">Редагувати підкатегорію</a>
       <a ng-click="deleteSubcategory(subcat, $parent.$index, $index)" href="" class="btn btn-danger">Видалити підкатегорію</a>
+      <a ui-sref="dashboard.editsubcat({subcatId: subcat.s_id})" class="btn btn-warning">Редагувати підкатегорію</a>
+      <a ui-sref="dashboard.addssubcat({subcatId: subcat.s_id})" class="btn btn-success">Додати субкатегорію</a><br/><br/>
 
       <div ng-repeat="subsubcat in subcat.subcats track by $index" class="list-group-item ssubcat">
         <span>{{subsubcat.title}}</span>
+        <a ng-click="deleteSsubcategory(subsubcat, $parent.$index, $index)" href="" class="btn btn-danger">Видалити субкатегорію</a>
         <a ui-sref="dashboard.editssubcat({ssubcatId: subsubcat.ss_id})" class="btn btn-warning">Редагувати субкатегорію</a>
-        <a ng-click="deleteSsubcategory(subsubcat, $parent.$index, $index)" href="" class="btn btn-danger">Видалити субкатегорію</a> 
       </div>
 
+		</div><br/><br/>
 
-		</div>
-
-    
   </div>
 </div>
-  
