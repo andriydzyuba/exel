@@ -106,6 +106,24 @@ angular.module('exel')
     controller: 'DashboardAddMemberController',
     dashboard: true
   })
+  .state('dashboard.addcurrency', {
+    url:'/addcurrency',
+    templateUrl: 'dashboard/currency/addCurrency.html',
+    controller: 'DashboardAddCurrencyController',
+    dashboard: true
+  })
+  .state('dashboard.editcurrency', {
+    url:'/editcurrency/:currencyId',
+    templateUrl: 'dashboard/currency/addCurrency.html',
+    controller: 'DashboardAddCurrencyController',
+    dashboard: true
+  })
+  .state('dashboard.currency', {
+    url:'/currency',
+    templateUrl: 'dashboard/currency/currency.html',
+    controller: 'DashboardCurrencyController',
+    dashboard: true
+  })
 }])
 
 .controller('DashboardController', ['$scope', '$http', '$q', '$modal', function($scope, $http, $q, $modal) {
@@ -862,5 +880,38 @@ function sendFile(file) {
     $scope.deletePhoto = function(index) {
         $scope.member.image = null;
     }
+
+}])
+
+.controller('DashboardAddCurrencyController', ['$scope', '$location', '$stateParams', 'currencyService', function($scope, $location, $stateParams, currencyService) {
+
+    $scope.currency = {};
+
+    if ($stateParams.currencyId) {
+        currencyService.getCurrency($stateParams.currencyId).then(function(data){
+            $scope.currency = data;
+
+        })
+    }
+
+    $scope.submitCurrency = function(currency) {
+
+            currencyService.editCurrency(currency).then(function(data){
+                $location.path('dashboard/currency');
+            })
+
+    }
+
+
+}])
+
+.controller('DashboardCurrencyController', ['$scope', '$modalStack', 'confirmService', 'currencyService', function($scope, $modalStack, confirmService, currencyService) {
+
+    currencyService.getAllCurrency().then(function(data){
+        $scope.currency = data;
+        console.log(data);
+    })
+
+
 
 }])

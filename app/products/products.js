@@ -12,11 +12,16 @@ angular.module('exel')
 }])
 
 
-.controller('ProductsController', ['$scope', '$location', '$state', '$stateParams', 'productsService', 'modalsService', 'catService', function($scope, $location, $state, $stateParams, productsService, modalsService, catService) {
-    console.log("xx")
+.controller('ProductsController', ['$scope', '$location', '$state', '$stateParams', 'productsService', 'modalsService', 'catService', 'currencyService', function($scope, $location, $state, $stateParams, productsService, modalsService, catService, currencyService) {
+    
     productsService.getProduct($stateParams.productId).then(function(data){
         $scope.product = data;
         console.log($scope.product);
+    })
+
+    currencyService.getCurrency(1).then(function(data){
+            $scope.currency = data;
+            console.log($scope.currency);
     })
 
     $scope.carts=[]; 
@@ -40,7 +45,7 @@ angular.module('exel')
                 localStorage.setItem("shoppingCarts", JSON.stringify($scope.carts));
         }
 
-        console.log($scope.carts)
+ //       console.log($scope.carts)
 
     $scope.products = [];
     $scope.loadMore = function() {

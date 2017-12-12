@@ -103,7 +103,7 @@
             <a class="dropdown-toggle" data-toggle="dropdown" class="text-center">{{cat.title}}<span class="caret"></span></a>
             <ul id="subCatMenu" class="dropdown-menu">
               <li class="dropdown" ng-repeat="subcat in cat.subcats track by $index">
-                <a class="dropSubMenu" tabindex="-1" ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}}<span class="caret"></span></span></a>
+                <a class="dropSubMenu" tabindex="-1" ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}} <span class="glyphicon glyphicon-triangle-right" style="font-size:0.6em;"></span></span></a>
                 <ul class="dropdown-menu dropMenu">
                   <div class="col-md-3" id="subSubcatMenu" class="dropdown" ng-repeat="subsubcat in subcat.subcats track by $index">
                     <a tabindex="-1" ui-sref="main.ssubcategory({ ssubcatId: subsubcat.ss_id })"><span>{{subsubcat.title}}</span></a>
@@ -118,8 +118,15 @@
       <div class="col-md-4">
         <div class="row">
           <div class="col-md-9">
-            <div id="searchInput" class="row">
-              <form id="clickSearch"><input ng-model="title" id="formSearch" placeholder="Пошук" ng-pattern="/^[A-z0-9]{3,}$/" required ng-keydown="$event.keyCode === 13 && onSelectOptionChanged()"></form>
+
+            <div id="seachInput" class="row">
+              <form id="clickSearch"><input ng-model="title" id="formSearch" data-toggle="tooltip" data-placement="bottom" title="Введіть три символи!" placeholder="Пошук" ng-pattern="/^[A-z0-9]{3,}$/" ng-keydown="$event.keyCode === 13 && onSelectOptionChanged()"></form>
+              <script>
+              $(document).ready(function(){
+                  $('[data-toggle="tooltip"]').tooltip();
+              });
+              </script>
+
             </div>
           </div>
           <div class="col-md-3"
@@ -161,6 +168,9 @@
               <li><a href="https://plus.google.com/u/1/114381514357631240996"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
               <li><a href="https://www.instagram.com/inko.electronics"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
               </ul>
+
+              <br>
+
               <p id = "developers">Created and Designed by D&amp;FSoft</p>
             </div>
           </div>
@@ -237,7 +247,7 @@
   <script src="Factories/ordersFactory.js"></script>
   <script src="Factories/filtersFactory.js"></script>
   <script src="Factories/authService.js"></script>
-
+  <script src="Factories/currencyService.js"></script>
 
   <script src="main/main.js"></script>
   <script src="about/about.js"></script>
@@ -247,7 +257,6 @@
   <script src="products/order-modal/order-modal.controller.js"></script>
   <script src="dashboard/dashboard.js"></script>
   <script src="login/login.js"></script>
-
 
 </body>
 </html>

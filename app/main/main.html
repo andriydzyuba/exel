@@ -27,6 +27,7 @@
 				<div ui-view></div>
 				<hr>
 
+
 				<h3>Новинки</h3><br/>
 				<div class="container-fluid">
 					<div id="gridPortfolio" ng-cloak class="ng-cloak portfolio-container">
@@ -38,13 +39,13 @@
 									<a class="overlay" ui-sref="products({productId:newProduct.id})" data-target="#{{$index}}">
 									<p id="overlaySpec">{{newProduct.spec}}</p>
 									</a>
-									<span id="stylePrice">{{newProduct.price + ' ₴'}}</span>
+									<span id="stylePrice">{{newProduct.price*currency.cof + ' ₴'}}</span>
 							  </div>
 							</div>
 						</div>
 					</div>
 				</div>
-
+				
 			</div>
 	  </div>
 
