@@ -71,11 +71,12 @@
             <nav class="navbar navbar-default" role="navigation">
               <div class="container-fluid">
                 <div class="navbar-header">
-                  <button id="navButton" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                  <i id="navButtonNext" class="fa fa-chevron-circle-down" aria-hidden="true"></i>
-                  </button>
+                <!--   <button id="navButton" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                 <i id="navButtonNext" class="fa fa-chevron-circle-down" aria-hidden="true"></i>
+               </button>-->
                 </div>
-                <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
+                <!--<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">-->
+                <div>
                   <ul ng-cloak class="nav navbar-nav navbar-right">
                     <li ng-class="{ active: isActive('')}"><a ui-sref="main" style="font-size:1.5em; padding: 15px;">{{main}}</a></li>
                     <li ng-class="{ active: isActive('about')}"><a ui-sref="about" style="font-size:1.5em; padding: 15px;">{{about}}</a></li>
@@ -117,12 +118,12 @@
       <div class="col-md-4">
         <div class="row">
           <div class="col-md-9">
-            <div id="seachInput" class="row">
+            <div id="searchInput" class="row">
               <form id="clickSearch"><input ng-model="title" id="formSearch" placeholder="Пошук" ng-pattern="/^[A-z0-9]{3,}$/" required ng-keydown="$event.keyCode === 13 && onSelectOptionChanged()"></form>
             </div>
           </div>
-          <div class="col-md-3">
-            <div id="seachButton" class="row">
+          <div class="col-md-3"
+            <div id="searchButton" class="row">
               <a href="" class="btn btn-primary btn-sm" ng-click="onSelectOptionChanged()">Шукати</a>
               <!--<a href="" class="btn btn-danger btn-sm" ng-click="cleanFilter()">Очистити</a>-->
             </div>
@@ -160,7 +161,7 @@
               <li><a href="https://plus.google.com/u/1/114381514357631240996"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
               <li><a href="https://www.instagram.com/inko.electronics"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
               </ul>
-              <p id = "developers">Created and Desighned by D&amp;FSoft</p>
+              <p id = "developers">Created and Designed by D&amp;FSoft</p>
             </div>
           </div>
         </div>
@@ -236,7 +237,7 @@
   <script src="Factories/ordersFactory.js"></script>
   <script src="Factories/filtersFactory.js"></script>
   <script src="Factories/authService.js"></script>
-  
+
 
   <script src="main/main.js"></script>
   <script src="about/about.js"></script>

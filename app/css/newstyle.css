@@ -87,16 +87,16 @@ body {
   padding: 0;
 }
 
-#seachInput {
+#searchInput {
   padding: 5px 15px 5px 0px;
   border-radius: 4px;
   text-align: right;
-
 }
 
-#seachButton {
+#searchButton {
   padding: 10px 20px 5px 0px;
   text-align: left;
+  position: relative;
 }
 
 #formSearch {
@@ -220,6 +220,15 @@ body {
   margin: auto;
 }
 
-#cartText {
+.cartText, #total {
   font-size: 1.1em;
+}
+
+#total {
+  font-weight: bold;
+}
+
+.g-recaptcha {
+
+float: left;
 }

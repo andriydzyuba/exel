@@ -68,10 +68,29 @@ body {
 	color: #54C0EB;
 }
 
+@media (min-width: 320px) and (max-width: 991px) {
+		#formSearch {
+			margin-left: 8px;
+		}
+
+		#searchButton {
+		float: right;
+	}
+	.navbar-right {
+		float: right;
+		margin: auto;
+	}
+
+	.navbar-right li {
+		display: inline-block;
+		margin: 0;
+	}
+}
+
 @media (min-width:768px) {
 	.main-navigation .navbar-default .navbar-nav > li > a {
-		padding-top: 30px;
-		padding-bottom: 30px;
+		/*padding-top: 30px;
+		padding-bottom: 30px;*/
 		-webkit-transition: all 0.3s ease-in-out;
 		-moz-transition: all 0.3s ease-in-out;
 		-o-transition: all 0.3s ease-in-out;
@@ -87,9 +106,7 @@ body {
 		padding-left: 0;
 		padding-right: 0;
 	}
-	.navbar-nav {
-		float: left !important;
-	}
+
 }
 
 @media only screen and (max-width: 1080px) {

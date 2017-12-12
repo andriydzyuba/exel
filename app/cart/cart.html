@@ -17,24 +17,24 @@
 					<table class = "table">
 						<thead>
 							<tr>
-								<th id="cartText">Товар</th>
-								<th id="cartText">Ціна</th>
+								<th class="cartText">Товар</th>
+								<th class="cartText">Ціна</th>
 								<th></th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr ng-repeat = "cart in carts" ng-init = "setTotals(cart)">
 								<td>
-									<img ng-src = "{{cart.image}}" style="width:10%;padding-right:10px;"/>
-									<span id="cartText">{{cart.title}}</span>
+									<img ng-src = "{{cart.image}}" style="width:30%;padding-right:10px;"/>
+									<span class"cartText">{{cart.title}}</span>
 								</td>
 
-								<td id="cartText">{{cart.price}}₴</td>
+								<td class="cartText">{{cart.price}}₴</td>
 								<td><button type = "button" ng-click = "remove_cart(cart)" class = "btn btn-danger"><span class = "glyphicon glyphicon-remove"></span></button></td>
 							</tr>
 							<tr>
-								<td align = "right" id="cartText">Сума замовлення</td>
-								<td id="cartText">{{total}}₴</td>
+								<td align = "right" class="cartText">Сума замовлення</td>
+								<td id="total">{{total}}₴</td>
 							</tr>
 						</tbody>
 					</table>
@@ -48,14 +48,14 @@
 	    <div class="input-group col-md-12">
 				<div class="row">
 					<div class="col-md-6">
-			      <input type="text" maxlength="40" ng-model="order.name" class="form-control" placeholder="(Обов’язкове поле) Ваше ім’я та прізвище..." required style="border-radius:4px;">
-			      <input type="tel" maxlength="10" pattern="[0-9]{10}" ng-model="order.phone" class="form-control" placeholder="(Обов’язкове поле) Ваш номер телефону... (Формат введення 0XXXXXXXXX)" required style="border-radius:4px;">
+			      <input type="text" maxlength="40" ng-model="order.name" class="form-control" placeholder="&#42;Ваше ім’я та прізвище..." required style="border-radius:4px;">
+			      <input type="tel" maxlength="10" pattern="[0-9]{10}" ng-model="order.phone" class="form-control" placeholder="&#42;Ваш номер телефону... (Формат введення 0XXXXXXXXX)" required style="border-radius:4px;">
 			      <input type="email" maxlength="40" ng-model="order.email" class="form-control" placeholder="Ваш Email..." style="border-radius:4px;">
-						<div class="g-recaptcha" data-sitekey="6LfcczsUAAAAAOZgy_SaX1EYNBEKvMBzCwtmN5tv"></div>
+						<input type="text" maxlength="40" ng-model="order.town" class="form-control" placeholder="&#42;Ваше місто..." required style="border-radius:4px;">
+						<input list="cartDelivery" ng-model="order.delivery" class="form-control" placeholder="&#42;Оберіть спосіб доставки..." required  style="border-radius:4px;">
 					</div>
 					<div class="col-md-6">
-			      <input type="text" maxlength="40" ng-model="order.town" class="form-control" placeholder="(Обов’язкове поле) Ваше місто..." required style="border-radius:4px;">
-						<input list="cartDelivery" ng-model="order.delivery" class="form-control" placeholder="(Обов’язкове поле) Вкажіть спосіб доставки..." required  style="border-radius:4px;">
+
 							<datalist id="cartDelivery">
 							  <option value="Нова Пошта">
 							  <option value="Інтайм">
@@ -65,14 +65,14 @@
 							</datalist>
 			      <!--<input type="text" maxlength="40" ng-model="order.delivery" class="form-control" placeholder="Спосіб доставка..." style="border-radius:4px;">-->
 			      <textarea maxlength="250" rows="5" ng-model="order.comment" placeholder="Коментар до замовлення..." class="form-control" style="border-radius:4px;"></textarea>
+						<div class="g-recaptcha" data-sitekey="6LfcczsUAAAAAOZgy_SaX1EYNBEKvMBzCwtmN5tv"></div>
 					</div>
 				</div>
 	    </div>
 			<hr/>
 	    <div class = "text-center"><button type="submit" value="Створити замовлення" class="btn btn-success btn-lg">Підтвердити</button></div>
 	  </form>
-	  <script src='https://www.google.com/recaptcha/api.js'></script>
-
+	  	<script src='https://www.google.com/recaptcha/api.js'></script>
 		<hr/>
 	  <div class="success-message" data-ng-show="isOrderSubmitted">
 	    <h4 class = "text-center">Вітаємо, товар було замовлено, найближчим часом із Вам зв’яжутся для підтвердження покупки!</h4>
