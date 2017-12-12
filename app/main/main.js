@@ -275,11 +275,11 @@ angular.module('exel.main', ['ngRoute'])
     $(document).ready(function(){
       $("#clickSearch").focusin(function(){
           var div = $("#formSearch");
-          div.animate({width: '100%'}, "slow");
+          div.animate({width: '80%'}, "slow");
       });
       $("#clickSearch").focusout(function(){
           var div = $("#formSearch");
-          div.animate({width: '34%'}, "slow");
+          div.animate({width: '40%'}, "slow");
       });
     });
 

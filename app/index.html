@@ -97,7 +97,7 @@
   <nav class="navbar navbar-default">
     <div id="navMenu" class="container-fluid">
 
-      <div class="col-md-8">
+      <div class="col-md-9">
         <ul class="nav navbar-nav" ng-repeat="cat in categories track by $index" class="cat">
           <li id="catMenu" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" class="text-center">{{cat.title}}<span class="caret"></span></a>
@@ -115,12 +115,14 @@
         </ul>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="row">
-          <div class="col-md-9">
+          <div class="col-md-12">
 
             <div id="seachInput" class="row">
-              <form id="clickSearch"><input ng-model="title" id="formSearch" data-toggle="tooltip" data-placement="bottom" title="Введіть три символи!" placeholder="Пошук" ng-pattern="/^[A-z0-9]{3,}$/" ng-keydown="$event.keyCode === 13 && onSelectOptionChanged()"></form>
+              <form id="clickSearch"><input ng-model="title" id="formSearch" data-toggle="tooltip" data-placement="bottom" title="Введіть три символи!" placeholder="Пошук" ng-pattern="/^[A-z0-9]{3,}$/" ng-keydown="$event.keyCode === 13 && onSelectOptionChanged()">
+                <a id="searchButton" href="" class="btn btn-primary" ng-click="onSelectOptionChanged()"><span class="glyphicon glyphicon-search"></span></a>
+              </form>
               <script>
               $(document).ready(function(){
                   $('[data-toggle="tooltip"]').tooltip();
@@ -129,12 +131,12 @@
 
             </div>
           </div>
-          <div class="col-md-3"
+          <!--<div class="col-md-3"
             <div id="searchButton" class="row">
               <a href="" class="btn btn-primary btn-sm" ng-click="onSelectOptionChanged()">Шукати</a>
-              <!--<a href="" class="btn btn-danger btn-sm" ng-click="cleanFilter()">Очистити</a>-->
+              <a href="" class="btn btn-danger btn-sm" ng-click="cleanFilter()">Очистити</a>
             </div>
-          </div>
+          </div>-->
         </div>
       </div>
 
