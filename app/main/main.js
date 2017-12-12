@@ -260,26 +260,25 @@ angular.module('exel.main', ['ngRoute'])
 
         $scope.category = {};
 
-    var $j = jQuery.noConflict();
-        $j(document).ready(function(){
-          $j('.dropSubMenu').hover(function(e){
-            $j(this).next('ul').toggle();
+        $(document).ready(function(){
+          $('.dropSubMenu').hover(function(e){
+            $(this).next('ul').toggle();
             e.stopPropagation();
           });
-          $j('.dropMenu').hover(function(e){
-            $j(this).toggle();
+          $('.dropMenu').hover(function(e){
+            $(this).toggle();
             e.stopPropagation();
           });
 
     });
 
-    $j(document).ready(function(){
-      $j("#clickSearch").focusin(function(){
-          var div = $j("#formSearch");
+    $(document).ready(function(){
+      $("#clickSearch").focusin(function(){
+          var div = $("#formSearch");
           div.animate({width: '100%'}, "slow");
       });
-      $j("#clickSearch").focusout(function(){
-          var div = $j("#formSearch");
+      $("#clickSearch").focusout(function(){
+          var div = $("#formSearch");
           div.animate({width: '34%'}, "slow");
       });
     });

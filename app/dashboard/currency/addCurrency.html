@@ -1,8 +1,13 @@
-<form ng-submit="submitCurrency(currency)">
+<form ng-submit="submitCurrency(currency)" class="col-md-4">
 	<div class="input-group">
-		<input ng-model="currency.title" placeholder="Назва валюти" class="form-control" required>
-		<input ng-model="currency.cof" placeholder="курс" class="form-control" required>
+		<span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
+		<input ng-model="currency.title" placeholder="Назва валюти" class="form-control" required style="margin:0;">
 	</div>
-	
+	<br>
+	<div class="input-group">
+		<span class="input-group-addon"><i class="glyphicon glyphicon-sort"></i></span>
+		<input ng-model="currency.cof" placeholder="Курс валюти" class="form-control" required style="margin:0;">
+	</div>
+	<br>
 	<input type="submit" value="Змінити" class="btn btn-success">
 </form>
