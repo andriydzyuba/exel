@@ -13,6 +13,31 @@
 <hr/>
 
 <div class="row">
+	<div class="col-md-3">
+		<div>
+			<h3>Сортувати по ціні:</h3>
+		    <form>
+			    <div class="radio">
+			      <label><input ng-model="priceorderby" type="radio" value="ASC">від дешевих до дорогих</label>
+			    </div>
+			    <div class="radio">
+			      <label><input ng-model="priceorderby" type="radio" value="DESC">від дорогих до дешевих</label>
+			    </div>
+		    </form>
+		</div>
+		<h2>Фільтри</h2>
+		<select ng-model="maker">
+			<option selected disabled value="">Виберіть виробника</option>
+			<option ng-repeat="maker in makers track by $index" value="{{maker.name}}">{{maker.name}}</option>
+		</select>
+		<br><br>
+		<a href="" class="btn btn-primary" ng-click="onSelectOptionChanged()">Фільтрувати товари</a>
+		<br><br>
+		<a href="" class="btn btn-primary" ng-click="cleanFilter()">Скинути фільтри</a>
+	</div>
+
+	<div class="col-md-9">
+		<div ng-cloak class="ng-cloak portfolio-container row grid-space-20">
 
   <div class="col-md-2">
     <div class="container-fluid">

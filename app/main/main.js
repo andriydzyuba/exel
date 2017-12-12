@@ -91,6 +91,17 @@ angular.module('exel.main', ['ngRoute'])
     }
     $scope.loadMakers();
 
+    $scope.maker = null;
+
+    $scope.cleanFilter = function() {
+        $scope.products.length = 0;
+        $scope.maker = null;
+        $scope.priceorderby = null;
+        $scope.loadMore();
+    }
+
+    $scope.priceorderby = null; //For products order  by price ASC or DESC
+
     $scope.products = [];
 
     $scope.onSelectOptionChanged = function() {
@@ -104,6 +115,10 @@ angular.module('exel.main', ['ngRoute'])
         s_id: $stateParams.subcatId,
         limit: 12,
         offset: $scope.products.length
+        }
+
+        if ($scope.priceorderby) {
+            params.priceorderby = $scope.priceorderby
         }
 
         if ($scope.maker) {
@@ -126,14 +141,6 @@ angular.module('exel.main', ['ngRoute'])
             console.log($scope.currency);
     })
 
-
-    $scope.maker = null;
-
-    $scope.cleanFilter = function() {
-        $scope.products.length = 0;
-        $scope.maker = null;
-        $scope.loadMore();
-    }
 
 }])
 
@@ -165,7 +172,7 @@ angular.module('exel.main', ['ngRoute'])
         $scope.lostproducts.length = 0;
 
         var params = {
-        s_id: $stateParams.subcatId,
+        ss_id: $stateParams.ssubcatId,
         limit: 20,
         offset: $scope.makers.length
         }
@@ -181,6 +188,17 @@ angular.module('exel.main', ['ngRoute'])
     }
     $scope.loadMakers();
 
+    $scope.maker = null;
+
+    $scope.cleanFilter = function() {
+        $scope.products.length = 0;
+        $scope.maker = null;
+        $scope.priceorderby = null;
+        $scope.loadMore();
+    }
+
+    $scope.priceorderby = null; //For products order  by price ASC or DESC
+
     $scope.products = [];
 
     $scope.onSelectOptionChanged = function() {
@@ -191,9 +209,13 @@ angular.module('exel.main', ['ngRoute'])
     $scope.loadMore = function() {
         $scope.lostproducts.length = 0;
         var params = {
-        s_id: $stateParams.subcatId,
+        ss_id: $stateParams.ssubcatId,
         limit: 12,
         offset: $scope.products.length
+        }
+
+        if ($scope.priceorderby) {
+            params.priceorderby = $scope.priceorderby
         }
 
         if ($scope.maker) {
@@ -211,18 +233,13 @@ angular.module('exel.main', ['ngRoute'])
     }
     $scope.loadMore();
 
+
+
+
     currencyService.getCurrency(1).then(function(data){
             $scope.currency = data;
             console.log($scope.currency);
     })
-
-    $scope.maker = null;
-
-    $scope.cleanFilter = function() {
-        $scope.products.length = 0;
-        $scope.maker = null;
-        $scope.loadMore();
-    }
 
 }])
 
