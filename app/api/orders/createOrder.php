@@ -28,7 +28,7 @@ $request->delivery = addslashes($request->delivery);
 
 
 
-$sql = "INSERT INTO Orders (product_id, name, phone, comment, email, town, delivery, cart) VALUES ('$request->product_id', '$request->name', '$request->phone', '$request->comment', '$request->email', '$request->town', '$request->delivery', '$request->cart')";
+$sql = "INSERT INTO Orders (name, phone, comment, email, town, delivery, cart) VALUES ('$request->name', '$request->phone', '$request->comment', '$request->email', '$request->town', '$request->delivery', '$request->cart')";
 
 if ($conn->query($sql) === TRUE) {
  	echo "Замовлення додано успішно.";

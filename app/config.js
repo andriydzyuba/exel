@@ -10,10 +10,10 @@ angular.module('exel.CONFIG', [])
 
 .constant('CONFIG', {
   'MAIN' : 'головна',
-  'PRODUCTS' : 'Товари',
+  'PRODUCTS' : 'товари',
   'ABOUT' : 'доставка',
-  'OFFERS': 'Послуги',
-  'PORTFOLIO':'Портфоліо',
+  'OFFERS': 'послуги',
+  'PORTFOLIO':'портфоліо',
   'CONTACTS': 'контакти'
 })
 

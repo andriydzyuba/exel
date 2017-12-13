@@ -1,4 +1,4 @@
- <div class="row">
+<div class="row">
 
 	<div class="container col-md-2">
 		<a href="" class="btn btn-success" ui-sref="dashboard.addproduct"><i class="fa fa-plus"></i> Додати товар</a>
@@ -38,18 +38,22 @@
 </div>
 
 <hr>
-<div ng-cloak class="ng-cloak portfolio-container row grid-space-20">
-	<div  ng-repeat="product in products track by $index" class="col-sm-6 col-md-2 portfolio-item {{product.title}}">
-		<div class="image-box">
-			<div class="overlay-container">
-				<img ng-src="{{product.image}}" alt="">
-				<a class="overlay">
-					<span>{{product.title}}</span>
-				</a>
+
+<div class="container-fluid">
+	<div id="gridPortfolio" ng-cloak class="ng-cloak portfolio-container">
+		<div  ng-repeat="product in products track by $index" class="portfolio-item">
+			<div class="image-box">
+				<div class="overlay-container">
+					<img ng-src="{{product.image}}" alt="">
+					<a class="overlay">
+						<span>{{product.title}}</span>
+					</a>
+				</div>
+	            <a class="btn btn-warning btn-sm" ui-sref="dashboard.editproduct({productId: product.id})" data-target="#{{$index}}">Редагувати</a>
+			    <a class="btn btn-danger btn-sm" href="" ng-click="deleteProduct(product, $index)">Видалити</a>
 			</div>
-      <a class="btn btn-warning btn-sm" ui-sref="dashboard.editproduct({productId: product.id})" data-target="#{{$index}}">Редагувати</a>
-			<a class="btn btn-danger btn-sm" href="" ng-click="deleteProduct(product, $index)">Видалити</a>
 		</div>
 	</div>
-</div><br/>
-<div class="text-center"><a href="" class="btn btn-primary" ng-click="loadMore()">Показати ще товарів</a></div>
+	<br/>
+	<div class="text-center"><a href="" class="btn btn-primary" ng-click="loadMore()">Показати ще товарів</a></div>
+</div>

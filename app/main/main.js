@@ -273,9 +273,9 @@ angular.module('exel.main', ['ngRoute'])
 
     catService.getCats().then(function(data){
             $scope.categories = data;
-        });
+    });
 
-        $scope.category = {};
+    $scope.category = {};
 
         $(document).ready(function(){
           $('.dropSubMenu').hover(function(e){
@@ -286,7 +286,6 @@ angular.module('exel.main', ['ngRoute'])
             $(this).toggle();
             e.stopPropagation();
           });
-
     });
 
     $(document).ready(function(){
