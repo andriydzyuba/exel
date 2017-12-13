@@ -109,7 +109,10 @@
 }*/
 
 .image-box img {
-	width: 100%;
+	display: block;
+	margin:auto;
+	max-height: 150px;
+	width: auto;
 	border-radius: 10px;
 }
 

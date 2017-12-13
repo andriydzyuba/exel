@@ -61,7 +61,9 @@
     margin-right: 20px; }
 
 .article-container .article img {
-  width: 100%; }
+  max-height: 300px;
+  margin-left: 3%;
+ }
 .article-container .article h2 {
   margin-top: 0; }
 .article-container .user-buttons a {

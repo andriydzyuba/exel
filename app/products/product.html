@@ -1,12 +1,3 @@
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/uk_UA/sdk.js#xfbml=1&version=v2.11';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
 <div class="separator"></div>
 
 <div id="productArea" class="container-fluid">
@@ -26,7 +17,7 @@
 			<h2 class="no-top-margin">{{product.title}}</h2>
 			<p><span id="productPrice">{{product.price*currency.cof + ' ₴'}}</span></p><hr/>
 			<div class="row">
-				<div class="col-md-5 article">
+				<div class = "selling-item" class="col-md-4 article">
 					<img ng-src="{{product.image}}"><br/><br/>
 				</div>
 				<div class="col-md-7 article">
@@ -77,3 +68,14 @@
 	</div>
 
 </div>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  if (typeof (FB) != 'undefined'&& FB != null) { FB.XFBML.parse(); }
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/uk_UA/sdk.js#xfbml=1&version=v2.11';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
