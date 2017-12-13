@@ -105,7 +105,7 @@
               <li class="dropdown" ng-repeat="subcat in cat.subcats track by $index">
                 <a class="dropSubMenu" tabindex="-1" ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}} <span class="glyphicon glyphicon-triangle-right" style="font-size:0.6em;"></span></span></a>
                 <ul class="dropdown-menu dropMenu">
-                  <div class="col-md-3" id="subSubcatMenu" class="dropdown" ng-repeat="subsubcat in subcat.subcats track by $index">
+                  <div class="col-md-4" id="subSubcatMenu" class="dropdown" ng-repeat="subsubcat in subcat.subcats track by $index">
                     <a tabindex="-1" ui-sref="main.ssubcategory({ ssubcatId: subsubcat.ss_id })"><span>{{subsubcat.title}}</span></a>
                   </div>
                 </ul>
