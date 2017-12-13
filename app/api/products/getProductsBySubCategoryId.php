@@ -7,19 +7,31 @@ $request = json_decode($postdata);
 $conn = new mysqli($servername, $username, $password, $dbname);
 mysqli_set_charset($conn,"utf8");
 
+if (isset($request->priceorderby)) {
+    $priceorderby = $request->priceorderby;
+} else {
+    $priceorderby = NULL;
+}
+
 if (isset($request->maker)) {
     $maker = $request->maker;
 } else {
     $maker = NULL;
 }
 
-
-$sql = getSqlQuery($request->s_id, $request->limit, $request->offset, $maker);
-function getSqlQuery($s_id=NULL, $limit=NULL, $offset=NULL, $maker) {
+ 
+$sql = getSqlQuery($request->s_id, $request->limit, $request->offset, $maker, $priceorderby);
+function getSqlQuery($s_id=NULL, $limit=NULL, $offset=NULL, $maker, $priceorderby) {
     $sql = "SELECT * FROM Products WHERE s_id='$s_id'";
 
     if ($maker) {
         $sql .= " AND maker='$maker'";
+    }
+    if (!$priceorderby) {
+        $sql .= " ORDER BY ID DESC";
+    }
+    if ($priceorderby) {
+        $sql .= " ORDER BY price $priceorderby";
     }
     if ($limit) {
         $sql .= " LIMIT $limit";

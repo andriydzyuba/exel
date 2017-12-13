@@ -1,7 +1,3 @@
-<!--<div>
-<input type="number" class="form-control" placeholder="Максимальна вартість товару" ng-model="priceterm" />
-    <br/>
-</div>-->
 <div class="container-fluid">
   <div id="gridSsub" ng-cloak class="ng-cloak portfolio-container">
     <div ng-repeat="ssub in ssubs track by $index" class="text-center">
@@ -14,8 +10,19 @@
 
 <div class="row">
 
-  <div class="col-md-2">
+	<div class="col-md-3">
     <div class="container-fluid">
+  		<div>
+  			<h2>Сортувати по ціні:</h2>
+  		    <form>
+  			    <div class="radio">
+  			      <label><input ng-model="priceorderby" type="radio" value="ASC">від дешевих до дорогих</label>
+  			    </div>
+  			    <div class="radio">
+  			      <label><input ng-model="priceorderby" type="radio" value="DESC">від дорогих до дешевих</label>
+  			    </div>
+  		    </form>
+  		</div>
   		<h2>Фільтри</h2>
   		<select ng-model="maker">
   			<option selected disabled value="">Виберіть виробника</option>
@@ -25,11 +32,10 @@
   		<a href="" class="btn btn-primary" ng-click="onSelectOptionChanged()">Фільтрувати товари</a>
   		<br><br>
   		<a href="" class="btn btn-danger" ng-click="cleanFilter()">Скинути фільтри</a>
-      <br><br>
   	</div>
   </div>
 
-	<div class="col-md-10">
+	<div class="col-md-9">
     <div class="container-fluid">
       <div id="gridPortfolioMain" ng-cloak class="ng-cloak portfolio-container">
       	<div  ng-repeat="product in products|priceLessThan:priceterm | filter:$products.query track by $index" class=" portfolio-item {{product.title}}">
@@ -47,7 +53,6 @@
       </div>
     </div><br/>
 		<div class="text-center"><a href="" class="btn btn-primary" ng-click="loadMore()">Показати ще товарів</a></div>
-
 	</div>
 
 </div>

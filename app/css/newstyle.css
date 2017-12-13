@@ -94,10 +94,14 @@ body {
 }
 
 #searchButton {
+  margin: 0 0 4px 3px;
+}
+
+/*#searchButton {
   padding: 10px 20px 5px 0px;
   text-align: left;
   position: relative;
-}
+}*/
 
 #formSearch {
   height: 40px;
@@ -105,10 +109,11 @@ body {
   border: none;
   border-radius: 4px;
   padding-left: 5px;
+  margin-top: 5px;
   text-align: left;
   text-transform: lowercase;
   font-size: 1.2em;
-  background-image: url("../images/search_icon.png");
+  /*background-image: url("../images/search_icon.png");*/
   background-repeat: no-repeat;
   background-position: right;
 }
@@ -127,7 +132,7 @@ body {
   background-color: transparent;
   border: none;
   box-shadow: none;
-  width: 320%;
+  width: 240%;
   top: 0;
   left: 100%;
   margin-top: -1px;

@@ -2,17 +2,6 @@
 
 <div id="productArea" class="container-fluid">
 	<div class="row article-container">
-
-		<!--<div class="col-md-2 user-buttons">
-
-			<a ui-sref="#" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>Додати у кошик</a>-->
-
-			<!--<a ng-click="modal($stateParams)" href="" type="button" class="btn btn-success"><span class="glyphicon glyphicon-earphone"></span>Замовити дзвінок</a>-->
-
-			<!--<a ng-click="callModal()" href="" type="button" class="btn btn-success"><span class="glyphicon glyphicon-usd"></span>Оформити замовлення</a>
-			<a ng-click="callOrderModal()" href="" type="button" class="btn btn-success"><span class="glyphicon glyphicon-usd"></span>Купити в один клік</a>
-		</div>-->
-
 		<div class="col-md-9 article">
 			<h2 class="no-top-margin">{{product.title}}</h2>
 			<p><span id="productPrice">{{product.price*currency.cof + ' ₴'}}</span></p><hr/>
@@ -22,35 +11,37 @@
 				</div>
 				<div class="col-md-7 article">
 					<div class="container-fluid" user-buttons>
-            <a ng-click="add_cart(product)" class="btn btn-primary" data-toggle="modal" data-target="#myModalCart"><span class="glyphicon glyphicon-shopping-cart"></span>Додати у кошик</a>
-      			<a ng-click="callOrderModal()" href="" type="button" class="btn btn-success"><span class="glyphicon glyphicon-usd"></span>Купити в один клік</a>
+	          <a ng-click="add_cart(product)" class="btn btn-primary" data-toggle="modal" data-target="#myModalCart"><span class="glyphicon glyphicon-shopping-cart"></span>Додати у кошик</a>
+	      		<a ng-click="callOrderModal()" href="" type="button" class="btn btn-success"><span class="glyphicon glyphicon-usd"></span>Купити в один клік</a>
 					</div><br/>
 					<p>{{product.spec}}</p><br/>
 				</div>
 			</div>
 			<div data-ng-bind-html="product.text"></div>
 			<div id="fb-button-container">
-			<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Поширити</a></div>
+
+				<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large" data-mobile-iframe="true">
+					<a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Поширити</a>
+				</div>
 			</div>
 
       <!-- Modal Add Cart-->
       <div class="modal fade" id="myModalCart" role="dialog">
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title text-center">Даний товар додано в кошик!</h4>
-            </div>
-            <div class="modal-body">
-              <p>Для того, щоб додати товар в кошик ще раз, натисніть кнопку повторно.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Ок</button>
-            </div>
-          </div>
-        </div>
+  		  <div class="modal-dialog modal-sm">
+  		    <div class="modal-content">
+  		      <div class="modal-header">
+  		        <h4 class="modal-title text-center">Даний товар додано в кошик!</h4>
+  		      </div>
+  		      <div class="modal-body">
+  		        <p>Для того, щоб додати товар в кошик ще раз, натисніть кнопку повторно.</p>
+  		      </div>
+  		      <div class="modal-footer">
+  		        <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Ок</button>
+  		      </div>
+  		    </div>
+  		  </div>
       </div>
-
-		</div>
+    </div>
 
 		<div id="productBar" class="col-md-3">
 			<div>
@@ -66,7 +57,6 @@
 		</div>
 
 	</div>
-
 </div>
 
 <div id="fb-root"></div>
