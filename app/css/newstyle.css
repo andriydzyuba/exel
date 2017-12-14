@@ -63,6 +63,11 @@ body {
 	font-weight: bold;
 }
 
+#main-nav li a {
+font-size:1.5em;
+padding: 15px;
+}
+
 #navMenu {
   padding: 0;
 }
@@ -87,6 +92,8 @@ body {
   padding: 0;
 }
 
+/***************** Search ****************************/
+
 #searchInput {
   padding: 5px 15px 5px 0px;
   border-radius: 4px;
@@ -96,12 +103,6 @@ body {
 #searchButton {
   margin: 0 0 4px 3px;
 }
-
-/*#searchButton {
-  padding: 10px 20px 5px 0px;
-  text-align: left;
-  position: relative;
-}*/
 
 #formSearch {
   height: 40px;
@@ -113,7 +114,6 @@ body {
   text-align: left;
   text-transform: lowercase;
   font-size: 1.2em;
-  /*background-image: url("../images/search_icon.png");*/
   background-repeat: no-repeat;
   background-position: right;
 }
@@ -126,6 +126,11 @@ body {
 
 .dropSubMenu {
   position: relative;
+  text-align: left;
+}
+
+.dropSubMenu .glyphicon {
+  font-size:0.6em;
 }
 
 .dropMenu {
@@ -158,14 +163,36 @@ body {
   font-weight: bold;
 }
 
+#sub-sub-container {
+  margin-bottom: 20px;
+}
+
+#sub-sub-container:hover {
+opacity: .50;
+ -webkit-transition: opacity .25s ease-in-out;
+ -moz-transition: opacity .25s ease-in-out;
+ -ms-transition: opacity .25s ease-in-out;
+ -o-transition: opacity .25s ease-in-out;
+ transition: opacity .25s ease-in-out;
+            }
+
 #nameSubSubCat {
   width: 100%;
   font-size: 1em;
   text-align: center;
   color: #000000;
   text-decoration: none;
-
+  height: 70%;
+  width: auto;
+  margin: auto;
 }
+
+
+.sub-sub img {
+    vertical-align: middle;
+    max-height: 90px;
+
+  }
 
 #nameSubSubCat:hover {
   color: #1D73B8;
@@ -225,6 +252,19 @@ body {
   margin: auto;
 }
 
+/****************************************************
+****************** CART *****************************
+****************************************************/
+
+#cart-item-img {
+  width:20%;
+  padding-right:10px;
+}
+
+#cart-order-fields input, #cart-order-fields textarea {
+  border-radius:4px;
+}
+
 .cartText, #total {
   font-size: 1.1em;
 }
@@ -233,7 +273,99 @@ body {
   font-weight: bold;
 }
 
-.g-recaptcha {
 
-float: left;
+/*************************************************************
+*************************ONE CLICK MODAL *********************
+*************************************************************/
+
+.no-top-margin {
+  margin: 0;
+}
+
+.close {
+  font-size:2em;
+}
+
+.modal-specs {
+  font-size:0.8em;
+}
+
+#one-click-image {
+  max-height: 200px;
+  width: auto;
+  margin: auto;
+}
+
+#one-click-text input, #one-click-text textarea {
+  border-radius:4px;
+}
+
+.g-recaptcha {
+  margin: 10px 0 20px 0;
+  padding-bottom: 20px;
+  float: left;
+}
+
+#one-click-submit {
+  display: block;
+  max-width: 100px;
+  margin: auto;
+}
+
+/***************************************************
+********* ADMINISTRATOR's PAGES ********************
+***************************************************/
+
+#user-ident div input {
+  margin: 0;
+}
+
+#currency-input input {
+  margin: 0;
+}
+
+#image-in-orders {
+  width: 25%;
+}
+
+/**************************************************
+************* MEDIA QUERIES **********************
+*************************************************/
+
+@media (min-width: 320px) and (max-width: 400px) {
+
+  #one-click-text input, #one-click-text textarea {
+		max-width: 250px;
+	}
+
+	.g-recaptcha {
+	  margin: 0 auto;
+		}
+
+thead, tbody {
+	width: 100%;
+  margin: auto;
+  padding-right: 0;
+}
+
+	#cart-item-img {
+	  padding: 0;
+		}
+	.cartText {
+		font-size: 0.8em;
+    }
+
+#cart-item-name {
+  display: block;
+  margin-right: 3px;
+}
+
+.btn-danger {
+  margin: 0;
+}
+
+#cart-order-fields input, #cart-order-fields textarea {
+  max-width: 270px;
+}
+
 }

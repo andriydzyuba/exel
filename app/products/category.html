@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div id="gridSsub" ng-cloak class="ng-cloak portfolio-container">
-    <div ng-repeat="ssub in ssubs track by $index" class="text-center">
-    	<a ui-sref="main.ssubcategory({ ssubcatId: ssub.ss_id })" class="text-center" id="nameSubSubCat"><span><img ng-src="{{ssub.images}}" alt="" style="height: 70%; width: 70%;"><br/>{{ssub.title}}</span></a>
+    <div ng-repeat="ssub in ssubs track by $index" class="text-center" id = "sub-sub-container">
+    	<a class = "sub-sub" ui-sref="main.ssubcategory({ ssubcatId: ssub.ss_id })" class="text-center" id="nameSubSubCat"><span><img ng-src="{{ssub.images}}" alt=""><br/>{{ssub.title}}</span></a>
     </div>
   </div>
 </div>

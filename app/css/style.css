@@ -73,9 +73,6 @@ body {
 			margin-left: 8px;
 		}
 
-		#searchButton {
-		float: right;
-	}
 	.navbar-right {
 		float: right;
 		margin: auto;
@@ -87,10 +84,31 @@ body {
 	}
 }
 
+@media (min-width: 320px) and (max-width: 400px) {
+	#one-click-text input, #one-click-text textarea {
+		max-width: 250px;
+	}
+	.g-recaptcha {
+	  margin: 0 auto;
+		display: table
+	}
+
+thead, tbody {
+	width: 100%;
+}
+
+	#cart-item-img {
+	  padding: 0;
+		}
+	.cartText {
+		font-size: 0.5em;
+	}
+
+
+}
+
 @media (min-width:768px) {
 	.main-navigation .navbar-default .navbar-nav > li > a {
-		/*padding-top: 30px;
-		padding-bottom: 30px;*/
 		-webkit-transition: all 0.3s ease-in-out;
 		-moz-transition: all 0.3s ease-in-out;
 		-o-transition: all 0.3s ease-in-out;
