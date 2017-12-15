@@ -1,11 +1,6 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="exel" class="no-js"> <!--<![endif]-->
+<html lang="en" ng-app="exel" class="no-js">
 <head>
-  <!-- Venison is here -->
-  <!-- <base href="/"> -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>inko | Електроніка та побутова техніка</title>
@@ -21,7 +16,6 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -30,16 +24,8 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/contacts.css">
-  <link rel="stylesheet" href="css/portfolio.css">
-  <link rel="stylesheet" href="css/services.css">
   <link rel="stylesheet" href="css/dashboard.css">
-  <link rel="stylesheet" href="css/news.css">
-  <link rel="stylesheet" href="css/newstyle.css">
 
-  <link rel="stylesheet" media="(max-width: 992px)" href="css/small.css" />
-
-  <meta name="google-site-verification" content="7GKQs4Gs1-RPDu1WHwxJrxfiMKDYyqLainviA6K4dOc" />
 </head>
 <body ng-controller="ApplicationController as appCtrl">
 <header class="header navbar-static-top clearfix">
@@ -65,18 +51,14 @@
             <nav class="navbar navbar-default" role="navigation">
               <div class="container-fluid">
                 <div class="navbar-header">
-                <!--<button id="navButton" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                  <i id="navButtonNext" class="fa fa-chevron-circle-down" aria-hidden="true"></i>
-                </button>-->
                 </div>
-                <!--<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">-->
                 <div>
-                  <ul ng-cloak class="nav navbar-nav navbar-right">
-                    <li ng-class="{ active: isActive('')}"><a ui-sref="main" style="font-size:1.5em; padding: 15px;">{{main}}</a></li>
-                    <li ng-class="{ active: isActive('about')}"><a ui-sref="about" style="font-size:1.5em; padding: 15px;">{{about}}</a></li>
-                    <li ng-class="{ active: isActive('contacts')}"><a ui-sref="contacts" style="font-size:1.5em; padding: 15px;">{{contacts}}</a></li>
+                  <ul ng-cloak class="nav navbar-nav navbar-right" id = "main-nav">
+                    <li ng-class="{ active: isActive('')}"><a ui-sref="main">{{main}}</a></li>
+                    <li ng-class="{ active: isActive('about')}"><a ui-sref="about">{{about}}</a></li>
+                    <li ng-class="{ active: isActive('contacts')}"><a ui-sref="contacts">{{contacts}}</a></li>
                     <!-- Cart image -->
-                    <li ><a href="#/cart" style="font-size:1.5em; padding: 15px;"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li>
+                    <li><a href="#/cart"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li>
                   </ul>
                 </div>
               </div>
@@ -97,7 +79,7 @@
             <a class="dropdown-toggle" data-toggle="dropdown" class="text-center">{{cat.title}}<span class="caret"></span></a>
             <ul id="subCatMenu" class="dropdown-menu">
               <li class="dropdown" ng-repeat="subcat in cat.subcats track by $index">
-                <a class="dropSubMenu" tabindex="-1" ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}} <span class="glyphicon glyphicon-triangle-right" style="font-size:0.6em;"></span></span></a>
+                <a class="dropSubMenu" tabindex="-1" ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}}<span class="glyphicon glyphicon-triangle-right"></span></span></a>
                 <ul class="dropdown-menu dropMenu">
                   <div class="col-md-4" id="subSubcatMenu" class="dropdown" ng-repeat="subsubcat in subcat.subcats track by $index">
                     <a tabindex="-1" ui-sref="main.ssubcategory({ ssubcatId: subsubcat.ss_id })"><span>{{subsubcat.title}}</span></a>
@@ -113,7 +95,7 @@
         <div class="row">
           <div class="col-md-12">
 
-            <div id="seachInput" class="row">
+            <div id="searchInput" class="row">
               <form id="clickSearch"><input ng-model="title" id="formSearch" data-toggle="tooltip" data-placement="bottom" title="Введіть три символи!" placeholder="Пошук" ng-pattern="/^[A-z0-9]{3,}$/" ng-keydown="$event.keyCode === 13 && onSelectOptionChanged()">
                 <a id="searchButton" href="" class="btn btn-primary" ng-click="onSelectOptionChanged()"><span class="glyphicon glyphicon-search"></span></a>
               </form>
@@ -124,22 +106,11 @@
               </script>
             </div>
           </div>
-          <!--<div class="col-md-3"
-            <div id="searchButton" class="row">
-              <a href="" class="btn btn-primary btn-sm" ng-click="onSelectOptionChanged()">Шукати</a>
-              <a href="" class="btn btn-danger btn-sm" ng-click="cleanFilter()">Очистити</a>
-            </div>
-          </div>-->
         </div>
       </div>
-
     </div>
-
   </nav>
 
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
   <div ui-view>​</div>
 
   <footer id="footer">
@@ -177,11 +148,7 @@
     </div>
   </footer>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
-  <!--<script src="bower_components/jquery/dist/jquery.min.js"></script>-->
-  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+  <!-- ************SCRIPTS***************** -->
 
   <script src="bower_components/summernote/dist/summernote.min.js"></script>
   <script src="bower_components/summernote/plugin/summernote-ext-video.js"></script>
@@ -193,15 +160,12 @@
 
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-  <!--<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="bower_components/ng-cropper/dist/ngCropper.all.min.js"></script>
 
   <script src="app.js"></script>
   <script src="config.js"></script>
-
-  <!--<script src="directives/readMarkupDirective.js"></script>-->
 
   <script src="directives/read-markup.directive/read-markup.directive.js"></script>
   <script src="//code.angularjs.org/1.2.20/angular-sanitize.min.js"></script>

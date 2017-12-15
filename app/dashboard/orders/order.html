@@ -30,16 +30,12 @@
 						<tr ng-repeat = "product in cart" ng-init = "setTotals(cart)">
 							<td>
 								<a ui-sref = "products({productId:product.id})">
-									<img ng-src = "{{product.image}}" style="width: 25%"/><br/>
+									<img id="image-in-orders" ng-src = "{{product.image}}"/><br/>
 									{{product.title}}
 								</a>
 							</td>
 							<td>{{product.price}}₴</td>
 						</tr>
-            <!--<tr>
-							<td align = "right">Сума замовлення</td>
-							<td>₴{{total}}</td>
-						</tr>-->
 					</tbody>
 
 				</table>
