@@ -13,7 +13,7 @@ angular.module('exel')
 
 
 .controller('ProductsController', ['$scope', '$location', '$state', '$stateParams', 'productsService', 'modalsService', 'catService', 'currencyService', function($scope, $location, $state, $stateParams, productsService, modalsService, catService, currencyService) {
-    
+
     productsService.getProduct($stateParams.productId).then(function(data){
         $scope.product = data;
         console.log($scope.product);
@@ -24,10 +24,10 @@ angular.module('exel')
             console.log($scope.currency);
     })
 
-    $scope.carts=[]; 
+    $scope.carts=[];
 
-        $scope.add_cart = function(product){ 
-            if(product){ 
+        $scope.add_cart = function(product){
+            if(product){
                 $scope.carts.length = 0;
                 $scope.shoppingCarts = JSON.parse(localStorage.getItem("shoppingCarts")) ;
                     if ($scope.shoppingCarts) {
@@ -36,12 +36,12 @@ angular.module('exel')
                         }
                     }
 
-                $scope.carts.push({id: product.id, title: product.title,  image: product.image, price: product.price, product_id: product.id}); 
-                
+                $scope.carts.push({id: product.id, title: product.title,  image: product.image, price: product.price, product_id: product.id});
+
                 $scope.save_cart();
-            }   
+            }
         }
-        $scope.save_cart = function(){ 
+        $scope.save_cart = function(){
                 localStorage.setItem("shoppingCarts", JSON.stringify($scope.carts));
         }
 

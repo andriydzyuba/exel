@@ -126,10 +126,14 @@ angular.module('exel.main', ['ngRoute'])
         }
 
         productsService.getListBySubCategoryId(params).then(function(response) {
-            console.log(response);
+             console.log(response);
             if (response) {
                 for (var i =0; i < response.length; i++) {
                 $scope.products.push(response[i]);
+                }
+                if (response.length < 12){
+                    console.log('hidebutton loadMore')
+                    $scope.hidebutton = true;
                 }
             }
         })
@@ -227,6 +231,10 @@ angular.module('exel.main', ['ngRoute'])
             if (response) {
                 for (var i =0; i < response.length; i++) {
                 $scope.products.push(response[i]);
+                }
+                if (response.length < 12){
+                    console.log('hidebutton loadMore')
+                    $scope.hidebutton = true;
                 }
             }
         })
