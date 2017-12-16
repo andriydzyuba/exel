@@ -33,11 +33,11 @@
     <div class="container">
       <p class="topBar"><i class="fa fa-truck" aria-hidden="true"></i> Безкоштовна доставка по Львову</p>
     </div>
-
   </div>
+
   <div id="headerBar" class="container">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-4 col-xs-4">
         <div class="header-left clearfix">
           <div class="logo">
             <a ui-sref="main"><img id="logo" src="images/img/logo.png" height="50px"></a>
@@ -45,23 +45,30 @@
           </div>
         </div>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8 col-sm-8 col-xs-8">
         <div class="header-right clearfix">
           <div class="main-navigation">
-            <nav class="navbar navbar-default" role="navigation">
-              <div class="container-fluid">
+            <nav class="navbar navbar-default row" role="navigation">
+              <div class="container-fluid col-md-11 col-sm-11 col-xs-8">
                 <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myInkoBar" id="inkoButtomBar">
+                    <span class="glyphicon glyphicon-menu-hamburger"></span>
+                  </button>
                 </div>
                 <div>
-                  <ul ng-cloak class="nav navbar-nav navbar-right" id = "main-nav">
-                    <li ng-class="{ active: isActive('')}"><a ui-sref="main">{{main}}</a></li>
-                    <li ng-class="{ active: isActive('about')}"><a ui-sref="about">{{about}}</a></li>
-                    <li ng-class="{ active: isActive('contacts')}"><a ui-sref="contacts">{{contacts}}</a></li>
-                    <!-- Cart image -->
-                    <li><a href="#/cart"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li>
+                  <ul ng-cloak class="nav navbar-nav navbar-right" id="main-nav">
+                    <div class="collapse navbar-collapse" id="myInkoBar">
+                      <ul class="nav navbar-nav">
+                        <li ng-class="{ active: isActive('main')}"><a ui-sref="main">{{main}}</a></li>
+                        <li ng-class="{ active: isActive('about')}"><a ui-sref="about">{{about}}</a></li>
+                        <li ng-class="{ active: isActive('contacts')}"><a ui-sref="contacts">{{contacts}}</a></li>
+                      </ul>
+                    </div>
                   </ul>
                 </div>
               </div>
+              <!-- Cart image -->
+              <div class="col-md-1 col-sm-1 col-xs-4" id="inkoCart"><a href="#/cart"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></div>
             </nav>
           </div>
         </div>
@@ -73,13 +80,13 @@
   <nav class="navbar navbar-default">
     <div id="navMenu" class="container-fluid">
 
-      <div class="col-md-9">
+      <div class="col-md-9 col-sm-12 col-xs-12">
         <ul class="nav navbar-nav" ng-repeat="cat in categories track by $index" class="cat">
           <li id="catMenu" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" class="text-center">{{cat.title}}<span class="caret"></span></a>
             <ul id="subCatMenu" class="dropdown-menu">
               <li class="dropdown" ng-repeat="subcat in cat.subcats track by $index">
-                <a class="dropSubMenu" tabindex="-1" ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}}<span class="glyphicon glyphicon-triangle-right"></span></span></a>
+                <a class="dropSubMenu" tabindex="-1" ui-sref="main.subcategory({ subcatId: subcat.s_id })" class="text-center"><span>{{subcat.title}}</span></span></a>
                 <ul class="dropdown-menu dropMenu">
                   <div class="col-md-4" id="subSubcatMenu" class="dropdown" ng-repeat="subsubcat in subcat.subcats track by $index">
                     <a tabindex="-1" ui-sref="main.ssubcategory({ ssubcatId: subsubcat.ss_id })"><span>{{subsubcat.title}}</span></a>
@@ -91,10 +98,9 @@
         </ul>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-3 col-sm-12 col-xs-12">
         <div class="row">
-          <div class="col-md-12">
-
+          <div class="col-md-12 col-sm-11">
             <div id="searchInput" class="row">
               <form id="clickSearch"><input ng-model="title" id="formSearch" data-toggle="tooltip" data-placement="bottom" title="Введіть три символи!" placeholder="Пошук" ng-pattern="/^[A-z0-9]{3,}$/" ng-keydown="$event.keyCode === 13 && onSelectOptionChanged()">
                 <a id="searchButton" href="" class="btn btn-primary" ng-click="onSelectOptionChanged()"><span class="glyphicon glyphicon-search"></span></a>

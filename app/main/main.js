@@ -285,15 +285,15 @@ angular.module('exel.main', ['ngRoute'])
 
     $scope.category = {};
 
-        $(document).ready(function(){
-          $('.dropSubMenu').hover(function(e){
-            $(this).next('ul').toggle();
-            e.stopPropagation();
-          });
-          $('.dropMenu').hover(function(e){
-            $(this).toggle();
-            e.stopPropagation();
-          });
+    $(document).ready(function(){
+      $(".dropSubMenu").hover(function(e){
+        $(this).next("ul").toggle();
+        e.stopPropagation();
+      });
+      $(".dropMenu").hover(function(e){
+        $(this).toggle();
+        e.stopPropagation();
+      });
     });
 
     $(document).ready(function(){
@@ -303,7 +303,7 @@ angular.module('exel.main', ['ngRoute'])
       });
       $("#clickSearch").focusout(function(){
           var div = $("#formSearch");
-          div.animate({width: '40%'}, "slow");
+          div.animate({width: "40%"}, "slow");
       });
     });
 
