@@ -32,13 +32,14 @@
   		<a href="" class="btn btn-primary" ng-click="onSelectOptionChanged()">Фільтрувати товари</a>
   		<br><br>
   		<a href="" class="btn btn-danger" ng-click="cleanFilter()">Скинути фільтри</a>
+      <br><br>
   	</div>
   </div>
 
 	<div class="col-md-9">
     <div class="container-fluid">
       <div id="gridPortfolioMain" ng-cloak class="ng-cloak portfolio-container">
-      	<div  ng-repeat="product in products|priceLessThan:priceterm | filter:$products.query track by $index" class=" portfolio-item {{product.title}}">
+      	<div ng-repeat="product in products|priceLessThan:priceterm | filter:$products.query track by $index" class=" portfolio-item {{product.title}}">
       		<div class="image-box">
       			<p id="overflowTitle">{{product.title}}</p>
       			<div class="overlay-container">

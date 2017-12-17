@@ -26,11 +26,16 @@
 				<div ui-view></div>
 				<!--<hr>-->
 
+
+				<div class="row" id="mainBanner">
+					<img src="images/mainbanner.jpg" alt="Main banner" width="100%">
+				</div>
+
 				<h3>Новинки</h3><br/>
 				<div class="container-fluid">
 					<div id="gridPortfolio" ng-cloak class="ng-cloak portfolio-container">
 						<div ng-repeat="newProduct in newProducts track by $index" class="portfolio-item">
-							<div class="image-box">
+							<div class="imageBoxNew">
 								<p id="overflowTitle">{{newProduct.title}}</p>
 								<div class="overlay-container">
 									<img ng-src="{{newProduct.image}}" alt="">

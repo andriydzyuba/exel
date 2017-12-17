@@ -6,9 +6,9 @@
 			<h2 class="no-top-margin">{{product.title}}</h2>
 			<p><span id="productPrice">{{product.price*currency.cof + ' ₴'}}</span></p><hr/>
 			<div class="row">
-				<div class="selling-item col-md-4 article">
-					<img ng-src="{{product.image}}"><br/><br/>
-				</div>
+				<div id="imageBoxProduct" class="selling-item col-md-5 article">
+					<img id="imageBoxProductImg" ng-src="{{product.image}}">
+				</div><br>
 				<div class="col-md-7 article">
 					<div class="container-fluid" user-buttons>
 	          <a ng-click="add_cart(product)" class="btn btn-primary" data-toggle="modal" data-target="#myModalCart"><span class="glyphicon glyphicon-shopping-cart"></span>Додати у кошик</a>
@@ -16,7 +16,7 @@
 					</div><br/>
 					<p>{{product.spec}}</p><br/>
 				</div>
-			</div>
+			</div><hr>
 			<div data-ng-bind-html="product.text"></div>
 			<div id="fb-button-container">
 
@@ -45,6 +45,7 @@
     </div>
 
 		<div id="productBar" class="col-md-3">
+			<h3 id="productBarNews">Новинки</h3>
 			<div>
 				<a ng-repeat="product in products" class="news-item" ui-sref="products({productId:product.id})">
 					<img ng-src="{{product.image}}">
@@ -52,7 +53,7 @@
 							<h4>{{product.title}}</h4>
 							<p>{{product.price + ' ₴'}}</p>
 						</div>
-				</a>
+				</a><br>
 			</div>
 		</div>
 
