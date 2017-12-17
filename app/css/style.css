@@ -353,6 +353,14 @@ a, a:visited, a:focus, a:active, a:hover{
 
 /* Other pages*/
 
+/**********************************************************
+*********************** BANNERS ***************************
+**********************************************************/
+
+#main-banner {
+	background: url(../images/washingmachine.jpg) 100% 27% no-repeat;
+	height: auto;
+}
 
 .page-heading {
 	background: url(../images/banner.jpg) 100% 27% no-repeat;
@@ -360,7 +368,7 @@ a, a:visited, a:focus, a:active, a:hover{
 }
 
 .contacts-heading {
-	background: url(../images/contacts.jpg) 100% 27% no-repeat;
+	background: url(../images/contacts1.jpg) 100% 77% no-repeat;
 	height: 320px;
 }
 
@@ -369,7 +377,7 @@ a, a:visited, a:focus, a:active, a:hover{
 	height: 230px;
 }
 
-.page-heading, .contacts-heading, .cart-heading {
+.page-heading, .contacts-heading, .cart-heading, #main-banner {
 	background-size: 100% auto;
 	position: relative;
 	top: -20px;
