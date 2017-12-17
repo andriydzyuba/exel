@@ -104,6 +104,10 @@ padding: 15px;
 	font-size: 1.7em;
 }
 
+#inkoCart > a:hover {
+	color: #FF7058;
+}
+
 #inkoButtomBar {
 	padding: 5px 5px 1px 5px;
 }
