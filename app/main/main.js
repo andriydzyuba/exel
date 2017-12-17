@@ -126,10 +126,14 @@ angular.module('exel.main', ['ngRoute'])
         }
 
         productsService.getListBySubCategoryId(params).then(function(response) {
-            console.log(response);
+             console.log(response);
             if (response) {
                 for (var i =0; i < response.length; i++) {
                 $scope.products.push(response[i]);
+                }
+                if (response.length < 12){
+                    console.log('hidebutton loadMore')
+                    $scope.hidebutton = true;
                 }
             }
         })
@@ -228,6 +232,10 @@ angular.module('exel.main', ['ngRoute'])
                 for (var i =0; i < response.length; i++) {
                 $scope.products.push(response[i]);
                 }
+                if (response.length < 12){
+                    console.log('hidebutton loadMore')
+                    $scope.hidebutton = true;
+                }
             }
         })
     }
@@ -277,15 +285,15 @@ angular.module('exel.main', ['ngRoute'])
 
     $scope.category = {};
 
-        $(document).ready(function(){
-          $('.dropSubMenu').hover(function(e){
-            $(this).next('ul').toggle();
-            e.stopPropagation();
-          });
-          $('.dropMenu').hover(function(e){
-            $(this).toggle();
-            e.stopPropagation();
-          });
+    $(document).ready(function(){
+      $(".dropSubMenu").hover(function(e){
+        $(this).next("ul").toggle();
+        e.stopPropagation();
+      });
+      $(".dropMenu").hover(function(e){
+        $(this).toggle();
+        e.stopPropagation();
+      });
     });
 
     $(document).ready(function(){
@@ -295,7 +303,7 @@ angular.module('exel.main', ['ngRoute'])
       });
       $("#clickSearch").focusout(function(){
           var div = $("#formSearch");
-          div.animate({width: '40%'}, "slow");
+          div.animate({width: "40%"}, "slow");
       });
     });
 
