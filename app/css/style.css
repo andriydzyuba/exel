@@ -151,6 +151,10 @@ padding: 15px;
   padding: 0;
 }
 
+#navCatMenu {
+	margin-bottom: 0;
+}
+
 #subCatMenu {
   color: #324A5E;
   font-size: 16px;
@@ -441,7 +445,7 @@ h4 span {
 }
 
 #mainBanner {
-	margin-top: 2%;
+	margin-bottom: 2%;
 }
 
 @media (max-width:767px) {
