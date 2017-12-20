@@ -361,13 +361,18 @@ a, a:visited, a:focus, a:active, a:hover{
 /**********************************************************
 *********************** BANNERS ***************************
 **********************************************************/
-
-#main-banner {
-	background: url(../images/washingmachine.jpg) 100% 27% no-repeat;
-	height: auto;
+#mainBanner {
+	margin-bottom: 2%;
 }
 
-.page-heading {
+@media (max-width:767px) {
+
+	#mainBanner {
+		display: none;
+	}
+}
+
+/*.page-heading {
 	background: url(../images/banner.jpg) 100% 27% no-repeat;
 	height: 250px;
 }
@@ -384,7 +389,7 @@ a, a:visited, a:focus, a:active, a:hover{
 
 .page-heading, .contacts-heading, .cart-heading, #main-banner {
 	background-size: 100% auto;
-}
+}*/
 
 @-webkit-keyframes fadeIn {
 from {
@@ -442,16 +447,6 @@ h4 span {
 	color: #339BEB;
 }
 
-#mainBanner {
-	margin-bottom: 2%;
-}
-
-@media (max-width:767px) {
-	#mainBanner {
-		display: none;
-	}
-
-}
 
 /**************************************
 ********* CATEGORY (filters)***********
@@ -598,7 +593,7 @@ h4 span {
 	margin:auto;
 	max-height: 165px;
 	max-width: 220px;
-	border-radius: 10px;
+	border-radius: 5px;
 }
 
 .image-box {
@@ -618,7 +613,7 @@ h4 span {
 	margin:auto;
 	max-height: 145px;
 	max-width: 200px;
-	border-radius: 10px;
+	border-radius: 5px;
 }
 
 .imageBoxNew {
@@ -638,7 +633,7 @@ h4 span {
 	margin:auto;
 	max-height: 100px;
 	max-width: 160px;
-	border-radius: 10px;
+	border-radius: 5px;
 }
 
 .imageBoxDashboard {
@@ -744,7 +739,7 @@ h4 span {
 #overlaySpecMain {
   color: #ffffff;
   padding: 5px;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 #productArea {
@@ -785,7 +780,7 @@ h4 span {
 	position: relative;
 	display: block;
 	overflow: hidden;
-	border-radius: 10px;
+	border-radius: 5px;
 	margin-top: 5px;
 }
 .overlay {
@@ -1212,4 +1207,9 @@ thead, tbody {
     0%   {color: white;}
     50%  {color: red;}
     100% {color: white;}
+}
+
+/* Button below lostproducts grid */
+#moreProductsButton {
+	margin-bottom: 20px;
 }

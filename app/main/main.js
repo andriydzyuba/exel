@@ -348,7 +348,7 @@ angular.module('exel.main', ['ngRoute', 'dcbImgFallback'])
 
     $scope.category = {};
 
-   // for dropMenu
+   /* for dropMenu
     $(document).ready(function(){
       $(".dropSubMenu").hover(function(e){
         $(this).next("ul").toggle();
@@ -358,7 +358,8 @@ angular.module('exel.main', ['ngRoute', 'dcbImgFallback'])
         $(this).toggle();
         e.stopPropagation();
       });
-    });
+    });*/
+
     // for serch
     $(document).ready(function(){
       $("#clickSearch").focusin(function(){
