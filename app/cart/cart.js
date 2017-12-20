@@ -11,12 +11,10 @@ angular.module('exel')
         })
 }])
 
-
-.controller('CartController', ['$scope', '$location', '$state', '$stateParams', 'productsService', 'modalsService', 'catService', 'ordersService', 'currencyService', function($scope, $location, $state, $stateParams, productsService, modalsService, catService, ordersService, currencyService) {
+.controller('CartController', ['$scope', '$location', '$state', '$stateParams', 'productsService', 'modalsService', 'catService', 'ordersService', 'currencyService', '$rootScope', function($scope, $location, $state, $stateParams, productsService, modalsService, catService, ordersService, currencyService, $rootScope) {
 
     $scope.carts=[]; //create a variable name carts, this will be the storage of the product that the buyer choose
          //this is an array of product that will be display in the mark uo
-
     currencyService.getCurrency(1).then(function(data){
             $scope.currency = data;
             console.log($scope.currency);
@@ -40,6 +38,7 @@ angular.module('exel')
 
         $scope.remove_cart = function(cart){ //set a function called remove_cart
             if(cart){ //checked if the cart has a value
+                $rootScope.cartclass = null;
                 $scope.carts.splice($scope.carts.indexOf(cart), 1); //delete a product based on the index
                 $scope.total -= cart.price; //deduct the price of the product  simultaneously when deleted
                 $scope.save_cart();
@@ -72,6 +71,7 @@ angular.module('exel')
 
     $scope.closeCart = function() {
         $location.path('/main')
+        $rootScope.cartclass = null;
     }
 
 

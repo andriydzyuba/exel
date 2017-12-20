@@ -96,7 +96,7 @@ padding: 15px;
 }
 
 #inkoCart {
-	padding-top: 5px;
+	padding-top: 6px;
 }
 
 #inkoCart > a {
@@ -105,7 +105,6 @@ padding: 15px;
 }
 
 #inkoCart > a:hover {
-	/*color: #FF7058;*/
 	color: #54C0EB;
 }
 
@@ -147,12 +146,13 @@ padding: 15px;
 /*******************************************
 **************** CATEGORIES ****************
 *******************************************/
-#navMenu {
-  padding: 0;
-}
 
 #navCatMenu {
 	margin-bottom: 0;
+}
+
+#navMenu {
+  padding: 0;
 }
 
 #subCatMenu {
@@ -225,7 +225,7 @@ opacity: .50;
  -ms-transition: opacity .25s ease-in-out;
  -o-transition: opacity .25s ease-in-out;
  transition: opacity .25s ease-in-out;
-            }
+}
 
 #nameSubSubCat {
   width: 100%;
@@ -384,8 +384,6 @@ a, a:visited, a:focus, a:active, a:hover{
 
 .page-heading, .contacts-heading, .cart-heading, #main-banner {
 	background-size: 100% auto;
-	position: relative;
-	top: -20px;
 }
 
 @-webkit-keyframes fadeIn {
@@ -483,6 +481,29 @@ h4 span {
 	grid-template-columns: repeat(8, 1fr);
 }
 
+@media (min-width:1980px) {
+
+	#gridPortfolioSearch {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+	}
+
+	#gridPortfolioMain {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+	}
+
+	#gridPortfolio {
+		display: grid;
+		grid-template-columns: repeat(8, 1fr);
+	}
+
+	#gridSsub {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+	}
+}
+
 @media (max-width:1250px) {
 
 	#gridPortfolioSearch {
@@ -545,7 +566,7 @@ h4 span {
 	}
 }
 
-@media (max-width:550px) {
+@media (max-width:675px) {
 
 	#gridPortfolioSearch {
 		display: grid;
@@ -575,13 +596,14 @@ h4 span {
 .image-box img {
 	display: block;
 	margin:auto;
-	max-height: 150px;
-	width: auto;
+	max-height: 165px;
+	max-width: 220px;
 	border-radius: 10px;
 }
 
 .image-box {
 	width: 230px;
+	height: 230px;
 	padding: 5px;
 	margin-left: auto;
 	margin-right: auto;
@@ -594,13 +616,14 @@ h4 span {
 .imageBoxNew img {
 	display: block;
 	margin:auto;
-	max-height: 130px;
-	width: auto;
+	max-height: 145px;
+	max-width: 200px;
 	border-radius: 10px;
 }
 
 .imageBoxNew {
 	width: 210px;
+	height: 210px;
 	padding: 5px;
 	margin-left: auto;
 	margin-right: auto;
@@ -614,12 +637,13 @@ h4 span {
 	display: block;
 	margin:auto;
 	max-height: 100px;
-	width: auto;
+	max-width: 160px;
 	border-radius: 10px;
 }
 
 .imageBoxDashboard {
 	width: 170px;
+	height: 140px;
 	padding: 5px;
 	margin-left: auto;
 	margin-right: auto;
@@ -632,24 +656,30 @@ h4 span {
 @media (max-width:767px) {
 
 	.image-box img {
-		max-height: 200px;
+		max-height: 235px;
+		max-width: 280px;
 	}
 	.image-box {
 		width: 300px;
+		height: 300px;
 	}
 
 	.imageBoxNew img {
-		max-height: 170px;
+		max-height: 205px;
+		max-width: 250px;
 	}
 	.imageBoxNew {
 		width: 270px;
+		height: 270px;
 	}
 
 	.imageBoxDashboard img {
-		max-height: 170px;
+		max-height: 165px;
+		max-width: 220px;
 	}
 	.imageBoxDashboard {
 		width: 240px;
+		height: 210px;
 	}
 }
 
@@ -669,6 +699,21 @@ h4 span {
 	margin-bottom: 5px;
 }
 
+#imageModalProductImg {
+	display: block;
+	margin:auto;
+	max-height: 100%;
+	max-width: 70%;
+}
+
+#imageModalProduct {
+	width: 250px;
+	padding: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 5px;
+}
+
 #productState {
   width: 100%;
 	border-radius: 10px;
@@ -678,13 +723,14 @@ h4 span {
   overflow: hidden;
   text-overflow: ellipsis;
   width: 95%;
-  height: 45px;
+  height: 25px;
 }
 
 #stylePrice {
   font-size: 1em;
   color: #ffffff;
   padding: 1px 6px 2px 6px;
+  margin-left: 5px;
   background-color: #54C0EB;
   border-radius: 10px;
 }
@@ -719,8 +765,7 @@ h4 span {
   color: #ffffff;
   background-color: #54C0EB;
   border-radius: 10px;
-  padding: 1px 6px 2px 6px;
-}
+  padding: 1px 6px 2px 6px;}
 
 #fb-button-container {
   max-width: 100px;
@@ -741,6 +786,7 @@ h4 span {
 	display: block;
 	overflow: hidden;
 	border-radius: 10px;
+	margin-top: 5px;
 }
 .overlay {
 	position: absolute;
@@ -845,7 +891,7 @@ h4 span {
     width: 100%;
     height: 100%;
     position: absolute;
-    padding-left: 50%;
+    padding-left: 40%;
     overflow: hidden;
     white-space: nowrap; }
     .news-item .article-block-headers h4 {
@@ -863,8 +909,9 @@ h4 span {
   .news-item img {
     float: left;
     display: inline-block;
-    width: 40%;
+    width: 35%;
     margin-right: 20px;
+    margin-bottom: 20px;
   }
 
 .article-container .article img {
@@ -1136,4 +1183,33 @@ thead, tbody {
   max-width: 270px;
 }
 
+/*Background on login page*/
+#loginBack {
+	background-image: url('images/background.jpg');
+  	background-size: cover;
+}
+
+}
+/* switch cart box image in nav*/
+.full {
+   color: white;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-iteration-count: infinite;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+    from {color: white;}
+    to {color: red;}
+}
+
+/* Standard syntax */
+@keyframes example {
+    0%   {color: white;}
+    50%  {color: red;}
+    100% {color: white;}
 }

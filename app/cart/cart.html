@@ -1,7 +1,6 @@
 <div class="cart-heading">
 </div>
 <br/>
-
 <div class="container-fluid">
 	<div class="row">
 		<div class = "col-md-12">
@@ -21,8 +20,8 @@
 						<tbody>
 							<tr ng-repeat = "cart in carts" ng-init = "setTotals(cart)">
 								<td>
-									<img id ="cart-item-img" ng-src = "{{cart.image}}"/>
-									<span id = "cart-item-name" class="cartText">{{cart.title}}</span>
+									<img id ="cart-item-img" ng-src = "{{cart.image}}" fallback-src="{{'images/fallback.png'}}"/>
+									<span id = "cart-item-name" class"cartText">{{cart.title}}</span>
 								</td>
 
 								<td class="cartText">{{cart.price*currency.cof}}₴</td>
@@ -45,22 +44,23 @@
 	    <div class="input-group col-md-12">
 				<div id ="cart-order-fields" class="row">
 					<div class="col-md-6">
-			      <input type="text" maxlength="40" ng-model="order.name" class="form-control" placeholder="&#42;Ваше ім’я та прізвище..." required>
-			      <input type="tel" maxlength="10" pattern="[0-9]{10}" ng-model="order.phone" class="form-control" placeholder="&#42;Ваш номер телефону... (Формат введення 0XXXXXXXXX)" required>
-			      <input type="email" maxlength="40" ng-model="order.email" class="form-control" placeholder="Ваш Email...">
+		        <input type="text" maxlength="40" ng-model="order.name" class="form-control" placeholder="&#42;Ваше ім’я та прізвище..." required>
+		        <input type="tel" maxlength="10" pattern="[0-9]{10}" ng-model="order.phone" class="form-control" placeholder="&#42;Ваш номер телефону... (Формат введення 0XXXXXXXXX)" required>
+		        <input type="email" maxlength="40" ng-model="order.email" class="form-control" placeholder="Ваш Email...">
 						<input type="text" maxlength="40" ng-model="order.town" class="form-control" placeholder="&#42;Ваше місто..." required>
 						<input list="cartDelivery" ng-model="order.delivery" class="form-control" placeholder="&#42;Оберіть спосіб доставки..." required>
 					</div>
 					<div class="col-md-6">
-							<datalist id="cartDelivery">
-							  <option value="Нова Пошта">
-							  <option value="Інтайм">
-							  <option value="Міст Експрес">
-							  <option value="Самовивіз">
-							  <option value="Інше">
-							</datalist>
-			      	<textarea maxlength="250" rows="5" ng-model="order.comment" placeholder="Коментар до замовлення..." class="form-control"></textarea>
-							<div class="g-recaptcha" data-sitekey="6LfcczsUAAAAAOZgy_SaX1EYNBEKvMBzCwtmN5tv" data-size="compact"></div>
+						<datalist id="cartDelivery">
+						  <option value="Нова Пошта">
+						  <option value="Інтайм">
+						  <option value="Міст Експрес">
+						  <option value="Самовивіз">
+						  <option value="Інше">
+						</datalist>
+			      <!--<input type="text" maxlength="40" ng-model="order.delivery" class="form-control" placeholder="Спосіб доставка..." style="border-radius:4px;">-->
+			      <textarea maxlength="250" rows="5" ng-model="order.comment" placeholder="Коментар до замовлення..." class="form-control" ></textarea>
+						<div class="g-recaptcha" data-sitekey="6LfWaj0UAAAAABEvXynSlyUxhpXrlOBoQrjNSOQR"></div>
 					</div>
 				</div>
 	    </div>

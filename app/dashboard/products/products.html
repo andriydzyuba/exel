@@ -25,15 +25,14 @@
 				</select>
 			</div>
 
-		</div><hr/>
-
+		</div>
+		<hr/>
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-2"><a href="" class="btn btn-primary" ng-click="onSelectOptionChanged()">Сортувати товари</a></div>
 			<div class="col-md-2"><a href="" class="btn btn-danger" ng-click="cleanFilter()">Скинути критерії</a></div>
-      <div class="col-md-4"></div>
+        	<div class="col-md-4"></div>
 		</div>
-
 	</div>
 </div>
 
@@ -44,7 +43,7 @@
 		<div  ng-repeat="product in products track by $index" class="portfolio-item">
 			<div class="imageBoxDashboard">
 				<div class="overlay-container">
-					<img ng-src="{{product.image}}" alt="">
+					<img ng-src="{{product.image}}" fallback-src="{{'images/fallback.png'}}">
 					<a class="overlay">
 						<span>{{product.title}}</span>
 					</a>

@@ -44,7 +44,7 @@ angular.module('exel')
 
 
     var _signOut = function() {
-    	localStorage.removeItem('authData');
+    	sessionStorage.removeItem('authData');
     	_authentication.isAuth = false;
     	_authentication.id = "";
     }

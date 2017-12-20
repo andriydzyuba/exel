@@ -12,7 +12,7 @@ angular.module('exel')
 }])
 
 
-.controller('ProductsController', ['$scope', '$location', '$state', '$stateParams', 'productsService', 'modalsService', 'catService', 'currencyService', function($scope, $location, $state, $stateParams, productsService, modalsService, catService, currencyService) {
+.controller('ProductsController', ['$scope', '$location', '$state', '$stateParams', 'productsService', 'modalsService', 'catService', 'currencyService', '$rootScope', function($scope, $location, $state, $stateParams, productsService, modalsService, catService, currencyService, $rootScope) {
 
     productsService.getProduct($stateParams.productId).then(function(data){
         $scope.product = data;
@@ -39,6 +39,14 @@ angular.module('exel')
                 $scope.carts.push({id: product.id, title: product.title,  image: product.image, price: product.price, product_id: product.id});
 
                 $scope.save_cart();
+
+                //Change css class of Cart image in nav when product add to cart
+                if ($rootScope.cartclass === null){
+                    $rootScope.cartclass = "full";
+                } //else {
+                  //  $rootScope.cartclass = null;
+               // }
+
             }
         }
         $scope.save_cart = function(){

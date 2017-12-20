@@ -1,7 +1,11 @@
 <div class="container-fluid">
+  <br>
   <div id="gridSsub" ng-cloak class="ng-cloak portfolio-container">
     <div ng-repeat="ssub in ssubs track by $index" class="text-center" id="sub-sub-container">
-    	<a class="sub-sub" ui-sref="main.ssubcategory({ ssubcatId: ssub.ss_id })" class="text-center" id="nameSubSubCat"><span><img ng-src="{{ssub.images}}" alt=""><br/>{{ssub.title}}</span></a>
+    	<a class="sub-sub" ui-sref="main.ssubcategory({ ssubcatId: ssub.ss_id })" class="text-center" id="nameSubSubCat">
+        <span><img ng-src="{{ssub.images}}" fallback-src="{{'images/fallback.png'}}"><br/>
+        {{ssub.title}}</span>
+      </a>
     </div>
   </div>
 </div>
@@ -28,6 +32,11 @@
   			<option selected disabled value="">Виберіть виробника</option>
   			<option ng-repeat="maker in makers track by $index" value="{{maker.name}}">{{maker.name}}</option>
   		</select>
+      <br><br>
+      <select ng-model="display">
+        <option selected disabled value="">Виберіть розмір екрану</option>
+        <option ng-repeat="display in displays track by $index" value="{{display.display}}">{{display.display}}</option>
+      </select>
   		<br><br>
   		<a href="" class="btn btn-primary" ng-click="onSelectOptionChanged()">Фільтрувати товари</a>
   		<br><br>
@@ -42,12 +51,12 @@
       	<div ng-repeat="product in products|priceLessThan:priceterm | filter:$products.query track by $index" class=" portfolio-item {{product.title}}">
       		<div class="image-box">
       			<p id="overflowTitle">{{product.title}}</p>
+            <span id="stylePrice">{{product.price*currency.cof + ' ₴'}}</span>
       			<div class="overlay-container">
-      				<img ng-src="{{product.image}}" alt="">
+      				<img ng-src="{{product.image}}" fallback-src="{{'images/fallback.png'}}">
       				<a class="overlay" ui-sref="products({productId:product.id})" data-target="#{{$index}}">
       				<p id="overlaySpecMain">{{product.spec}}</p>
       				</a>
-      				<span id="stylePrice">{{product.price*currency.cof + ' ₴'}}</span>
       			</div>
       		</div>
       	</div>

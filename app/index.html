@@ -68,7 +68,7 @@
                 </div>
               </div>
               <!-- Cart image -->
-              <div class="col-md-1 col-sm-1 col-xs-4" id="inkoCart"><a href="#/cart"><i class="fa fa-cart-arrow-down" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Кошик замовлень!"></i></a></div>
+              <div class="col-md-1 col-sm-1 col-xs-4" id="inkoCart"><a href="#/cart" ><i ng-class="cartclass" class="fa fa-cart-arrow-down" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Кошик замовлень!"></i></a></div>
             </nav>
           </div>
         </div>
@@ -78,9 +78,8 @@
 </header>
   <nav id="navCatMenu" class="navbar navbar-default">
     <div id="navMenu" class="container-fluid">
-
       <div class="col-md-9 col-sm-12 col-xs-12">
-        <ul class="nav navbar-nav" ng-repeat="cat in categories track by $index" class="cat">
+        <ul class="nav navbar-nav" ng-repeat="cat in categories track by $index">
           <li id="catMenu" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" class="text-center">{{cat.title}}<span class="caret"></span></a>
             <ul id="subCatMenu" class="dropdown-menu">
@@ -166,6 +165,8 @@
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="bower_components/ng-cropper/dist/ngCropper.all.min.js"></script>
+
+  <script src="bower_components/angular-img-fallback/angular.dcb-img-fallback.min.js"></script>
 
   <script src="app.js"></script>
   <script src="config.js"></script>

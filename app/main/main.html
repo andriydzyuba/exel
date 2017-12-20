@@ -1,31 +1,29 @@
 <div class="container-fluid">
 	<div id="gridPortfolioSearch" ng-cloak class="ng-cloak portfolio-container">
 		<div  ng-repeat="product in lostproducts track by $index" class="portfolio-item">
+			<br>
 			<div class="image-box">
 				<p id="overflowTitle">{{product.title}}</p>
+				<span id="stylePrice">{{product.price*currency.cof + ' ₴'}}</span>
 				<div class="overlay-container">
-					<img ng-src="{{product.image}}" alt="">
+					<img ng-src="{{product.image}}" fallback-src="{{'images/fallback.png'}}">
 					<a class="overlay" ui-sref="products({productId:product.id})" data-target="#{{$index}}">
 					<p id="overlaySpecMain">{{product.spec}}</p>
 					</a>
-					<span id="stylePrice">{{product.price + ' ₴'}}</span>
 				</div>
 			</div>
+			<br>
 		</div>
 	</div>
 </div>
-<!--
-<a href="#/dashboard/products" class="text-center"><h2> Адмін панель</h2></a>
+<div class="text-center" ng-show="showbutton"><a href="" class="btn btn-primary" ng-click="searchProduct()">Показати ще </a></div>
 <br>
--->
 
 <div class="container-fluid">
 	<section class="products">
 		<div class="row">
 			<div class="col-md-12">
 				<div ui-view></div>
-				<!--<hr>-->
-
 
 				<div class="row" id="mainBanner">
 					<img src="images/mainbanner.jpg" alt="Main banner" width="100%">
@@ -37,20 +35,19 @@
 						<div ng-repeat="newProduct in newProducts track by $index" class="portfolio-item">
 							<div class="imageBoxNew">
 								<p id="overflowTitle">{{newProduct.title}}</p>
-								<div class="overlay-container">
-									<img ng-src="{{newProduct.image}}" alt="">
+								<span id="stylePrice">{{newProduct.price*currency.cof + ' ₴'}}</span>
+								<div class="overlay-container" id="imageBoxNew">
+									<img ng-src="{{newProduct.image}}" fallback-src="{{'images/fallback.png'}}">
 									<a class="overlay" ui-sref="products({productId:newProduct.id})" data-target="#{{$index}}">
 									<p id="overlaySpec">{{newProduct.spec}}</p>
 									</a>
-									<span id="stylePrice">{{newProduct.price*currency.cof + ' ₴'}}</span>
 							  </div>
 							</div>
 						</div>
 					</div>
 				</div>
-
 			</div>
-	  </div>
+	    </div>
 
 	</section>
 </div>

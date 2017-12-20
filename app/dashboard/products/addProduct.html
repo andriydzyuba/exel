@@ -17,6 +17,46 @@
 		</select>
 
 		<input ng-model="product.maker" placeholder="Виробник" class="form-control">
+		
+		<br>
+		<select ng-model="product.display">
+  			<option selected disabled value="">Екран</option>
+  			<option selected disabled value="">Телевізори</option>
+  			<option value="3840 x 2160 (4K Ultra HD)">3840 x 2160 (4K Ultra HD)</option>
+  			<option value="1920 x 1080 (Full HD)">1920 x 1080 (Full HD)</option>
+  			<option value="1366 x 768">1366 x 768</option>
+  			<option value="1024 x 600">1024 x 600</option>
+  			<option selected disabled value="">Ноутбуки</option>
+  			<option value="9-12,5">9-12,5</option>
+  			<option value="13">13</option>
+  			<option value="14">14</option>
+  			<option value="15-15,6">15-15,6</option>
+  			<option value="16-17">16-17</option>
+  			<option selected disabled value="">Планшети</option>
+  			<option value="6-7.7">6-7.7</option>
+  			<option value="7.85-9.5">7.85-9.5</option>
+  			<option value="9.6-10.1">9.6-10.1</option>
+  			<option value="Понад 10.1">Понад 10.1</option>
+  			<option selected disabled value="">Монітори</option>
+  			<option value="До 17">До 17</option>
+  			<option value="18-20">18-20</option>
+  			<option value="21-22">21-22</option>
+  			<option value="23">23</option>
+  			<option value="23,6-25">23,6-25</option>
+  			<option value="26-28">26-28</option>
+  			<option value="29 і більше">29 і більше</option>
+  			<option selected disabled value="">Смартфони</option>
+  			<option value="До 4">До 4</option>
+  			<option value="4,1-4,5">4,1-4,5</option>
+  			<option value="4,6-5">4,6-5</option>
+  			<option value="5,1-5,5">5,1-5,5</option>
+  			<option value="5,55-6">5,55-6</option>
+  			<option value="Понад 6">Понад 6</option>
+  		</select>
+
+
+
+
 
 		<br><br>
 		<input type="file" id='photo-input' onchange="angular.element(this).scope().onFile(this.files[0])">

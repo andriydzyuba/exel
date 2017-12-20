@@ -141,6 +141,16 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 // )";
 
 
+  // $sql = "CREATE TABLE Displays (
+//   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+ //  display VARCHAR(30) NOT NULL,
+ ///  s_id INT(6) UNSIGNED,
+ //  ss_id INT(6) UNSIGNED,
+//   FOREIGN KEY (s_id) REFERENCES Subcats(s_id),
+//   FOREIGN KEY (ss_id) REFERENCES Ssubcats(ss_id)
+//  )";
+
+
 if ($conn->query($sql) === TRUE) {
     echo "Table subCats created successfully";
 } else {

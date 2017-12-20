@@ -57,7 +57,22 @@ angular.module('exel').factory('filtersService', ['$http', '$q', '$modal', funct
 			defer.resolve(data);
 		});
 		return defer.promise
-	}; 
+	};
+	_getDisplaysBySubCategoryId = function(params) {
+		var defer = $q.defer();
+		$http.post('api/filters/getDisplaysBySubCategoryId.php', params).success(function(data){
+			defer.resolve(data);
+		});
+		return defer.promise
+	};
+
+	_getDisplaysBySsubCategoryId = function(params) {
+		var defer = $q.defer();
+		$http.post('api/filters/getDisplaysBySsubCategoryId.php', params).success(function(data){
+			defer.resolve(data);
+		});
+		return defer.promise
+	};  
 
 
 
@@ -68,6 +83,8 @@ angular.module('exel').factory('filtersService', ['$http', '$q', '$modal', funct
 	filtersService.deleteMaker = _deleteMaker;
 	filtersService.getListBySubCategoryId = _getListBySubCategoryId;
 	filtersService.getListBySsubCategoryId = _getListBySsubCategoryId;
+	filtersService.getDisplaysBySubCategoryId = _getDisplaysBySubCategoryId;
+	filtersService.getDisplaysBySsubCategoryId = _getDisplaysBySsubCategoryId;
 	
     return filtersService;
 }]);

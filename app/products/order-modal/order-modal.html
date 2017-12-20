@@ -4,22 +4,25 @@
 </div>
 
 <div class="modal-body">
-    <h3 class="no-top-margin">{{product.title}}</h3><hr/>
-      <div class="row">
-        <div class="col-md-5">
-          <img id = "one-click-image" ng-src="{{product.image}}">
-        </div>
-        <div class="col-md-7">
-          <p id="modal-specs">{{product.spec}}</p>
-          <p><span id="productPrice">{{product.price + ' ₴'}}</span></p>
+    <h3 class="no-top-margin">{{product.title}}</h3>
+    <hr/>
+    <div class="row">
+      <div class="col-md-5">
+        <div id="imageModalProduct">
+        <img  id="imageModalProductImg" ng-src="{{product.image}}" fallback-src="{{'images/fallback.png'}}">
         </div>
       </div>
+      <div class="col-md-7">
+        <p><span id="productPrice">{{product.price*currency.cof + ' ₴'}}</span></p>
+        <p id="modal-specs">{{product.spec}}</p>
+      </div>
+    </div>
   <form ng-submit="createOrder()">
-    <div class="input-group" id = "one-click-text">
+    <div id = "one-click-text" class="input-group">
       <input type="text" maxlength="40" ng-model="order.name" class="form-control" placeholder="Ваше ім’я та прізвище..." required>
       <input type="tel" maxlength="10" pattern="[0-9]{10}" ng-model="order.phone" class="form-control" placeholder="Ваш номер телефону... (Формат введення 0XXXXXXXXX)" required>
       <textarea maxlength="200" ng-model="order.comment" placeholder="Коментар до замовлення..." class="form-control"></textarea>
-      <div class="g-recaptcha" data-sitekey="6LfcczsUAAAAAOZgy_SaX1EYNBEKvMBzCwtmN5tv" data-size="compact"></div>
+      <div class="g-recaptcha" data-sitekey="6LfWaj0UAAAAABEvXynSlyUxhpXrlOBoQrjNSOQR"></div>
     </div>
     <button id = "one-click-submit" type="submit" value="Створити замовлення" class="btn btn-success">Підтвердити</button>
   </form>

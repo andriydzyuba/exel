@@ -126,7 +126,7 @@ angular.module('exel')
   })
 }])
 
-.controller('DashboardController', ['$scope', '$http', '$q', '$modal', function($scope, $http, $q, $modal) {
+.controller('DashboardController', ['$scope', '$http', '$q', '$modal', 'authService', function($scope, $http, $q, $modal, authService) {
 
     $scope.options = {
         height: 500,
@@ -170,6 +170,10 @@ function sendFile(file) {
         }
     });
 };
+
+    $scope.signOut = function() {
+            authService.signOut();
+    }
 
 }])
 
@@ -228,7 +232,7 @@ function sendFile(file) {
 
     $scope.options = {
         maximize: true,
-        /*aspectRatio: $scope.aspectRatio,*/
+//        aspectRatio: $scope.aspectRatio,
         crop: function(dataNew) {
             data = dataNew;
         }
@@ -706,6 +710,9 @@ function sendFile(file) {
         }
         if (product.maker) {
             data.maker = product.maker;
+        }
+        if (product.display) {
+            data.display = product.display;
         }
         if (product.image) {
             data.image = product.image;

@@ -3,10 +3,14 @@
 angular.module('exel')
 
 
+.controller('OrderModalController', ['$scope', '$location', '$state', '$stateParams', 'productsService', 'modalsService', 'productId', 'ordersService', '$modalStack', 'currencyService',
+             function($scope, $location, $state, $stateParams, productsService, modalsService, productId, ordersService, $modalStack, currencyService) {
 
 
-.controller('OrderModalController', ['$scope', '$location', '$state', '$stateParams', 'productsService', 'modalsService', 'productId', 'ordersService', '$modalStack',
-             function($scope, $location, $state, $stateParams, productsService, modalsService, productId, ordersService, $modalStack) {
+    currencyService.getCurrency(1).then(function(data){
+            $scope.currency = data;
+            console.log($scope.currency);
+    })
 
     productsService.getProduct(productId).then(function(data){
         $scope.product = data;

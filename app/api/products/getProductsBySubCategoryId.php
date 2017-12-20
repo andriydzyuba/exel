@@ -19,13 +19,22 @@ if (isset($request->maker)) {
     $maker = NULL;
 }
 
+if (isset($request->display)) {
+    $display = $request->display;
+} else {
+    $display = NULL;
+}
+
  
-$sql = getSqlQuery($request->s_id, $request->limit, $request->offset, $maker, $priceorderby);
-function getSqlQuery($s_id=NULL, $limit=NULL, $offset=NULL, $maker, $priceorderby) {
+$sql = getSqlQuery($request->s_id, $request->limit, $request->offset, $maker, $priceorderby, $display);
+function getSqlQuery($s_id=NULL, $limit=NULL, $offset=NULL, $maker, $priceorderby, $display) {
     $sql = "SELECT * FROM Products WHERE s_id='$s_id'";
 
     if ($maker) {
         $sql .= " AND maker='$maker'";
+    }
+    if ($display) {
+        $sql .= " AND display='$display'";
     }
     if (!$priceorderby) {
         $sql .= " ORDER BY ID DESC";

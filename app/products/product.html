@@ -1,23 +1,32 @@
+<br>
 <div class="separator"></div>
 
 <div id="productArea" class="container-fluid">
 	<div class="row article-container">
-		<div class="col-md-9 article">
+		<div class="col-md-10 article">
 			<h2 class="no-top-margin">{{product.title}}</h2>
 			<p><span id="productPrice">{{product.price*currency.cof + ' ₴'}}</span></p><hr/>
 			<div class="row">
-				<div id="imageBoxProduct" class="selling-item col-md-5 article">
-					<img id="imageBoxProductImg" ng-src="{{product.image}}">
-				</div><br>
-				<div class="col-md-7 article">
+				<div class="col-md-4 article">
+					<div id="imageBoxProduct">
+						<img id="imageBoxProductImg" ng-src="{{product.image}}" fallback-src="{{'images/fallback.png'}}"><br/><br/>
+					</div>
+				</div>
+				<br>
+				<div class="col-md-8 article">
 					<div class="container-fluid" user-buttons>
 	          <a ng-click="add_cart(product)" class="btn btn-primary" data-toggle="modal" data-target="#myModalCart"><span class="glyphicon glyphicon-shopping-cart"></span>Додати у кошик</a>
 	      		<a ng-click="callOrderModal()" href="" type="button" class="btn btn-success"><span class="glyphicon glyphicon-usd"></span>Купити в один клік</a>
 					</div><br/>
 					<p>{{product.spec}}</p><br/>
 				</div>
-			</div><hr>
-			<div data-ng-bind-html="product.text"></div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-6" data-ng-bind-html="product.text"></div>
+				<div class="col-md-3"></div>
+			</div>
 			<div id="fb-button-container">
 
 				<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large" data-mobile-iframe="true">
@@ -25,33 +34,35 @@
 				</div>
 			</div>
 
+
       <!-- Modal Add Cart-->
       <div class="modal fade" id="myModalCart" role="dialog">
-  		  <div class="modal-dialog modal-sm">
-  		    <div class="modal-content">
-  		      <div class="modal-header">
-  		        <h4 class="modal-title text-center">Даний товар додано в кошик!</h4>
-  		      </div>
-  		      <div class="modal-body">
-  		        <p>Для того, щоб додати ще одну одиницю цього ж товару в кошик, натисніть кнопку "Додати в кошик" повторно.</p><hr>
-							<p>Для того, щоб перейти в кошик, натисніть кнопку, що знаходиться зправа-зверху (<i class="fa fa-cart-arrow-down" aria-hidden="true"></i>).</p>
-  		      </div>
-  		      <div class="modal-footer">
-  		        <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Ок</button>
-  		      </div>
-  		    </div>
-  		  </div>
+		    <div class="modal-dialog modal-sm">
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <h4 class="modal-title text-center">Даний товар додано в кошик!</h4>
+		        </div>
+		        <div class="modal-body">
+		       		<p>Для того, щоб додати ще одну одиницю цього ж товару в кошик, натисніть кнопку "Додати в кошик" повторно.</p><hr>
+							<p>Для того, щоб перейти в кошик, натисніть кнопку (<i class="fa fa-cart-arrow-down" aria-hidden="true"></i>).</p>
+		      	</div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Ок</button>
+		        </div>
+		      </div>
+		    </div>
       </div>
-    </div>
+	  </div>
 
-		<div id="productBar" class="col-md-3">
+		<div id="productBar" class="col-md-2">
 			<h3 id="productBarNews">Новинки</h3>
 			<div>
 				<a ng-repeat="product in products" class="news-item" ui-sref="products({productId:product.id})">
-					<img ng-src="{{product.image}}">
+					<img ng-src="{{product.image}}" fallback-src="{{'images/fallback.png'}}">
 						<div class="article-block-headers">
 							<h4>{{product.title}}</h4>
-							<p>{{product.price + ' ₴'}}</p>
+							<!--<p>{{product.spec}}</p>-->
+							<p>{{product.price*currency.cof + ' ₴'}}</p>
 						</div>
 				</a><br>
 			</div>
