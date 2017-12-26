@@ -1,9 +1,9 @@
-<?php
+<?php 
 session_start();
 include 'credentials.php';
 
-$userLogin = "taras.zapotichny";
-$userPassword = "3HRy0TL3edxFhvgON7AOGA!PBTJjfkyV";
+$userLogin = "taras_zapotichny";
+$userPassword = "3HRy0TL3edxFhvgON7AOGAPBTJjfkyV";
 
 $postdata = file_get_contents("php://input");
 $request = json_decode($postdata);

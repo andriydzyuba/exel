@@ -33,6 +33,16 @@ $sql = "INSERT INTO Orders (name, phone, comment, email, town, delivery, cart) V
 if ($conn->query($sql) === TRUE) {
  	echo "Замовлення додано успішно.";
 
+ 	// message to admin
+	$msg2 = "Отримано нове замовлення=) Від $request->name телефон - $request->phone ";
+
+	// use wordwrap() if lines are longer than 70 characters
+	$msg2 = wordwrap($msg2,70);
+
+	// send email
+	mail("taras.zapotichny@gmail.com","Нове замовлення на inko | Електроніка та побутова техніка",$msg2);
+
+//////////////////// email to client
  	// the message
 	$msg = "Ваше замовлення отримано,\nми Вам зателефонуємо =)";
 
